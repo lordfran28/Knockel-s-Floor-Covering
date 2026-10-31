@@ -1,7 +1,7 @@
 /* The floor under the page.
    A deep rug that you brush as you scroll (or with your finger, or the mouse): the pile leans the way
    the hand went and catches the light, then slowly stands back up. Further down the rug ends, adhesive
-   is troweled onto the plywood ahead of you, and vinyl planks drop into it one at a time.
+   is troweled onto the plywood ahead of you, and luxury vinyl tiles drop into it one at a time.
    Drawn with WebGL from photographs: the rug, Poly Haven's plywood, and planks cut from a laminate scan.
    Without WebGL the plain rug photo in site.css stays in place. */
 (function(){
@@ -18,7 +18,7 @@
   var K = 0.55, anchorVh = 0;                                  /* the floor passes at a little over half the scroll speed */
   var vw = 0, vh = 0, dpr = 1, small = false;
   var E = 1e9, G0 = 1e9, heroEnd = 0;            /* world y where the rug ends and the glue begins */
-  var PW = 104, PL = 104*6.8, GH = 208;          /* plank width and length, glue pass height (world px) */
+  var PW = 170, PL = 170, GH = 170;              /* tile size, and the height of one pass of glue (world px) */
 
   /* ---------- shaders ---------- */
   var HP = "#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\n";
@@ -92,15 +92,17 @@
     "void main(){ vUV = a; vec2 c = uRect.xy + uRect.zw * 0.5; vec2 q = (a - 0.5) * uRect.zw; float cs = cos(uRot), sn = sin(uRot);" +
     " vPos = c + vec2(q.x * cs - q.y * sn, q.x * sn + q.y * cs); gl_Position = vec4(vPos.x / uRes.x * 2.0 - 1.0, 1.0 - vPos.y / uRes.y * 2.0, 0.0, 1.0); }";
   var FS_PLANK = HP + [
-    "uniform sampler2D uAtlas; uniform float uRow, uFlip, uAlpha, uLight; uniform vec2 uSize; varying vec2 vUV;",
+    "uniform sampler2D uAtlas; uniform vec4 uSub; uniform float uTurn, uAlpha, uLight; uniform vec2 uSize; varying vec2 vUV;",
     "void main(){",
-    "  float u = mix(vUV.x, 1.0 - vUV.x, uFlip);",
-    "  float v = (uRow + clamp(vUV.y, 0.01, 0.99)) / 8.0;",
-    "  vec3 c = texture2D(uAtlas, vec2(u, v)).rgb;",
+    "  vec2 q = vUV;",
+    "  if (uTurn > 0.5) q = vec2(q.y, 1.0 - q.x);",
+    "  if (uTurn > 1.5) q = vec2(q.y, 1.0 - q.x);",
+    "  if (uTurn > 2.5) q = vec2(q.y, 1.0 - q.x);",
+    "  vec3 c = texture2D(uAtlas, uSub.xy + q * uSub.zw).rgb;",
     "  vec2 px = vUV * uSize;",
     "  float e = min(min(px.x, uSize.x - px.x), min(px.y, uSize.y - px.y));",
-    "  c *= mix(0.62, 1.0, smoothstep(0.0, 2.4, e));",
-    "  c *= 1.0 + 0.07 * (1.0 - smoothstep(0.0, 3.5, px.y)) - 0.05 * (1.0 - smoothstep(0.0, 3.0, uSize.y - px.y));",
+    "  c *= mix(0.72, 1.0, smoothstep(0.0, 2.2, e));",
+    "  c *= 1.0 + 0.06 * (1.0 - smoothstep(0.0, 3.0, px.y)) - 0.05 * (1.0 - smoothstep(0.0, 3.0, uSize.y - px.y));",
     "  gl_FragColor = vec4(c * uLight, uAlpha);",
     "}"].join("\n");
   var FS_SHADOW = HP + [
@@ -145,9 +147,9 @@
   }
   var base = (document.currentScript && document.currentScript.src) ? document.currentScript.src.replace(/[^\/]*$/, "") : "assets/";
   small = Math.min(innerWidth, innerHeight) < 700;
-  load(T.rug, base + "photos/" + (small ? "rug-1300.jpg" : "rug-2400.jpg"), false, function(img){ rugSize = [img.naturalWidth, img.naturalHeight]; });
+  load(T.rug, base + "photos/" + (small ? "rug-1300-blue.jpg" : "rug-2400-blue.jpg"), false, function(img){ rugSize = [img.naturalWidth, img.naturalHeight]; });
   load(T.ply, base + "photos/plywood.jpg", true);
-  load(T.atlas, base + "photos/vinyl-planks.jpg", false);
+  load(T.atlas, base + "photos/lvt-terrazzo.jpg", true);
 
   /* ---------- the hand's trail: a small grid in screen space that moves with the floor ---------- */
   var FW = 0, FH = 0, field = null, fscale = 1, frem = 0, energy = 0, fdirty = true;
@@ -215,7 +217,7 @@
     vw = window.innerWidth; vh = window.innerHeight;
     dpr = Math.min(window.devicePixelRatio || 1, small ? 1.5 : 1.25);
     cv.width = Math.round(vw*dpr); cv.height = Math.round(vh*dpr);
-    PW = small ? 64 : 104; PL = PW*6.8; GH = PW*2;
+    PW = small ? 112 : 170; PL = PW; GH = PW;
     var hero = document.getElementById("hero"), floors = document.getElementById("floors");
     heroEnd = hero ? docTop(hero) + hero.offsetHeight : 0;
     var endDoc = floors ? docTop(floors) : document.documentElement.scrollHeight*0.5;
@@ -228,8 +230,14 @@
 
   /* ---------- planks ---------- */
   var rows = {}, DUR = reduce ? 1 : 620, GAP = reduce ? 0 : 150;
-  function rowOff(r){ var x = Math.sin(r*12.9898 + 4.1)*43758.5453; return (x - Math.floor(x))*0.72 + 0.14; }
-  function plankLook(r, c){ var x = Math.sin(r*78.233 + c*37.719 + 1.3)*24634.6345; x -= Math.floor(x); return {row: Math.floor(x*8), flip: x*16 % 2 > 1 ? 1 : 0, light: 0.94 + (x*97 % 1)*0.1}; }
+  /* terrazzo tiles in a checkerboard: cream with coloured chips, and pale blue with coloured chips.
+     Each tile is cut from a different part of the scan and turned a different way, like a real box of tiles. */
+  function rand(a, b){ var x = Math.sin(a*78.233 + b*37.719 + 1.3)*24634.6345; return x - Math.floor(x); }
+  function tileLook(r, c){
+    var x = rand(r, c), y = rand(c + 11.1, r - 7.7), half = (r + c) % 2;
+    return {sub: [half*0.5 + x*0.25, y*0.5, 0.25, 0.5], turn: Math.floor(rand(r*3.1, c*1.7)*4), light: 0.96 + rand(c, r*2.3)*0.07};
+  }
+  function rowStart(){ return vw/2 - Math.ceil(vw/2/PL)*PL; }
   function ease(p){ return p*p; }
 
   /* ---------- drawing ---------- */
@@ -283,12 +291,11 @@
         else if (sy < vh*0.52) rows[r] = now;
       }
       if (rows[r] === undefined) continue;
-      var off = rowOff(r)*PL;
-      for (var c = 0, x = -off; x < vw; c++, x += PL){
+      for (var c = 0, x = rowStart(); x < vw; c++, x += PL){
         var p = Math.min(1, Math.max(0, (now - rows[r] - c*GAP)/DUR));
         if (p <= 0){ busy = true; continue; }
         if (p < 1) busy = true;
-        list.push({x: x, y: sy, p: p, look: plankLook(r, c)});
+        list.push({x: x, y: sy, p: p, look: tileLook(r, c)});
       }
     }
     if (!list.length) return busy;
@@ -316,9 +323,9 @@
       /* nearer the eye while it falls: bigger, a touch brighter, turned a little; it straightens as it lands */
       var s = 1 + 0.2*h, w = PL*s, ht = PW*s;
       gl.uniform4f(plank.u.uRect, pk.x + PL/2 - w/2 - 10*h, pk.y + PW/2 - ht/2 - 22*h, w, ht);
-      gl.uniform1f(plank.u.uRot, (pk.look.flip ? 1 : -1)*0.045*Math.max(0, h));
+      gl.uniform1f(plank.u.uRot, (pk.look.turn % 2 ? 1 : -1)*0.06*Math.max(0, h));
       gl.uniform2f(plank.u.uSize, w, ht);
-      gl.uniform1f(plank.u.uRow, pk.look.row); gl.uniform1f(plank.u.uFlip, pk.look.flip);
+      gl.uniform4f(plank.u.uSub, pk.look.sub[0], pk.look.sub[1], pk.look.sub[2], pk.look.sub[3]); gl.uniform1f(plank.u.uTurn, pk.look.turn);
       gl.uniform1f(plank.u.uAlpha, Math.min(1, pk.p*14)); gl.uniform1f(plank.u.uLight, pk.look.light*(1 + 0.08*Math.max(0, h)));
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     });
