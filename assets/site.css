@@ -28,7 +28,7 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
-body{position:relative;margin:0;background:#B8D3EA;color:var(--ink);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+body{position:relative;margin:0;background:#8A87BA;color:var(--ink);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration-color:var(--oak);text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{text-decoration-thickness:2px}
@@ -67,12 +67,12 @@ p{margin:0 0 1em}
 /* Sections */
 .wrap{max-width:var(--col);margin:0 auto;padding:0 var(--gutter)}
 .section{padding:clamp(26px,3.6vw,42px) 0}
-/* A deep shag rug under everything, close enough to see every fibre; the page floats over it */
-body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:#B8D3EA url(photos/rug-2400-blue.jpg) 50% 50%/cover no-repeat}
+/* A lavender shag carpet under everything, close enough to see every strand; the page floats over it */
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:#8A87BA url(photos/carpet-2000.jpg) 50% 50%/cover no-repeat}
 body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(80% 60% at 20% 0%,rgba(255,255,255,.22),rgba(255,255,255,0) 70%),
              linear-gradient(rgba(30,40,60,.03),rgba(30,40,60,.1))}
-@media (max-width:900px){body::before{background-image:url(photos/rug-1300-blue.jpg);background-position:50% 50%}}
+@media (max-width:900px){body::before{background-image:url(photos/carpet-1200.jpg);background-position:50% 50%}}
 /* With WebGL the floor is drawn live (assets/floor-scene.js) and the still photo steps aside */
 .floor-scene{position:fixed;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none;display:block}
 html.has-scene body::before{opacity:0}

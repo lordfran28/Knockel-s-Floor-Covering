@@ -1,7 +1,9 @@
 /* The floor under the page.
-   First the rug. Further down the rug ends, adhesive is troweled onto the plywood, and marble-look vinyl
-   tiles drop into it one by one. The plywood is Poly Haven's; the tiles are cut from an ambientCG marble scan.
-   Without WebGL the plain rug photo in site.css stays in place. */
+   First a carpet is laid: as you scroll, the roll moves down the floor ahead of you and unrolls it, and the
+   carpet behind it lies in loose waves until it is stretched flat. Further down the carpet ends, adhesive is
+   troweled onto the plywood, and marble-look vinyl tiles drop into it one by one.
+   Photos: the carpet (see the credits), jute for the back of the roll and plywood from Poly Haven, and tiles
+   cut from an ambientCG marble scan. Without WebGL the plain carpet photo in site.css stays in place. */
 (function(){
   "use strict";
   var reduce = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -25,22 +27,32 @@
   /* the flat floor, seen from above: the end of the rug, plywood, glue */
   var FS_GROUND = HP + [
     "uniform vec2 uRes; uniform float uDpr, uScroll, uK, uEdge, uGlue0, uGlueH, uRidge;",
-    "uniform sampler2D uRug, uPly; uniform vec2 uRugSize;",
+    "uniform float uFront, uLaid, uRoll, uTurn, uRollA, uStretch;",
+    "uniform sampler2D uRug, uPly, uJute; uniform vec2 uRugSize;",
     "vec3 rug(vec2 w){ vec2 t = vec2(clamp(w.x / uRugSize.x, 0.0, 1.0), clamp(fract(w.y / uRugSize.y), 0.0005, 0.9995)); return texture2D(uRug, t).rgb; }",
     "void main(){",
     "  vec2 p = gl_FragCoord.xy / uDpr;",
     "  vec2 s = vec2(p.x, uRes.y - p.y);",
     "  vec2 w = vec2(s.x, s.y + uScroll * uK);",
-    "  vec3 carpet = rug(w);",
+    /* just behind the roll the carpet lies in loose waves; further back it has been stretched flat */
+    "  float back = uFront - uRoll - w.y;",
+    "  float loose = smoothstep(0.0, 60.0, back) * (1.0 - smoothstep(uStretch * 0.3, uStretch, back)) * uRollA;",
+    "  float wv = w.y * 0.05 + sin(w.x * 0.0042 + 1.3) * 2.6 + sin(w.x * 0.0117 + 0.4) * 0.9 + sin(w.x * 0.0021 - w.y * 0.002) * 1.5;",
+    "  float hump = sin(wv) * loose, lean = cos(wv) * loose;",
+    "  vec3 carpet = rug(w + vec2(0.0, hump * 7.0));",
     "  float lum = dot(carpet, vec3(0.3, 0.59, 0.11));",
+    "  carpet *= 1.0 + 0.2 * lean;",
+    "  carpet *= 1.0 - 0.22 * (1.0 - smoothstep(0.0, 14.0, back)) * step(0.0, back) * uRollA;",
     /* its edge: brighter tufts reach a little further */
     "  float tuft = (lum - 0.45) * 26.0 + sin(w.x * 0.09) * 2.5 + sin(w.x * 0.013 + 1.7) * 6.0;",
-    "  float onRug = 1.0 - smoothstep(-1.2, 1.2, w.y - uEdge - tuft);",
+    "  float onRug = 1.0 - smoothstep(-1.2, 1.2, w.y - min(uEdge + tuft, uLaid));",
     "  carpet *= 1.0 + 0.16 * smoothstep(-10.0, 0.0, w.y - uEdge - tuft);",
     /* plywood, shaded by the rug's thickness just past the edge */
     "  vec3 ply = texture2D(uPly, w / 760.0).rgb;",
     "  ply = mix(ply, vec3(dot(ply, vec3(0.3, 0.59, 0.11))), 0.25) * 1.18 + vec3(0.03, 0.02, 0.0);",
-    "  float sh = smoothstep(uEdge + 60.0, uEdge + 2.0, w.y) * 0.55;",
+    "  float sh = smoothstep(uEdge + 60.0, uEdge + 2.0, w.y) * 0.55 * step(uEdge, uFront);",
+    /* the roll's shadow on the bare floor ahead of it */
+    "  sh = max(sh, (1.0 - smoothstep(0.0, uRoll * 0.9 + 12.0, w.y - uFront - uRoll)) * step(uFront + uRoll * 0.2, w.y) * 0.42 * uRollA);",
     "  vec3 floorc = ply * (1.0 - sh);",
     /* adhesive, troweled on in sweeps, one pass after another as you come down */
     "  float gy = w.y - uGlue0;",
@@ -71,7 +83,19 @@
     "    floorc = mix(floorc, glue, cov * max(film, bead));",
     "    floorc *= 1.0 - (1.0 - smoothstep(0.0, 9.0, xs - front)) * step(front, xs) * 0.25;",
     "  }",
-    "  gl_FragColor = vec4(mix(floorc, carpet, onRug), 1.0);",
+    "  vec3 c = mix(floorc, carpet, onRug);",
+    /* the roll itself, seen from above: jute backing outside, lit from the top of the screen, turning as it goes */
+    "  float d = w.y - uFront;",
+    "  if (abs(d) < uRoll && uRollA > 0.0){",
+    "    float th = asin(clamp(d / uRoll, -1.0, 1.0)), nz = cos(th), ny = sin(th);",
+    "    float lit = max(0.0, -0.6 * ny + 0.8 * nz);",
+    "    vec3 jute = texture2D(uJute, vec2(w.x / 420.0, (th + uTurn) * uRoll / 420.0)).rgb;",
+    "    jute = mix(jute, vec3(dot(jute, vec3(0.3, 0.59, 0.11))), 0.3) * 1.2 + 0.04;",
+    "    vec3 rc = jute * (0.2 + 0.95 * lit) + pow(lit, 18.0) * 0.12;",
+    "    rc *= mix(0.45, 1.0, smoothstep(0.0, 0.45, nz));",
+    "    c = mix(c, rc, uRollA * smoothstep(uRoll, uRoll - 1.5, abs(d)));",
+    "  }",
+    "  gl_FragColor = vec4(c, 1.0);",
     "}"].join("\n");
 
   var VS_RECT = "attribute vec2 a; uniform vec2 uRes; uniform vec4 uRect; uniform float uRot; varying vec2 vUV; varying vec2 vPos;" +
@@ -121,7 +145,7 @@
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, repeat ? gl.REPEAT : gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, repeat ? gl.REPEAT : gl.CLAMP_TO_EDGE);
     return t;
   }
-  var T = {rug: tex(false), ply: tex(true), atlas: tex(false)}, rugSize = [1, 1], loaded = 0;
+  var T = {rug: tex(false), ply: tex(true), atlas: tex(false), jute: tex(true)}, rugSize = [1, 1], loaded = 0;
   function load(t, src, mip, done){
     var img = new Image();
     img.onload = function(){
@@ -129,16 +153,17 @@
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
       if (mip){ gl.generateMipmap(gl.TEXTURE_2D); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR); }
       if (done) done(img);
-      if (++loaded === 3){ document.documentElement.classList.add("has-scene"); kick(); }
+      if (++loaded === 4){ document.documentElement.classList.add("has-scene"); kick(); }
     };
     img.src = src;
   }
   var base = (document.currentScript && document.currentScript.src) ? document.currentScript.src.replace(/[^\/]*$/, "") : "assets/";
   small = Math.min(innerWidth, innerHeight) < 700;
-  load(T.rug, base + "photos/" + (small ? "rug-1300-blue.jpg" : "rug-2400-blue.jpg"), false, function(img){
+  load(T.rug, base + "photos/" + (small ? "carpet-1200.jpg" : "carpet-2000.jpg"), false, function(img){
     rugSize = [img.naturalWidth, img.naturalHeight];
   });
   load(T.ply, base + "photos/plywood.jpg", true);
+  load(T.jute, base + "photos/jute.jpg", true);
   load(T.atlas, base + "photos/lvt-marble.jpg", true);
 
   /* ---------- where things are ---------- */
@@ -156,6 +181,22 @@
     if (!sameWidth || !anchorVh) anchorVh = vh;      /* the address bar doesn't move the floor */
     E = anchorVh*0.62 + K*(endDoc - anchorVh*0.62);
     G0 = E + (small ? 34 : 56);
+  }
+
+  /* ---------- the carpet roll ----------
+     It stays a little below the middle of the screen, moving down the floor as you scroll, until it reaches
+     the end of the carpet. It gets thinner as it goes (what's left on it), and at the end only the cardboard
+     core is left, which is taken away. */
+  var ROLL_Y = 0.7, R0 = 78, CORE = 14;
+  function roll(sc){
+    if (reduce) return {front: 1e9, radius: 0, turn: 0, alpha: 0};
+    var start = Math.max(0, heroEnd - anchorVh)*K + anchorVh*ROLL_Y, end = E;
+    var f = sc*K + anchorVh*ROLL_Y, done = (f - start)/Math.max(1, end - start);
+    var front = Math.min(f, end), left = 1 - Math.min(1, Math.max(0, done));
+    var r0 = small ? R0*0.7 : R0, core = small ? CORE*0.75 : CORE;
+    var radius = Math.sqrt(core*core + (r0*r0 - core*core)*left);
+    var gone = Math.min(1, Math.max(0, (f - end)/(anchorVh*0.18)));
+    return {front: front, radius: radius*(1 - 0.6*gone), turn: -front/radius, alpha: 1 - gone};
   }
 
   /* ---------- tiles ---------- */
@@ -178,7 +219,7 @@
   }
   function kick(){ if (!raf) raf = requestAnimationFrame(frame); }
   function draw(now){
-    if (loaded < 3) return false;
+    if (loaded < 4) return false;
     if (scroll + vh < heroEnd - 4) return false;          /* the opening covers everything */
     gl.viewport(0, 0, cv.width, cv.height);
     gl.disable(gl.BLEND);
@@ -186,6 +227,9 @@
     gl.uniform2f(u.uRes, vw, vh); gl.uniform1f(u.uDpr, dpr); gl.uniform1f(u.uScroll, scroll); gl.uniform1f(u.uK, K);
     gl.uniform1f(u.uEdge, E); gl.uniform1f(u.uGlue0, G0); gl.uniform1f(u.uGlueH, GH); gl.uniform1f(u.uRidge, small ? 6.0 : 8.0);
     gl.uniform2f(u.uRugSize, vw, vw*rugSize[1]/rugSize[0]);
+    var r = roll(scroll);
+    gl.uniform1f(u.uFront, r.front); gl.uniform1f(u.uLaid, r.front < E ? r.front : 1e9); gl.uniform1f(u.uRoll, r.radius); gl.uniform1f(u.uTurn, r.turn); gl.uniform1f(u.uRollA, r.alpha); gl.uniform1f(u.uStretch, vh*0.5);
+    gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, T.jute); gl.uniform1i(u.uJute, 2);
     gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, T.rug); gl.uniform1i(u.uRug, 0);
     gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, T.ply); gl.uniform1i(u.uPly, 1);
     gl.bindBuffer(gl.ARRAY_BUFFER, tri); gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
