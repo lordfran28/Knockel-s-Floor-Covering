@@ -21,7 +21,7 @@
   --sans:"Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --gutter:clamp(16px, 4.5vw, 56px);
   --edge:clamp(10px, 2.6vw, 28px);
-  --pillow:rgba(251,247,241,.86);
+  --pillow:rgba(251,247,241,.8);
   --pillow-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 44px 80px -44px rgba(72,50,28,.5),0 12px 26px -16px rgba(72,50,28,.28);
   --col:66rem;
 }
@@ -66,17 +66,20 @@ p{margin:0 0 1em}
 
 /* Sections */
 .wrap{max-width:var(--col);margin:0 auto;padding:0 var(--gutter)}
-.section{padding:clamp(10px,2.4vw,28px) 0}
+.section{padding:clamp(26px,3.6vw,42px) 0}
 /* A deep shag rug under everything, close enough to see every fibre; the page floats over it */
 body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:#CDBBA2 url(photos/rug-2400.jpg) 50% 50%/cover no-repeat}
 body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(80% 60% at 20% 0%,rgba(255,248,236,.32),rgba(255,248,236,0) 70%),
              linear-gradient(rgba(60,40,20,.06),rgba(60,40,20,.14))}
 @media (max-width:900px){body::before{background-image:url(photos/rug-1300.jpg);background-position:50% 50%}}
+/* With WebGL the floor is drawn live (assets/floor-scene.js) and the still photo steps aside */
+.floor-scene{position:fixed;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none;display:block}
+html.has-scene body::before{opacity:0}
 /* Each part of the page rests on the carpet like a cushion */
 .pillow{width:calc(100% - 2*var(--edge));max-width:calc(var(--col) + 8rem);margin:0 auto;padding:clamp(26px,5.5vw,72px) clamp(20px,5vw,72px);
   border-radius:26px;background:var(--pillow);box-shadow:var(--pillow-shadow);
-  -webkit-backdrop-filter:blur(16px) saturate(1.1);backdrop-filter:blur(16px) saturate(1.1)}
+  -webkit-backdrop-filter:blur(18px) saturate(1.08);backdrop-filter:blur(18px) saturate(1.08)}
 .pillow-dark{background:rgba(43,36,31,.94);color:#E9E2D8}
 .lead{font-size:1.18rem;line-height:1.6;max-width:34em}
 .measure{max-width:36em}

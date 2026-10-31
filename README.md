@@ -17,7 +17,7 @@ Later it can live at knockelsfloorcovering.com.
 - Product photos for the catalog.
 
 ## Credits
-Floor samples: Poly Haven and ambientCG (CC0). The shag rug behind the page: "The Fuzzy Carpet" by Carol VanHook, CC BY-SA 2.0, via Wikimedia Commons. Main Street, Monona, c. 1925: public domain. The Mississippi
+Floor samples: Poly Haven and ambientCG (CC0). The shag rug behind the page: "The Fuzzy Carpet" by Carol VanHook, CC BY-SA 2.0, via Wikimedia Commons. The plywood and the vinyl planks that follow it: Poly Haven (CC0). Main Street, Monona, c. 1925: public domain. The Mississippi
 at Pikes Peak: Archbob, CC0. Showroom photos and the old sign: the store. Bay-window room: Tomwsulcer, CC0.
 Corner room: aismallard, CC BY-SA 3.0. All photos via Wikimedia Commons. Fonts: Zilla Slab and Public Sans
 (SIL Open Font License, licences in `assets/fonts/`).

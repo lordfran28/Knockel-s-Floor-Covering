@@ -39,7 +39,7 @@
 
 /* The storefront: the oak floor of the opening ends at the edge of a soft carpet */
 .front::before{content:"";position:absolute;left:0;right:0;top:0;height:46px;background:linear-gradient(rgba(46,32,18,.28),rgba(46,32,18,0));pointer-events:none}
-.front{position:relative;color:var(--ink);padding:clamp(22px,4vw,48px) 0 clamp(10px,2.4vw,28px)}
+.front{position:relative;color:var(--ink);padding:clamp(26px,4vw,48px) 0 clamp(26px,3.6vw,42px)}
 .front-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 24px;margin-bottom:18px}
 .front h2{color:var(--ink)}
 
@@ -98,7 +98,7 @@
 @media (max-width:860px){.services{grid-template-columns:1fr}.services figure{position:static}}
 
 /* Where we work */
-.river{position:relative;min-height:min(74svh,680px);display:flex;align-items:flex-end;color:#F3EEE4;background:#163536;width:calc(100% - 2*var(--edge));max-width:calc(var(--col) + 8rem);margin:clamp(10px,2.4vw,28px) auto;border-radius:26px;overflow:hidden;box-shadow:var(--pillow-shadow)}
+.river{position:relative;min-height:min(74svh,680px);display:flex;align-items:flex-end;color:#F3EEE4;background:#163536;width:calc(100% - 2*var(--edge));max-width:calc(var(--col) + 8rem);margin:clamp(26px,3.6vw,42px) auto;border-radius:26px;overflow:hidden;box-shadow:var(--pillow-shadow)}
 .river img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .river::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(15,38,39,0) 30%,rgba(15,38,39,.82) 100%)}
 .river .wrap{position:relative;z-index:2;padding-bottom:clamp(36px,6vw,72px);width:100%}
@@ -273,13 +273,14 @@
     </div>
     <details class="credits">
       <summary>Photo credits</summary>
-      <p>Main Street, Monona, c. 1925: postcard, public domain. The Mississippi at Pikes Peak: Archbob, CC0. Showroom photos and the sign: Knockel's Floor Covering. Bay-window room: Tomwsulcer, CC0. Corner room: aismallard, CC BY-SA 3.0. All via Wikimedia Commons. Floor samples: Poly Haven and ambientCG, CC0. The rug behind the page: Carol VanHook, CC BY-SA 2.0. Type: Zilla Slab and Public Sans, SIL Open Font License.</p>
+      <p>Main Street, Monona, c. 1925: postcard, public domain. The Mississippi at Pikes Peak: Archbob, CC0. Showroom photos and the sign: Knockel's Floor Covering. Bay-window room: Tomwsulcer, CC0. Corner room: aismallard, CC BY-SA 3.0. All via Wikimedia Commons. Floor samples: Poly Haven and ambientCG, CC0. The rug behind the page: Carol VanHook, CC BY-SA 2.0. Plywood and vinyl planks under it: Poly Haven, CC0. Type: Zilla Slab and Public Sans, SIL Open Font License.</p>
     </details>
   </div>
 </footer>
 
 <div class="callbar" id="callbar"><a class="btn btn-call" href="tel:+15635392772">Call the store: 563-539-2772</a></div>
 
+<script src="assets/floor-scene.js"></script>
 <script src="assets/home.js"></script>
 </body>
 </html>
