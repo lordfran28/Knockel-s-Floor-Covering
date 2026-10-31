@@ -17,7 +17,7 @@ Later it can live at knockelsfloorcovering.com.
 - Product photos for the catalog.
 
 ## Credits
-Floor samples: Poly Haven and ambientCG (CC0). The lavender shag carpet behind the page: "Carpet (original)" by Simon Svensson Thunman, CC0, via Wikimedia Commons, lightened a little and made to repeat without a seam. The jute on the back of the carpet roll and the plywood: Poly Haven (CC0). The marble-look vinyl tiles: ambientCG Marble 019 (CC0). Main Street, Monona, c. 1925: public domain. The Mississippi
+Floor samples: Poly Haven and ambientCG (CC0). The lavender shag carpet behind the page: "Carpet (original)" by Simon Svensson Thunman, CC0, via Wikimedia Commons, lightened a little and made to repeat without a seam. The back of the carpet roll: cut from Auckland Museum's photo "Carpet (AM 1995.36.1-5)" of a rolled Smith & Caughey runner, CC BY 4.0, with the light evened out. The plywood: Poly Haven (CC0). The marble-look vinyl tiles: ambientCG Marble 019 (CC0). Main Street, Monona, c. 1925: public domain. The Mississippi
 at Pikes Peak: Archbob, CC0. Showroom photos and the old sign: the store. Bay-window room: Tomwsulcer, CC0.
 Corner room: aismallard, CC BY-SA 3.0. All photos via Wikimedia Commons. Fonts: Zilla Slab and Public Sans
 (SIL Open Font License, licences in `assets/fonts/`).

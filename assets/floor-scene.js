@@ -2,7 +2,7 @@
    First a carpet is laid: as you scroll, the roll moves down the floor ahead of you and unrolls it, and the
    carpet behind it lies in loose waves until it is stretched flat. Further down the carpet ends, adhesive is
    troweled onto the plywood, and marble-look vinyl tiles drop into it one by one.
-   Photos: the carpet (see the credits), jute for the back of the roll and plywood from Poly Haven, and tiles
+   Photos: the carpet and the back of a carpet roll (see the credits), plywood from Poly Haven, and tiles
    cut from an ambientCG marble scan. Without WebGL the plain carpet photo in site.css stays in place. */
 (function(){
   "use strict";
@@ -88,11 +88,11 @@
     "  float d = w.y - uFront;",
     "  if (abs(d) < uRoll && uRollA > 0.0){",
     "    float th = asin(clamp(d / uRoll, -1.0, 1.0)), nz = cos(th), ny = sin(th);",
+    /* the back of a real carpet roll, photographed: jute, with the rows of stitches showing through */
     "    float lit = max(0.0, -0.6 * ny + 0.8 * nz);",
-    "    vec3 jute = texture2D(uJute, vec2(w.x / 420.0, (th + uTurn) * uRoll / 420.0)).rgb;",
-    "    jute = mix(jute, vec3(dot(jute, vec3(0.3, 0.59, 0.11))), 0.3) * 1.2 + 0.04;",
-    "    vec3 rc = jute * (0.2 + 0.95 * lit) + pow(lit, 18.0) * 0.12;",
-    "    rc *= mix(0.45, 1.0, smoothstep(0.0, 0.45, nz));",
+    "    vec3 back = texture2D(uJute, vec2(w.x / 140.0, (th + uTurn) * uRoll / 248.0)).rgb;",
+    "    vec3 rc = back * (0.34 + 0.74 * lit);",
+    "    rc *= mix(0.5, 1.0, smoothstep(0.0, 0.5, nz));",
     "    c = mix(c, rc, uRollA * smoothstep(uRoll, uRoll - 1.5, abs(d)));",
     "  }",
     "  gl_FragColor = vec4(c, 1.0);",
@@ -163,7 +163,7 @@
     rugSize = [img.naturalWidth, img.naturalHeight];
   });
   load(T.ply, base + "photos/plywood.jpg", true);
-  load(T.jute, base + "photos/jute.jpg", true);
+  load(T.jute, base + "photos/carpet-back.jpg", true);
   load(T.atlas, base + "photos/lvt-marble.jpg", true);
 
   /* ---------- where things are ---------- */
