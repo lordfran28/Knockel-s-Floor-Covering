@@ -37,6 +37,16 @@
 .hint.gone{opacity:0}
 @media (prefers-reduced-motion:reduce){.hero{height:100svh}.hint{display:none}.plank.set::after{animation:none}}
 
+/* The storefront: the dark floor scene opens onto Center Street */
+.front{background:var(--river);color:var(--on-river);padding:clamp(28px,5vw,56px) 0 clamp(56px,8vw,104px)}
+.front-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 24px;margin-bottom:18px}
+.front h2{color:#F3EEE4}
+.front-head p{margin:0;color:var(--on-river-muted)}
+.window{position:relative;aspect-ratio:16/8;border-radius:3px;overflow:hidden;background:#0F2627;
+  box-shadow:0 0 0 1px rgba(240,193,99,.35),0 30px 70px -30px rgba(0,0,0,.7)}
+.window iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media (max-width:760px){.window{aspect-ratio:4/3.4}}
+
 /* The store */
 .store{display:grid;gap:clamp(32px,6vw,80px);grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:start}
 .store h2{margin-bottom:.7em}
@@ -131,6 +141,18 @@
       </div>
     </div>
     <p class="hint" id="hint" aria-hidden="true">Keep scrolling. We'll lay the floor.</p>
+  </div>
+</section>
+
+<section class="front" id="front" aria-label="The store on Center Street">
+  <div class="wrap">
+    <div class="front-head">
+      <h2>112 West Center Street</h2>
+      <p>Monona, Iowa. Drag the picture to look up and down the street.</p>
+    </div>
+    <div class="window">
+      <iframe title="Google Street View of Knockel's Floor Covering on West Center Street in Monona" src="https://maps.google.com/maps?q=&amp;layer=c&amp;cbll=43.052941,-91.390392&amp;cbp=12,342,0,0,-4&amp;source=embed&amp;output=svembed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </div>
 </section>
 
