@@ -18,6 +18,6 @@ Later it can live at knockelsfloorcovering.com.
 
 ## Credits
 Floor samples: Poly Haven and ambientCG (CC0). Main Street, Monona, c. 1925: public domain. The Mississippi
-at Pikes Peak: Archbob, CC0. Laying laminate: Raphael Mecke, CC BY 4.0. Bay-window room: Tomwsulcer, CC0.
+at Pikes Peak: Archbob, CC0. Showroom photos and the old sign: the store. Bay-window room: Tomwsulcer, CC0.
 Corner room: aismallard, CC BY-SA 3.0. All photos via Wikimedia Commons. Fonts: Zilla Slab and Public Sans
 (SIL Open Font License, licences in `assets/fonts/`).
