@@ -20,12 +20,16 @@
   --slab:"Zilla Slab", Rockwell, "Roboto Slab", Georgia, serif;
   --sans:"Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --gutter:clamp(16px, 4.5vw, 56px);
+  --edge:clamp(10px, 2.6vw, 28px);
+  --pile:640px;
+  --pillow:rgba(252,249,244,.9);
+  --pillow-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 44px 80px -44px rgba(72,50,28,.5),0 12px 26px -16px rgba(72,50,28,.28);
   --col:66rem;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
-body{position:relative;margin:0;background:var(--lime);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+body{position:relative;margin:0;background:#EEE6DA url(floors/plush.jpg) 0 0/var(--pile) repeat;color:var(--ink);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration-color:var(--oak);text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{text-decoration-thickness:2px}
@@ -63,7 +67,17 @@ p{margin:0 0 1em}
 
 /* Sections */
 .wrap{max-width:var(--col);margin:0 auto;padding:0 var(--gutter)}
-.section{padding:clamp(64px,10vw,128px) 0}
+.section{padding:clamp(10px,2.4vw,28px) 0}
+/* Soft light falling across the carpet */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(70% 55% at 18% 8%,rgba(255,250,240,.55),rgba(255,250,240,0) 70%),
+             radial-gradient(60% 50% at 92% 96%,rgba(92,66,40,.16),rgba(92,66,40,0) 70%)}
+@media (max-width:700px){:root{--pile:420px}}
+/* Each part of the page rests on the carpet like a cushion */
+.pillow{width:calc(100% - 2*var(--edge));max-width:calc(var(--col) + 8rem);margin:0 auto;padding:clamp(26px,5.5vw,72px) clamp(20px,5vw,72px);
+  border-radius:26px;background:var(--pillow);box-shadow:var(--pillow-shadow);
+  -webkit-backdrop-filter:blur(10px) saturate(1.05);backdrop-filter:blur(10px) saturate(1.05)}
+.pillow-dark{background:rgba(43,36,31,.94);color:#E9E2D8}
 .lead{font-size:1.18rem;line-height:1.6;max-width:34em}
 .measure{max-width:36em}
 .dark{color:var(--on-river)}
@@ -75,12 +89,12 @@ figcaption{font-size:.88rem;color:var(--muted);margin-top:.6em;font-style:italic
 .dark figcaption{color:var(--on-river-muted)}
 
 /* Footer */
-.foot{color:var(--on-river-muted);padding:48px 0 calc(48px + env(safe-area-inset-bottom));font-size:.95rem}
-.foot a{color:var(--on-river)}
+.foot{color:#CFC5B8;padding:clamp(10px,2.4vw,28px) 0 calc(clamp(10px,2.4vw,28px) + env(safe-area-inset-bottom));font-size:.95rem}
+.foot a{color:#F3EEE4}
 .foot .wrap{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
-.foot h3{color:var(--on-river);font-size:1.15rem;margin-bottom:.4em}
+.foot h3{color:#F3EEE4;font-size:1.15rem;margin-bottom:.4em}
 .credits{font-size:.82rem;line-height:1.55}
-.credits summary{cursor:pointer;color:var(--on-river)}
+.credits summary{cursor:pointer;color:#F3EEE4}
 
 /* Phone: a call bar that stays in reach */
 .callbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:none;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
@@ -89,10 +103,3 @@ figcaption{font-size:.88rem;color:var(--muted);margin-top:.6em;font-style:italic
 .callbar.on{transform:none}
 @media (max-width:760px){.callbar{display:block}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.callbar,.top{transition:none}}
-
-/* The floor under the whole page: each section stands on its own material, and each material
-   dissolves into the next as you scroll. Laid out by assets/floors.js. */
-.floorbg{position:absolute;left:0;right:0;top:0;z-index:-1;pointer-events:none;overflow:hidden}
-.band{position:absolute;left:0;right:0;background-repeat:repeat;
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 var(--f),#000 calc(100% - var(--f)),transparent 100%);
-          mask-image:linear-gradient(to bottom,transparent 0,#000 var(--f),#000 calc(100% - var(--f)),transparent 100%)}
