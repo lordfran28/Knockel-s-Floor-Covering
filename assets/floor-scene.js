@@ -415,8 +415,8 @@
       gl.bindBuffer(gl.ARRAY_BUFFER, tri); gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     }
-    if (yarn) busy = drawPile(c, now, !flat);
     if (flat && drawTiles(now)) busy = true;
+    if (yarn && drawPile(c, now, !flat)) busy = true;     /* last, so the rug's edge lies over the first tiles */
     return busy;
   }
   var LIGHT = (function(v){ var l = Math.hypot(v[0], v[1], v[2]); return [v[0]/l, v[1]/l, v[2]/l]; })([-0.4, 0.75, 0.5]);
