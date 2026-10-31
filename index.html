@@ -38,7 +38,7 @@
 @media (prefers-reduced-motion:reduce){.hero{height:100svh}.hint{display:none}.plank.set::after{animation:none}}
 
 /* The storefront: the dark floor scene opens onto Center Street */
-.front{background:var(--river);color:var(--on-river);padding:clamp(28px,5vw,56px) 0 clamp(56px,8vw,104px)}
+.front{color:var(--on-river);padding:clamp(28px,5vw,56px) 0 clamp(56px,8vw,104px)}
 .front-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 24px;margin-bottom:18px}
 .front h2{color:#F3EEE4}
 .front-head p{margin:0;color:var(--on-river-muted)}
@@ -55,7 +55,7 @@
 .stack .then{position:absolute;z-index:2;left:0;bottom:2.4em;width:56%;border:7px solid var(--paper);border-radius:1px;filter:sepia(.12);
   transform:rotate(3.5deg);box-shadow:0 18px 32px -16px rgba(40,28,16,.55)}
 .stack figcaption{position:relative;z-index:3;margin-top:1.6em;padding-left:58%;}
-@media (max-width:860px){.stack{padding:0 0 18% 6%}.stack figcaption{padding-left:0;margin-top:2.2em}}
+@media (max-width:860px){.stack{padding:0 0 0 6%}.stack .then{position:relative;left:auto;bottom:auto;width:64%;margin:-16% 0 0 -6%}.stack figcaption{padding-left:0;margin-top:1em}}
 @media (max-width:860px){.store{grid-template-columns:1fr}}
 
 /* Try it at home */
@@ -117,6 +117,7 @@
 </style>
 </head>
 <body>
+<div class="floorbg" id="floorbg" aria-hidden="true"></div>
 <header class="top" id="top-bar">
   <a class="brand" href="#">Knockel's<small>Floor Covering</small></a>
   <nav class="nav" aria-label="Main">
@@ -144,11 +145,10 @@
   </div>
 </section>
 
-<section class="front" id="front" aria-label="The store on Center Street">
+<section class="front" id="front" aria-label="The store on Center Street" data-floor="brown-oak" data-tone="dark" data-size="1350">
   <div class="wrap">
     <div class="front-head">
       <h2>112 West Center Street</h2>
-      <p>Monona, Iowa. Drag the picture to look up and down the street.</p>
     </div>
     <div class="window">
       <iframe title="Google Street View of Knockel's Floor Covering on West Center Street in Monona" src="https://maps.google.com/maps?q=&amp;layer=c&amp;cbll=43.052941,-91.390392&amp;cbp=12,342,0,0,-4&amp;source=embed&amp;output=svembed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -156,7 +156,7 @@
   </div>
 </section>
 
-<section class="section" id="store">
+<section class="section" id="store" data-floor="washed-oak" data-tone="light" data-size="1100">
   <div class="wrap store">
     <div class="measure">
       <h2>On Center Street since 1980</h2>
@@ -173,7 +173,7 @@
   </div>
 </section>
 
-<section class="section dark" id="tryit">
+<section class="section dark" id="tryit" data-floor="walnut-basketweave" data-tone="dark" data-size="640">
   <div class="wrap tryit">
     <div>
       <h2>See it in your own room first</h2>
@@ -198,7 +198,7 @@
   </div>
 </section>
 
-<section class="section floors" id="floors">
+<section class="section floors" id="floors" data-floor="limestone" data-tone="light" data-size="900">
   <div class="wrap">
     <h2>What we carry</h2>
     <p class="lead">A few of the looks in the showroom. Tap one to see it in a room.</p>
@@ -214,7 +214,7 @@
   </div>
 </section>
 
-<section class="section" id="services" style="padding-top:0">
+<section class="section" id="services" data-floor="cream-berber" data-tone="light" data-size="520">
   <div class="wrap services">
     <div>
       <h2 style="margin-bottom:.7em">What we do</h2>
@@ -241,7 +241,7 @@
   </div>
 </section>
 
-<section class="section" id="visit">
+<section class="section" id="visit" data-floor="cream-marble" data-tone="light" data-size="900">
   <div class="wrap visit">
     <div>
       <h2>Come see the samples</h2>
@@ -260,7 +260,7 @@
 </section>
 </main>
 
-<footer class="foot">
+<footer class="foot" data-floor="charcoal-porcelain" data-tone="dark" data-size="700">
   <div class="wrap">
     <div>
       <img class="oldsign" src="assets/store/logo-old.jpg" width="840" height="840" alt="The Knockel's sign: a carpet layer with a roll over his shoulder." loading="lazy">
@@ -281,5 +281,6 @@
 <div class="callbar" id="callbar"><a class="btn btn-call" href="tel:+15635392772">Call the store: 563-539-2772</a></div>
 
 <script src="assets/home.js"></script>
+<script src="assets/floors.js"></script>
 </body>
 </html>

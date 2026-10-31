@@ -25,7 +25,7 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
-body{margin:0;background:var(--lime);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+body{position:relative;margin:0;background:var(--lime);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration-color:var(--oak);text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{text-decoration-thickness:2px}
@@ -66,7 +66,7 @@ p{margin:0 0 1em}
 .section{padding:clamp(64px,10vw,128px) 0}
 .lead{font-size:1.18rem;line-height:1.6;max-width:34em}
 .measure{max-width:36em}
-.dark{background:var(--river);color:var(--on-river)}
+.dark{color:var(--on-river)}
 .dark a{text-decoration-color:var(--lamp)}
 .muted{color:var(--muted)}
 .dark .muted{color:var(--on-river-muted)}
@@ -75,7 +75,7 @@ figcaption{font-size:.88rem;color:var(--muted);margin-top:.6em;font-style:italic
 .dark figcaption{color:var(--on-river-muted)}
 
 /* Footer */
-.foot{background:#10292A;color:var(--on-river-muted);padding:48px 0 calc(48px + env(safe-area-inset-bottom));font-size:.95rem}
+.foot{color:var(--on-river-muted);padding:48px 0 calc(48px + env(safe-area-inset-bottom));font-size:.95rem}
 .foot a{color:var(--on-river)}
 .foot .wrap{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
 .foot h3{color:var(--on-river);font-size:1.15rem;margin-bottom:.4em}
@@ -89,3 +89,10 @@ figcaption{font-size:.88rem;color:var(--muted);margin-top:.6em;font-style:italic
 .callbar.on{transform:none}
 @media (max-width:760px){.callbar{display:block}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.callbar,.top{transition:none}}
+
+/* The floor under the whole page: each section stands on its own material, and each material
+   dissolves into the next as you scroll. Laid out by assets/floors.js. */
+.floorbg{position:absolute;left:0;right:0;top:0;z-index:-1;pointer-events:none;overflow:hidden}
+.band{position:absolute;left:0;right:0;background-repeat:repeat;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 var(--f),#000 calc(100% - var(--f)),transparent 100%);
+          mask-image:linear-gradient(to bottom,transparent 0,#000 var(--f),#000 calc(100% - var(--f)),transparent 100%)}
