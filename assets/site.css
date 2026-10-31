@@ -21,15 +21,14 @@
   --sans:"Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --gutter:clamp(16px, 4.5vw, 56px);
   --edge:clamp(10px, 2.6vw, 28px);
-  --pile:640px;
-  --pillow:rgba(252,249,244,.9);
+  --pillow:rgba(251,247,241,.86);
   --pillow-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 44px 80px -44px rgba(72,50,28,.5),0 12px 26px -16px rgba(72,50,28,.28);
   --col:66rem;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
-body{position:relative;margin:0;background:#EEE6DA url(floors/plush.jpg) 0 0/var(--pile) repeat;color:var(--ink);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+body{position:relative;margin:0;background:#CDBBA2;color:var(--ink);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration-color:var(--oak);text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{text-decoration-thickness:2px}
@@ -68,15 +67,16 @@ p{margin:0 0 1em}
 /* Sections */
 .wrap{max-width:var(--col);margin:0 auto;padding:0 var(--gutter)}
 .section{padding:clamp(10px,2.4vw,28px) 0}
-/* Soft light falling across the carpet */
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:radial-gradient(70% 55% at 18% 8%,rgba(255,250,240,.55),rgba(255,250,240,0) 70%),
-             radial-gradient(60% 50% at 92% 96%,rgba(92,66,40,.16),rgba(92,66,40,0) 70%)}
-@media (max-width:700px){:root{--pile:420px}}
+/* A deep shag rug under everything, close enough to see every fibre; the page floats over it */
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:#CDBBA2 url(photos/rug-2400.jpg) 50% 50%/cover no-repeat}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(80% 60% at 20% 0%,rgba(255,248,236,.32),rgba(255,248,236,0) 70%),
+             linear-gradient(rgba(60,40,20,.06),rgba(60,40,20,.14))}
+@media (max-width:900px){body::before{background-image:url(photos/rug-1300.jpg);background-position:50% 50%}}
 /* Each part of the page rests on the carpet like a cushion */
 .pillow{width:calc(100% - 2*var(--edge));max-width:calc(var(--col) + 8rem);margin:0 auto;padding:clamp(26px,5.5vw,72px) clamp(20px,5vw,72px);
   border-radius:26px;background:var(--pillow);box-shadow:var(--pillow-shadow);
-  -webkit-backdrop-filter:blur(10px) saturate(1.05);backdrop-filter:blur(10px) saturate(1.05)}
+  -webkit-backdrop-filter:blur(16px) saturate(1.1);backdrop-filter:blur(16px) saturate(1.1)}
 .pillow-dark{background:rgba(43,36,31,.94);color:#E9E2D8}
 .lead{font-size:1.18rem;line-height:1.6;max-width:34em}
 .measure{max-width:36em}
