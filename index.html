@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Knockel's Floor Covering · Monona, Iowa</title>
+<meta name="description" content="Carpet, tile, vinyl, wood, porcelain, laminate and stone, sold and installed by Knockel's Floor Covering in Monona, Iowa, since 1980. Call 563-539-2772.">
+<meta name="theme-color" content="#163536">
+<link rel="preload" href="assets/fonts/ZillaSlab-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/floors/brown-oak.jpg" as="image">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* Opening: the floor lays itself as you scroll */
+.hero{position:relative;height:205svh;background:var(--river);color:var(--on-river)}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;background:radial-gradient(120% 70% at 50% 0%,#24504F 0%,#163536 55%,#0F2627 100%)}
+.room{position:absolute;inset:0;perspective:1100px;perspective-origin:50% 8%}
+.floor{position:absolute;left:50%;bottom:0;transform-origin:50% 100%;transform-style:preserve-3d}
+.plank{position:absolute;opacity:0;background-repeat:repeat;will-change:transform,opacity;backface-visibility:hidden;
+  box-shadow:inset 1px 0 0 rgba(255,236,200,.18),inset -1px 0 0 rgba(0,0,0,.28),inset 0 1px 0 rgba(255,236,200,.12),inset 0 -1px 0 rgba(0,0,0,.3)}
+.plank::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,rgba(255,238,200,.55) 50%,transparent 65%) 200% 0/300% 100% no-repeat;opacity:0}
+.plank.set::after{animation:glint .8s ease-out 1}
+@keyframes glint{0%{opacity:1;background-position:200% 0}100%{opacity:0;background-position:-100% 0}}
+.stage::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,#163536 0%,rgba(22,53,54,.92) 26%,rgba(22,53,54,.35) 46%,rgba(22,53,54,0) 62%),
+             radial-gradient(140% 90% at 50% 120%,transparent 55%,rgba(10,26,27,.55) 100%)}
+.sparks{position:absolute;inset:0;pointer-events:none;z-index:3}
+.spark{position:absolute;width:7px;height:7px;margin:-3.5px;border-radius:50%;
+  background:radial-gradient(circle,#FFF6D8 0%,#F0C163 45%,rgba(240,193,99,0) 70%);animation:spark .9s ease-out forwards}
+@keyframes spark{0%{opacity:0;transform:translate(0,0) scale(.4)}25%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1)}}
+.hero-text{position:absolute;z-index:4;left:0;right:0;top:0;padding:calc(84px + 3vh) var(--gutter) 0;max-width:var(--col);margin:0 auto}
+.hero h1{font-weight:700;font-size:clamp(3.1rem,10.5vw,7.6rem);line-height:.9;letter-spacing:-.012em;color:#F3EEE4;
+  text-shadow:0 2px 0 rgba(0,0,0,.25),0 18px 40px rgba(0,0,0,.35)}
+.hero .where{font:500 clamp(1.15rem,2.6vw,1.55rem)/1.3 var(--slab);margin:.7em 0 1.2em;color:#D9E3DF}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hint{position:absolute;z-index:4;left:0;right:0;bottom:calc(22px + env(safe-area-inset-bottom));text-align:center;font-size:.95rem;color:#F3EEE4;
+  text-shadow:0 1px 8px rgba(0,0,0,.6);transition:opacity .4s ease}
+.hint.gone{opacity:0}
+@media (prefers-reduced-motion:reduce){.hero{height:100svh}.hint{display:none}.plank.set::after{animation:none}}
+
+/* The store */
+.store{display:grid;gap:clamp(32px,6vw,80px);grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:start}
+.store h2{margin-bottom:.7em}
+.store figure img{border-radius:2px;filter:sepia(.12)}
+@media (max-width:860px){.store{grid-template-columns:1fr}}
+
+/* Try it at home */
+.tryit{display:grid;gap:clamp(28px,5vw,64px);grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:center}
+.tryit h2{margin-bottom:.6em;color:#F3EEE4}
+.steps{list-style:none;padding:0;margin:1.4em 0 1.6em;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.2em 1fr;align-items:baseline;margin:.45em 0}
+.steps li::before{content:counter(s);font:700 1.25rem var(--slab);color:var(--lamp)}
+.compare{position:relative;aspect-ratio:786/629;border-radius:3px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.35);touch-action:pan-y;user-select:none;cursor:ew-resize}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.compare .after{clip-path:inset(0 0 0 var(--cut,50%))}
+.compare .bar{position:absolute;top:0;bottom:0;left:var(--cut,50%);width:2px;margin-left:-1px;background:#F3EEE4;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.compare .knob{position:absolute;top:50%;left:var(--cut,50%);width:44px;height:44px;margin:-22px;border-radius:50%;background:#F3EEE4;color:var(--river);
+  display:grid;place-items:center;font:700 1rem var(--slab);box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.compare .tag{position:absolute;bottom:12px;padding:4px 10px;border-radius:2px;background:rgba(15,38,39,.78);color:#F3EEE4;font-size:.85rem}
+.compare .tag.l{left:12px}.compare .tag.r{right:12px}
+@media (max-width:860px){.tryit{grid-template-columns:1fr}}
+
+/* Floors: the sample wall */
+.floors h2{margin-bottom:.5em}
+.wall{display:grid;gap:clamp(10px,1.6vw,18px);grid-template-columns:repeat(auto-fill,minmax(150px,1fr));margin:2.2em 0 2em;padding:0;list-style:none}
+.chip{display:block;text-decoration:none;color:inherit}
+.chip img{aspect-ratio:1;width:100%;height:auto;object-fit:cover;border-radius:2px;box-shadow:0 1px 0 rgba(0,0,0,.08),0 8px 18px -10px rgba(40,30,20,.45);transition:transform .25s ease,box-shadow .25s ease}
+.chip:hover img{transform:translateY(-3px);box-shadow:0 1px 0 rgba(0,0,0,.08),0 14px 24px -12px rgba(40,30,20,.55)}
+.chip span{display:block;margin-top:.45em;font:600 1rem/1.25 var(--slab)}
+.kinds{columns:2 14rem;column-gap:2.5rem;padding:0;margin:0 0 1.5em;list-style:none}
+.kinds li{padding:.32em 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.brands{font:500 1.2rem/1.5 var(--slab)}
+
+/* What we do */
+.services{display:grid;gap:clamp(32px,6vw,80px);grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
+.svc{margin:0;padding:0;list-style:none}
+.svc li{padding:1.1em 0;border-top:1px solid var(--line)}
+.svc li:last-child{border-bottom:1px solid var(--line)}
+.svc h3{margin-bottom:.3em}
+.svc p{margin:0}
+.services figure{position:sticky;top:96px}
+.services figure img{border-radius:2px}
+@media (max-width:860px){.services{grid-template-columns:1fr}.services figure{position:static}}
+
+/* Where we work */
+.river{position:relative;min-height:min(78svh,720px);display:flex;align-items:flex-end;color:#F3EEE4;background:#163536}
+.river img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.river::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(15,38,39,0) 30%,rgba(15,38,39,.82) 100%)}
+.river .wrap{position:relative;z-index:2;padding-bottom:clamp(36px,6vw,72px);width:100%}
+.river h2{margin-bottom:.45em}
+.river p{max-width:38em;font-size:1.12rem}
+.river small{display:block;margin-top:1.4em;font-size:.82rem;opacity:.8;font-style:italic}
+
+/* Visit */
+.visit{display:grid;gap:clamp(28px,5vw,64px);grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:stretch}
+.visit h2{margin-bottom:.6em}
+.addr{font:500 1.35rem/1.4 var(--slab);font-style:normal;margin-bottom:1em}
+.bigphone{display:inline-block;font:700 clamp(2rem,5vw,2.8rem)/1 var(--slab);text-decoration:none;margin:.1em 0 .5em;color:var(--river)}
+.visit .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:.4em}
+.map{min-height:360px;border:0;width:100%;height:100%;border-radius:3px;background:#DDD8CD}
+@media (max-width:860px){.visit{grid-template-columns:1fr}.map{min-height:320px}}
+</style>
+</head>
+<body>
+<header class="top" id="top-bar">
+  <a class="brand" href="#">Knockel's<small>Floor Covering</small></a>
+  <nav class="nav" aria-label="Main">
+    <a class="navlink" href="#floors">Floors</a>
+    <a class="navlink" href="room.html">Try it at home</a>
+    <a class="navlink" href="#visit">Visit</a>
+    <a class="btn btn-call" href="tel:+15635392772"><svg class="phone-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>563-539-2772</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="hero" aria-label="Knockel's Floor Covering">
+  <div class="stage">
+    <div class="room" aria-hidden="true"><div class="floor" id="floor"></div></div>
+    <div class="sparks" id="sparks" aria-hidden="true"></div>
+    <div class="hero-text">
+      <h1>Knockel's<br>Floor Covering</h1>
+      <p class="where">Monona, Iowa. Laying floors since 1980.</p>
+      <div class="hero-actions">
+        <a class="btn btn-call" href="tel:+15635392772">Call the store</a>
+        <a class="btn btn-line" href="room.html">Try a floor in your room</a>
+      </div>
+    </div>
+    <p class="hint" id="hint" aria-hidden="true">Keep scrolling. We'll lay the floor.</p>
+  </div>
+</section>
+
+<section class="section" id="store">
+  <div class="wrap store">
+    <div class="measure">
+      <h2>On Center Street since 1980</h2>
+      <p class="lead">Knockel's has sold floors and put them down in Monona for over forty years. Carpet, tile, vinyl, wood, porcelain, laminate and stone.</p>
+      <p>Most jobs start the same way. Somebody comes in with a picture on their phone, or a cabinet door under one arm, and says the kitchen floor has had it. We walk the samples together. We ask about the dog and the kids and the mud that comes in every March. Then we find a floor that will look right in that room and hold up for a long time.</p>
+      <p>Bathrooms, kitchens, bedrooms, the whole house. We measure, we order, and our own crew does the installing.</p>
+      <p>Come by and see the samples in person. Bring the picture.</p>
+    </div>
+    <figure>
+      <img src="assets/photos/monona-1925.jpg" width="1200" height="760" loading="lazy" alt="Old postcard of houses along Main Street in Monona, Iowa, with board sidewalks and telephone poles.">
+      <figcaption>Main Street, Monona, around 1925.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section dark" id="tryit">
+  <div class="wrap tryit">
+    <div>
+      <h2>See it in your own room first</h2>
+      <p class="lead">Pick from our floors and see them in a picture of your own room, in the light you actually have.</p>
+      <ol class="steps">
+        <li>Take a picture of the room.</li>
+        <li>Drag four markers to the corners of the floor.</li>
+        <li>Tap a sample. Tap another one.</li>
+      </ol>
+      <p class="muted">Your picture stays on your phone or computer. Nothing is sent to us.</p>
+      <a class="btn btn-call" href="room.html">Try a floor in your room</a>
+    </div>
+    <figure>
+      <div class="compare" id="compare" role="slider" tabindex="0" aria-label="Before and after: drag to compare" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        <img src="assets/photos/room-bay.jpg" alt="An empty room with a bay window and a dark wood floor." width="786" height="629">
+        <img class="after" src="assets/photos/room-bay-after.jpg" alt="The same room with a light washed oak floor laid in." width="786" height="629">
+        <span class="bar"></span><span class="knob" aria-hidden="true">&harr;</span>
+        <span class="tag l">Before</span><span class="tag r">Washed oak</span>
+      </div>
+      <figcaption>Drag across the picture to compare.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section floors" id="floors">
+  <div class="wrap">
+    <h2>What we carry</h2>
+    <p class="lead">A few of the looks in the showroom. Tap one to see it in a room.</p>
+    <ul class="wall" id="wall"></ul>
+    <div class="services-kinds">
+      <h3 style="margin-bottom:.6em">In the store</h3>
+      <ul class="kinds">
+        <li>Carpet</li><li>Tile and tile backsplash</li><li>Vinyl</li><li>Luxury vinyl plank (LVP)</li><li>Hardwood</li>
+        <li>Porcelain</li><li>Stone</li><li>Laminate</li><li>Floors that stand up to pets</li><li>Bathrooms, kitchens and bedrooms</li>
+      </ul>
+      <p class="brands">Mohawk, Shaw, Mannington, and other makers. Ask about any of them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap services">
+    <div>
+      <h2 style="margin-bottom:.7em">What we do</h2>
+      <ul class="svc">
+        <li><h3>Sales, remodels, installation and service</h3><p>We sell the floor and we put it down. If something needs looking at later, call the store.</p></li>
+        <li><h3>Homes and businesses</h3><p>Living rooms and kitchens, offices and storefronts. Residential and commercial, new floors and replacements.</p></li>
+        <li><h3>Design</h3><p>Not sure what goes with the cabinets, or the countertop, or the paint you already bought? Sit down with us. We'll lay samples side by side until one of them is plainly right.</p></li>
+        <li><h3>Pick-up</h3><p>Ask about pick-up service when you call.</p></li>
+      </ul>
+    </div>
+    <figure>
+      <img src="assets/photos/laying.jpg" width="1500" height="1000" loading="lazy" alt="An installer kneeling, pressing a new laminate plank into place.">
+    </figure>
+  </div>
+</section>
+
+<section class="river" id="area" aria-label="Where we work">
+  <img src="assets/photos/river-1100.jpg" srcset="assets/photos/river-1100.jpg 1100w, assets/photos/river-2000.jpg 2000w" sizes="100vw" alt="The Mississippi River and its islands from the bluffs at Pikes Peak State Park." loading="lazy">
+  <div class="wrap">
+    <h2>From the river towns to Waukon</h2>
+    <p>We work in Monona and the towns around it: Garnavillo, Guttenberg, Harpers Ferry, Lansing, Marquette, McGregor, Ossian and Waukon, and the rest of Clayton County.</p>
+    <small>The Mississippi from Pikes Peak, near McGregor.</small>
+  </div>
+</section>
+
+<section class="section" id="visit">
+  <div class="wrap visit">
+    <div>
+      <h2>Come see the samples</h2>
+      <address class="addr">Knockel's Floor Covering<br>112 W Center St<br>Monona, IA 52159</address>
+      <a class="bigphone" href="tel:+15635392772">563-539-2772</a>
+      <p class="muted">Call ahead for store hours.</p>
+      <div class="actions">
+        <a class="btn btn-river" href="tel:+15635392772">Call the store</a>
+        <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=112+W+Center+St,+Monona,+IA+52159" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+    <iframe class="map" title="Map of Knockel's Floor Covering, 112 W Center St, Monona, Iowa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      src="https://maps.google.com/maps?q=Knockel%27s%20Floor%20Covering%2C%20112%20W%20Center%20St%2C%20Monona%2C%20IA%2052159&amp;t=k&amp;z=18&amp;output=embed"></iframe>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <h3>Knockel's Floor Covering</h3>
+      <p>112 W Center St, Monona, IA 52159<br><a href="tel:+15635392772">563-539-2772</a><br>Since 1980.</p>
+    </div>
+    <div>
+      <h3>On this site</h3>
+      <p><a href="#floors">What we carry</a><br><a href="room.html">Try a floor in your room</a><br><a href="#visit">Visit the store</a></p>
+    </div>
+    <details class="credits">
+      <summary>Photo credits</summary>
+      <p>Main Street, Monona, c. 1925: postcard, public domain. The Mississippi at Pikes Peak: Archbob, CC0. Laying laminate: Raphael Mecke, CC BY 4.0. Bay-window room: Tomwsulcer, CC0. Corner room: aismallard, CC BY-SA 3.0. All via Wikimedia Commons. Floor samples: Poly Haven and ambientCG, CC0. Type: Zilla Slab and Public Sans, SIL Open Font License.</p>
+    </details>
+  </div>
+</footer>
+
+<div class="callbar" id="callbar"><a class="btn btn-call" href="tel:+15635392772">Call the store: 563-539-2772</a></div>
+
+<script src="assets/home.js"></script>
+</body>
+</html>

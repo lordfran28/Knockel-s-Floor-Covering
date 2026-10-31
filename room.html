@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Try a floor in your room · Knockel's Floor Covering</title>
+<meta name="description" content="Take a picture of your room and try Knockel's floors in it: wood, vinyl plank, tile, stone and carpet. Your picture stays on your device.">
+<meta name="theme-color" content="#163536">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+body{background:var(--lime)}
+.top{color:var(--ink);background:rgba(236,234,228,.97);box-shadow:0 1px 0 var(--line)}
+.top .btn-call{background:var(--river);color:var(--on-river)}
+.studio{display:grid;grid-template-columns:minmax(220px,270px) minmax(0,1fr) minmax(220px,270px);gap:0;height:100svh;padding-top:64px}
+.rail{overflow-y:auto;padding:18px 16px 40px;border-right:1px solid var(--line);background:var(--paper);overscroll-behavior:contain}
+.rail.right{border-right:0;border-left:1px solid var(--line)}
+.rail h2{font-size:1.3rem;margin:.3em 0 .8em}
+.rail h2 + .samples{margin-bottom:1.6em}
+.samples{display:grid;gap:14px;grid-template-columns:1fr;margin:0;padding:0;list-style:none}
+.sample{display:block;width:100%;padding:0;border:0;background:none;text-align:left;cursor:pointer;color:inherit;font:inherit;-webkit-tap-highlight-color:transparent}
+.sample img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:2px;outline:3px solid transparent;outline-offset:2px;transition:outline-color .2s ease,transform .2s ease;
+  box-shadow:0 8px 18px -12px rgba(40,30,20,.6)}
+.sample:hover img{transform:translateY(-2px)}
+.sample[aria-pressed="true"] img{outline-color:var(--oak)}
+.sample span{display:block;margin-top:.4em;font:600 1.02rem/1.2 var(--slab)}
+.sample[aria-pressed="true"] span::after{content:"  \2713";color:var(--oak)}
+
+.work{display:flex;flex-direction:column;min-width:0;min-height:0;padding:14px clamp(12px,2vw,24px) 16px}
+.viewwrap{position:relative;flex:1 1 auto;min-height:0;border-radius:3px;overflow:hidden;background:#1B1916;touch-action:none}
+#view{position:absolute;inset:0;width:100%;height:100%;display:block}
+#overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.handle{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:0;padding:0;background:transparent;cursor:grab;touch-action:none;pointer-events:auto}
+.handle::before{content:"";position:absolute;inset:13px;border-radius:50%;background:var(--lamp);box-shadow:0 0 0 2px #2A1E0B,0 2px 8px rgba(0,0,0,.5)}
+.handle:active{cursor:grabbing}
+.viewwrap.painting{cursor:crosshair}
+.viewwrap.painting .handle{display:none}
+.msg{position:absolute;inset:auto 12px 12px 12px;padding:10px 14px;border-radius:3px;background:rgba(15,38,39,.9);color:#F3EEE4;font-size:.95rem}
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:12px 0 2px}
+.tools .btn{min-height:42px;padding:.5em .95em;font-size:.95rem}
+.seg{display:inline-flex;border-radius:3px;box-shadow:inset 0 0 0 1.5px var(--river);overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--river);font:600 .92rem/1 var(--sans);padding:0 .9em;min-height:42px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--river);color:var(--on-river)}
+.tools label.rng{display:inline-flex;align-items:center;gap:8px;font-size:.92rem;color:var(--muted)}
+.tools input[type=range]{width:110px;accent-color:var(--river)}
+.help{font-size:.95rem;color:var(--muted);margin:.5em 0 0;min-height:1.6em}
+.chosen{font:600 1.15rem/1.3 var(--slab);margin:.2em 0 0}
+.chosen a{white-space:nowrap}
+.btn-ghost{background:transparent;color:var(--river);box-shadow:inset 0 0 0 1.5px var(--river)}
+.btn-ghost:hover{background:rgba(22,53,54,.06)}
+.filebtn{position:relative;overflow:hidden}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer;font-size:0}
+.nogl{padding:24px;max-width:36em}
+
+/* Phones and small tablets: picture on top, samples underneath */
+@media (max-width:1000px){
+  .studio{display:flex;flex-direction:column;height:auto;padding-top:60px}
+  .work{display:contents}
+  .viewwrap{order:0;position:sticky;top:60px;z-index:5;flex:none;height:min(46svh,70vw + 40px);margin:8px 10px 0;border-radius:3px;box-shadow:0 10px 18px -14px rgba(0,0,0,.6)}
+  .tools{order:1;padding:10px 10px 0}
+  .help{order:2;padding:0 10px}
+  .chosen{order:3;padding:0 10px}
+  .rail.left{order:4}.rail.right{order:5}
+  .tools{gap:6px 8px}
+  .tools .btn,.seg button{min-height:40px;font-size:.88rem}
+  .help{font-size:.88rem;margin-top:.3em}
+  .rail{border:0;background:none;overflow:visible;padding:18px 12px 8px}
+  .rail.right{padding-top:0;padding-bottom:110px}
+  .samples{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+}
+</style>
+</head>
+<body>
+<header class="top solid">
+  <a class="brand" href="index.html">Knockel's<small>Floor Covering</small></a>
+  <nav class="nav" aria-label="Main">
+    <a class="navlink" href="index.html#floors">Floors</a>
+    <a class="navlink" href="index.html#visit">Visit</a>
+    <a class="btn btn-call" href="tel:+15635392772"><svg class="phone-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>563-539-2772</a>
+  </nav>
+</header>
+
+<main class="studio">
+  <aside class="rail left" aria-label="Wood and plank samples">
+    <h2>Wood and plank</h2>
+    <ul class="samples" id="s-wood"></ul>
+  </aside>
+
+  <section class="work" aria-label="Your room">
+    <div class="viewwrap" id="viewwrap">
+      <canvas id="view" aria-label="Your room with the chosen floor"></canvas>
+      <svg id="overlay" aria-hidden="true"><polygon id="quadline" fill="rgba(240,193,99,.08)" stroke="#F0C163" stroke-width="2" stroke-dasharray="6 5"/></svg>
+      <p class="msg" id="msg" hidden></p>
+    </div>
+    <div class="tools">
+      <span class="btn btn-river filebtn">Use a picture of your room<input type="file" id="photo" accept="image/*" aria-label="Use a picture of your room"></span>
+      <div class="seg" role="group" aria-label="What your finger does">
+        <button type="button" data-mode="corners" aria-pressed="true">Move corners</button>
+        <button type="button" data-mode="keep" aria-pressed="false">Paint furniture</button>
+        <button type="button" data-mode="add" aria-pressed="false">Paint floor</button>
+      </div>
+      <label class="rng" id="brushwrap" hidden>Brush <input type="range" id="brush" min="8" max="120" value="36"></label>
+      <button type="button" class="btn btn-ghost" id="clearpaint" hidden>Clear paint</button>
+      <button type="button" class="btn btn-ghost" id="turn">Turn the planks</button>
+      <label class="rng">Size <input type="range" id="size" min="-100" max="100" value="0" aria-label="Plank and tile size"></label>
+      <button type="button" class="btn btn-ghost" id="before">Hold for before</button>
+      <button type="button" class="btn btn-ghost" id="nextroom">Another sample room</button>
+      <button type="button" class="btn btn-call" id="save">Save picture</button>
+    </div>
+    <p class="help" id="help"></p>
+    <p class="chosen" id="chosen"></p>
+  </section>
+
+  <aside class="rail right" aria-label="Tile, stone and carpet samples">
+    <h2>Tile and stone</h2>
+    <ul class="samples" id="s-tile"></ul>
+    <h2>Carpet</h2>
+    <ul class="samples" id="s-carpet"></ul>
+  </aside>
+</main>
+
+<script src="assets/room.js"></script>
+</body>
+</html>

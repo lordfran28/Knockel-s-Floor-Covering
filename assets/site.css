@@ -1,0 +1,91 @@
+/* Knockel's Floor Covering — shared styles */
+@font-face{font-family:"Zilla Slab";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ZillaSlab-500.woff2) format("woff2")}
+@font-face{font-family:"Zilla Slab";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ZillaSlab-600.woff2) format("woff2")}
+@font-face{font-family:"Zilla Slab";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/ZillaSlab-700.woff2) format("woff2")}
+@font-face{font-family:"Public Sans";font-style:normal;font-weight:400 600;font-display:swap;src:url(fonts/PublicSans-var.woff2) format("woff2")}
+@font-face{font-family:"Public Sans";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/PublicSans-400i.woff2) format("woff2")}
+
+:root{
+  --lime:#ECEAE4;      /* limestone: the page */
+  --paper:#F7F6F2;
+  --ink:#2A241F;       /* walnut ink: text */
+  --muted:#675E55;
+  --line:#D3CDC1;
+  --river:#163536;     /* the Mississippi at dusk: dark sections */
+  --river-2:#20494A;
+  --on-river:#E8EEEA;
+  --on-river-muted:#A9BDB8;
+  --oak:#A8733D;       /* small marks and the selected sample */
+  --lamp:#F0C163;      /* the call button on dark */
+  --slab:"Zilla Slab", Rockwell, "Roboto Slab", Georgia, serif;
+  --sans:"Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gutter:clamp(16px, 4.5vw, 56px);
+  --col:66rem;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
+body{margin:0;background:var(--lime);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration-color:var(--oak);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+h1,h2,h3{font-family:var(--slab);font-weight:600;line-height:1.08;margin:0;letter-spacing:-.005em;text-wrap:balance}
+h2{font-size:clamp(2rem,4.4vw,3.25rem)}
+h3{font-size:1.4rem}
+p{margin:0 0 1em}
+:focus-visible{outline:3px solid var(--lamp);outline-offset:3px;border-radius:2px}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Header */
+.top{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:12px var(--gutter);transition:background-color .35s ease,box-shadow .35s ease,color .35s ease;color:var(--on-river)}
+.top.solid{background:rgba(236,234,228,.96);color:var(--ink);box-shadow:0 1px 0 var(--line);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.brand{font:700 1.3rem/1 var(--slab);text-decoration:none;white-space:nowrap}
+.brand small{font:500 .95rem var(--slab);opacity:.8;margin-left:.35em}
+.nav{display:flex;align-items:center;gap:clamp(12px,2.4vw,28px)}
+.nav a.navlink{text-decoration:none;font-weight:500;font-size:.98rem;opacity:.85}
+.nav a.navlink:hover{opacity:1;text-decoration:underline}
+@media (max-width:760px){.nav a.navlink{display:none}.brand small{display:none}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:.7em 1.25em;border-radius:3px;border:0;
+  font:600 1.02rem/1.1 var(--sans);text-decoration:none;cursor:pointer;transition:background-color .2s ease,transform .1s ease;-webkit-tap-highlight-color:transparent}
+.btn:active{transform:translateY(1px)}
+.btn-call{background:var(--lamp);color:#2A1E0B}
+.btn-call:hover{background:#F5CD7A}
+.btn-river{background:var(--river);color:var(--on-river)}
+.btn-river:hover{background:var(--river-2)}
+.btn-line{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+.top .btn{min-height:40px;padding:.55em 1em;font-size:.95rem}
+.top.solid .btn-call{background:var(--river);color:var(--on-river)}
+.phone-ico{width:1.05em;height:1.05em;flex:0 0 auto}
+
+/* Sections */
+.wrap{max-width:var(--col);margin:0 auto;padding:0 var(--gutter)}
+.section{padding:clamp(64px,10vw,128px) 0}
+.lead{font-size:1.18rem;line-height:1.6;max-width:34em}
+.measure{max-width:36em}
+.dark{background:var(--river);color:var(--on-river)}
+.dark a{text-decoration-color:var(--lamp)}
+.muted{color:var(--muted)}
+.dark .muted{color:var(--on-river-muted)}
+figure{margin:0}
+figcaption{font-size:.88rem;color:var(--muted);margin-top:.6em;font-style:italic}
+.dark figcaption{color:var(--on-river-muted)}
+
+/* Footer */
+.foot{background:#10292A;color:var(--on-river-muted);padding:48px 0 calc(48px + env(safe-area-inset-bottom));font-size:.95rem}
+.foot a{color:var(--on-river)}
+.foot .wrap{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.foot h3{color:var(--on-river);font-size:1.15rem;margin-bottom:.4em}
+.credits{font-size:.82rem;line-height:1.55}
+.credits summary{cursor:pointer;color:var(--on-river)}
+
+/* Phone: a call bar that stays in reach */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:none;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(22,53,54,.97);transform:translateY(110%);transition:transform .35s ease}
+.callbar .btn{width:100%}
+.callbar.on{transform:none}
+@media (max-width:760px){.callbar{display:block}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.callbar,.top{transition:none}}

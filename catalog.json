@@ -1,0 +1,196 @@
+{
+ "note": "Sample looks for the room tool. To add your own floor: put a straight-on photo of it in assets/floors/ and a smaller copy in assets/floors/thumbs/, then add an entry here. kind is wood, tile or carpet. size is how many metres wide the photo is in real life. across: true if the boards in the photo run left to right.",
+ "floors": [
+  {
+   "id": "washed-oak",
+   "name": "Washed oak",
+   "kind": "wood",
+   "size": 1.7,
+   "image": "assets/floors/washed-oak.jpg",
+   "thumb": "assets/floors/thumbs/washed-oak.jpg",
+   "credit": "Poly Haven, Laminate Floor 02 (CC0)",
+   "across": true
+  },
+  {
+   "id": "white-pine",
+   "name": "Wide white pine",
+   "kind": "wood",
+   "size": 2.0,
+   "image": "assets/floors/white-pine.jpg",
+   "thumb": "assets/floors/thumbs/white-pine.jpg",
+   "credit": "ambientCG, Planks 009 (CC0)"
+  },
+  {
+   "id": "honey-oak",
+   "name": "Honey oak",
+   "kind": "wood",
+   "size": 2.08,
+   "image": "assets/floors/honey-oak.jpg",
+   "thumb": "assets/floors/thumbs/honey-oak.jpg",
+   "credit": "Poly Haven, Laminate Floor 03 (CC0)"
+  },
+  {
+   "id": "golden-oak",
+   "name": "Golden oak",
+   "kind": "wood",
+   "size": 2.0,
+   "image": "assets/floors/golden-oak.jpg",
+   "thumb": "assets/floors/thumbs/golden-oak.jpg",
+   "credit": "Poly Haven, Laminate Floor (CC0)",
+   "across": true
+  },
+  {
+   "id": "brown-oak",
+   "name": "Brown oak",
+   "kind": "wood",
+   "size": 1.7,
+   "image": "assets/floors/brown-oak.jpg",
+   "thumb": "assets/floors/thumbs/brown-oak.jpg",
+   "credit": "Poly Haven, Wood Floor (CC0)"
+  },
+  {
+   "id": "chestnut",
+   "name": "Chestnut",
+   "kind": "wood",
+   "size": 1.2,
+   "image": "assets/floors/chestnut.jpg",
+   "thumb": "assets/floors/thumbs/chestnut.jpg",
+   "credit": "Poly Haven, Old Wooden Floor 03 (CC0)"
+  },
+  {
+   "id": "rustic-pine",
+   "name": "Rustic pine",
+   "kind": "wood",
+   "size": 1.99,
+   "image": "assets/floors/rustic-pine.jpg",
+   "thumb": "assets/floors/thumbs/rustic-pine.jpg",
+   "credit": "Poly Haven, Wooden Floor 01 (CC0)"
+  },
+  {
+   "id": "oak-herringbone",
+   "name": "Oak herringbone",
+   "kind": "wood",
+   "size": 3.4,
+   "image": "assets/floors/oak-herringbone.jpg",
+   "thumb": "assets/floors/thumbs/oak-herringbone.jpg",
+   "credit": "Poly Haven, Herringbone Parquet (CC0)"
+  },
+  {
+   "id": "walnut-basketweave",
+   "name": "Walnut basketweave",
+   "kind": "wood",
+   "size": 2.0,
+   "image": "assets/floors/walnut-basketweave.jpg",
+   "thumb": "assets/floors/thumbs/walnut-basketweave.jpg",
+   "credit": "ambientCG, Wood Floor 070 (CC0)"
+  },
+  {
+   "id": "limestone",
+   "name": "Limestone",
+   "kind": "tile",
+   "size": 1.5,
+   "image": "assets/floors/limestone.jpg",
+   "thumb": "assets/floors/thumbs/limestone.jpg",
+   "credit": "Poly Haven, Marble 01 (CC0)"
+  },
+  {
+   "id": "cream-marble",
+   "name": "Cream marble",
+   "kind": "tile",
+   "size": 2.0,
+   "image": "assets/floors/cream-marble.jpg",
+   "thumb": "assets/floors/thumbs/cream-marble.jpg",
+   "credit": "ambientCG, Marble 026 (CC0)"
+  },
+  {
+   "id": "marble-checkerboard",
+   "name": "Marble checkerboard",
+   "kind": "tile",
+   "size": 3.0,
+   "image": "assets/floors/marble-checkerboard.jpg",
+   "thumb": "assets/floors/thumbs/marble-checkerboard.jpg",
+   "credit": "Poly Haven, Floor Tiles 06 (CC0)"
+  },
+  {
+   "id": "white-porcelain",
+   "name": "White porcelain",
+   "kind": "tile",
+   "size": 2.0,
+   "image": "assets/floors/white-porcelain.jpg",
+   "thumb": "assets/floors/thumbs/white-porcelain.jpg",
+   "credit": "ambientCG, Tiles 002 (CC0)"
+  },
+  {
+   "id": "charcoal-porcelain",
+   "name": "Charcoal porcelain",
+   "kind": "tile",
+   "size": 2.0,
+   "image": "assets/floors/charcoal-porcelain.jpg",
+   "thumb": "assets/floors/thumbs/charcoal-porcelain.jpg",
+   "credit": "ambientCG, Tiles 138 (CC0)"
+  },
+  {
+   "id": "terracotta",
+   "name": "Terracotta",
+   "kind": "tile",
+   "size": 2.08,
+   "image": "assets/floors/terracotta.jpg",
+   "thumb": "assets/floors/thumbs/terracotta.jpg",
+   "credit": "Poly Haven, Terracotta Floor Tiles (CC0)"
+  },
+  {
+   "id": "slate-flagstone",
+   "name": "Slate flagstone",
+   "kind": "tile",
+   "size": 2.37,
+   "image": "assets/floors/slate-flagstone.jpg",
+   "thumb": "assets/floors/thumbs/slate-flagstone.jpg",
+   "credit": "Poly Haven, Slab Tiles (CC0)"
+  },
+  {
+   "id": "grey-granite",
+   "name": "Grey granite",
+   "kind": "tile",
+   "size": 1.8,
+   "image": "assets/floors/grey-granite.jpg",
+   "thumb": "assets/floors/thumbs/grey-granite.jpg",
+   "credit": "Poly Haven, Granite Tile 03 (CC0)"
+  },
+  {
+   "id": "wheat",
+   "name": "Wheat",
+   "kind": "carpet",
+   "size": 1.7,
+   "image": "assets/floors/wheat.jpg",
+   "thumb": "assets/floors/thumbs/wheat.jpg",
+   "credit": "ambientCG, Carpet 016 (CC0)"
+  },
+  {
+   "id": "cream-berber",
+   "name": "Cream berber",
+   "kind": "carpet",
+   "size": 2.0,
+   "image": "assets/floors/cream-berber.jpg",
+   "thumb": "assets/floors/thumbs/cream-berber.jpg",
+   "credit": "ambientCG, Carpet 014 (CC0)"
+  },
+  {
+   "id": "pewter",
+   "name": "Pewter",
+   "kind": "carpet",
+   "size": 2.0,
+   "image": "assets/floors/pewter.jpg",
+   "thumb": "assets/floors/thumbs/pewter.jpg",
+   "credit": "ambientCG, Carpet 001 (CC0)"
+  },
+  {
+   "id": "brick-red",
+   "name": "Brick red",
+   "kind": "carpet",
+   "size": 0.4,
+   "image": "assets/floors/brick-red.jpg",
+   "thumb": "assets/floors/thumbs/brick-red.jpg",
+   "credit": "ambientCG, Carpet 015 (CC0)"
+  }
+ ]
+}
