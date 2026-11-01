@@ -5081,11 +5081,11 @@
 "code": "130471",
 "type": "sheet vinyl",
 "install": "",
-"img": "http://manningtonprod.pimcoreclient.com/TransformedImages/4191-Full-Carrara-Pearl.jpeg",
+"img": "http://manningtonprod.pimcoreclient.com/TransformedImages/4191-FullProp-Carrara-Pearl.jpeg",
 "pic": "full",
 "look": "tile",
 "notes": "Comes in Platinum, Gold and Silver",
-"file": "o/65accc21fa9176"
+"file": "o/ea1c3321175653"
 },
 {
 "brand": "Mannington",
@@ -5393,11 +5393,11 @@
 "code": "130441",
 "type": "sheet vinyl",
 "install": "",
-"img": "http://manningtonprod.pimcoreclient.com/TransformedImages/130441-FullProp-Oceana-Shell.jpeg",
+"img": "http://manningtonprod.pimcoreclient.com/TransformedImages/130441-Full-Oceana-Shell.jpeg",
 "pic": "full",
 "look": "tile",
 "notes": "Comes in Platinum, Gold and Silver",
-"file": "o/cfa7992e4e6026"
+"file": "o/47960e92b6e324"
 },
 {
 "brand": "Mannington",
@@ -5497,11 +5497,11 @@
 "code": "130452",
 "type": "sheet vinyl",
 "install": "",
-"img": "http://manningtonprod.pimcoreclient.com/TransformedImages/130452-Full-Tapestry-Denim.jpeg",
+"img": "http://manningtonprod.pimcoreclient.com/TransformedImages/130452-FullProp-Tapestry-Denim.jpeg",
 "pic": "full",
 "look": "tile",
 "notes": "Comes in Platinum, Gold and Silver",
-"file": "o/305a13bebeaf31"
+"file": "o/d1e2f5cd398756"
 },
 {
 "brand": "Mannington",
@@ -6630,10 +6630,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/acclima-ayla-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/acclima-ayla-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/1e497ac789a211"
+"file": "o/459a53dd3299aa"
 },
 {
 "brand": "MSI",
@@ -6642,10 +6642,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/acclima-louis-hill-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/acclima-louis-hill-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c9465ebf7b1e56"
+"file": "o/df438fcb3fed03"
 },
 {
 "brand": "MSI",
@@ -6654,10 +6654,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/acclima-ludlow-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/acclima-ludlow-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/26fa384c4a01ba"
+"file": "o/45c5a4b1719d25"
 },
 {
 "brand": "MSI",
@@ -6666,10 +6666,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/acclima-mt-sande-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/acclima-mt-sande-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/450578f8abc6fa"
+"file": "o/58fe0d399ea353"
 },
 {
 "brand": "MSI",
@@ -6678,10 +6678,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/acclima-runmill-isle-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/acclima-runmill-isle-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c8654172c5e64b"
+"file": "o/b3acb17fceec70"
 },
 {
 "brand": "MSI",
@@ -6690,10 +6690,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/acclima-waldorf-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/acclima-waldorf-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/8ca83684eddea4"
+"file": "o/151c516a0b1ee3"
 },
 {
 "brand": "MSI",
@@ -6702,10 +6702,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/acclima-wharton-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/acclima-wharton-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5303bcc3b75d08"
+"file": "o/e2de38e6d9f6f4"
 },
 {
 "brand": "MSI",
@@ -6714,10 +6714,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/acclima-whitfield-gray-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/acclima-whitfield-gray-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/8e7e442e404f73"
+"file": "o/6afc20a65e079e"
 },
 {
 "brand": "MSI",
@@ -6726,10 +6726,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/andover-abingdale-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/andover-abingdale-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/3f8916984bd1b6"
+"file": "o/b9ce916d924bc6"
 },
 {
 "brand": "MSI",
@@ -6738,10 +6738,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/bayhill-blonde-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/bayhill-blonde-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/ca30b9b59b7a6d"
+"file": "o/e0d9989530dd76"
 },
 {
 "brand": "MSI",
@@ -6750,10 +6750,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/bellamy-brooks-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/bellamy-brooks-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5699b4034e707e"
+"file": "o/ad85a19fee4e52"
 },
 {
 "brand": "MSI",
@@ -6762,10 +6762,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/blythe-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/blythe-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c49e6784db0013"
+"file": "o/2b5281b8e65a6e"
 },
 {
 "brand": "MSI",
@@ -6774,10 +6774,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/briar-haven-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/briar-haven-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a54a40073d2e17"
+"file": "o/db3b717a424e1e"
 },
 {
 "brand": "MSI",
@@ -6786,10 +6786,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/andover-dakworth-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/andover-dakworth-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/4b2fe11104e635"
+"file": "o/f76fd41a737b99"
 },
 {
 "brand": "MSI",
@@ -6798,10 +6798,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/daria-umber-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/daria-umber-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5489610fa11c48"
+"file": "o/7405041ba01161"
 },
 {
 "brand": "MSI",
@@ -6810,10 +6810,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/hatfield-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/hatfield-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/ee5e143429d4e0"
+"file": "o/2f388ae86bd444"
 },
 {
 "brand": "MSI",
@@ -6822,10 +6822,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/highcliffe-greige-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/highcliffe-greige-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/0ab981182a86b3"
+"file": "o/fa4797e9b07817"
 },
 {
 "brand": "MSI",
@@ -6834,10 +6834,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/kingsdown-gray-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/kingsdown-gray-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/20d687ac71ba67"
+"file": "o/7ad29bb315d938"
 },
 {
 "brand": "MSI",
@@ -6846,10 +6846,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/vintaj-andover.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/vintaj-andover.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/3917d79734c57d"
+"file": "o/29351fec02d146"
 },
 {
 "brand": "MSI",
@@ -6858,10 +6858,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/whitby-white-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/whitby-white-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/31ae1e98254752"
+"file": "o/0cf409ff03cc43"
 },
 {
 "brand": "MSI",
@@ -6870,10 +6870,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/wilton-andover.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/wilton-andover.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a9f96abcf3efbc"
+"file": "o/d2554c1b3d6105"
 },
 {
 "brand": "MSI",
@@ -6882,10 +6882,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/bayshore-linen.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/bayshore-linen.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a8c0dca8aed80d"
+"file": "o/cfb25f6cab7b3e"
 },
 {
 "brand": "MSI",
@@ -6894,10 +6894,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/baystone.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/baystone.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a55ec48d7b57cb"
+"file": "o/ed8c45185ec69b"
 },
 {
 "brand": "MSI",
@@ -6906,10 +6906,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/briven.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/briven.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a9fd6919c8c86e"
+"file": "o/9bdff7158f531b"
 },
 {
 "brand": "MSI",
@@ -6918,10 +6918,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/dunmere.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/dunmere.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/ed7a6c15f9ece4"
+"file": "o/8bd960bc61dd16"
 },
 {
 "brand": "MSI",
@@ -6930,10 +6930,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/millhaven.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/millhaven.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/4c418c8d492e10"
+"file": "o/a147a68f34af4d"
 },
 {
 "brand": "MSI",
@@ -6942,10 +6942,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/sandreach.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/sandreach.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/b8077873e4736e"
+"file": "o/7a2a80bbab1029"
 },
 {
 "brand": "MSI",
@@ -6954,10 +6954,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/stableton-ashton-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/stableton-ashton-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/8b11dbe5ca3d66"
+"file": "o/06999b00c3f858"
 },
 {
 "brand": "MSI",
@@ -6966,10 +6966,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/sunnyset-ashton-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/sunnyset-ashton-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/858c8cd346300a"
+"file": "o/8dc0f4621d1f9f"
 },
 {
 "brand": "MSI",
@@ -6978,10 +6978,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/ashton-bergen-hills-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/ashton-bergen-hills-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/241a770e20e61a"
+"file": "o/c199f71f33cdab"
 },
 {
 "brand": "MSI",
@@ -6990,10 +6990,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/ashton-colston-park-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/ashton-colston-park-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/bd8fdd5db8676c"
+"file": "o/5358fd5d7afb8f"
 },
 {
 "brand": "MSI",
@@ -7002,10 +7002,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/ashton-loton-hill-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/ashton-loton-hill-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/1bedd8d0d8585a"
+"file": "o/d7af99174070c7"
 },
 {
 "brand": "MSI",
@@ -7014,10 +7014,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/ashton-maracay-brown-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/ashton-maracay-brown-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/90904b810781e5"
+"file": "o/36473bbe7ee6e0"
 },
 {
 "brand": "MSI",
@@ -7026,10 +7026,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/ashton-york-gray-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/ashton-york-gray-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/500bf852dc8226"
+"file": "o/1fb1620e791398"
 },
 {
 "brand": "MSI",
@@ -7038,10 +7038,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/akadia-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/akadia-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/4d87765c9e2f4d"
+"file": "o/2fcfd284e88b5e"
 },
 {
 "brand": "MSI",
@@ -7050,10 +7050,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/amber-forrester-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/amber-forrester-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/0df824e88f1ca4"
+"file": "o/9b72268fe7b89b"
 },
 {
 "brand": "MSI",
@@ -7062,10 +7062,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-2-austell-grove-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-2-austell-grove-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/834aa7a8afcf36"
+"file": "o/91ae7c8faab972"
 },
 {
 "brand": "MSI",
@@ -7074,10 +7074,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/barnstorm-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/barnstorm-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/cfe9dcddf99127"
+"file": "o/74b4197bf4172f"
 },
 {
 "brand": "MSI",
@@ -7086,10 +7086,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/braly-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/braly-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/17cc9af2c51430"
+"file": "o/08d48185348adf"
 },
 {
 "brand": "MSI",
@@ -7098,10 +7098,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/brookings-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/brookings-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/394970b28acab2"
+"file": "o/3ec470515de7a6"
 },
 {
 "brand": "MSI",
@@ -7110,10 +7110,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-2-chester-hills-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-2-chester-hills-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/49bf3ce9ae1ee0"
+"file": "o/eafdb42f2514b5"
 },
 {
 "brand": "MSI",
@@ -7122,10 +7122,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/dulles-tails-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/dulles-tails-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/34ca0fdb24ab4c"
+"file": "o/f0f172f6aa7c54"
 },
 {
 "brand": "MSI",
@@ -7134,10 +7134,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/fauna-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/fauna-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/0217f95e0dc20d"
+"file": "o/21fbe8fbd72f40"
 },
 {
 "brand": "MSI",
@@ -7146,10 +7146,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/finely-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/finely-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/d0dacbd34621b3"
+"file": "o/f4024596d1aa8f"
 },
 {
 "brand": "MSI",
@@ -7158,10 +7158,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/flora-drift-cyrus-2.0.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/flora-drift-cyrus-2.0.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/e30301da0778dd"
+"file": "o/040f92be3c8ecb"
 },
 {
 "brand": "MSI",
@@ -7170,10 +7170,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/honey-bella-oak-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/honey-bella-oak-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/d8367168fcc19c"
+"file": "o/541cb2690dd223"
 },
 {
 "brand": "MSI",
@@ -7182,10 +7182,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/katella-ash-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/katella-ash-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/1177d297ead566"
+"file": "o/015eedfe378e9d"
 },
 {
 "brand": "MSI",
@@ -7194,10 +7194,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/kella-cyrus-2.0.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/kella-cyrus-2.0.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/40ba28886e31fb"
+"file": "o/e81f4cf025cb56"
 },
 {
 "brand": "MSI",
@@ -7206,10 +7206,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-2-lenexa-creek-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-2-lenexa-creek-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/cca0ef48266aa5"
+"file": "o/2e01dfcc72dd36"
 },
 {
 "brand": "MSI",
@@ -7218,10 +7218,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/ludlow-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/ludlow-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/d33622e300c98a"
+"file": "o/f29dc329e2fba5"
 },
 {
 "brand": "MSI",
@@ -7230,10 +7230,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/mezcla-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/mezcla-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/05d38eb010e09a"
+"file": "o/ea41247fbfb288"
 },
 {
 "brand": "MSI",
@@ -7242,10 +7242,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/runmill-isle-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/runmill-isle-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5554c63fbdfc71"
+"file": "o/8dc80ca073cf77"
 },
 {
 "brand": "MSI",
@@ -7254,10 +7254,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/sandino-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/sandino-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/1927f71c5082a7"
+"file": "o/76f5f3bfdc3e3b"
 },
 {
 "brand": "MSI",
@@ -7266,10 +7266,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-2-valleyview-grove-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-2-valleyview-grove-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/38d54e502acf4d"
+"file": "o/7cb291b067e687"
 },
 {
 "brand": "MSI",
@@ -7278,10 +7278,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/whitfield-gray-cyrus-2.0-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/whitfield-gray-cyrus-2.0-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/96436fc62c0fbf"
+"file": "o/5bbc66f75f22bf"
 },
 {
 "brand": "MSI",
@@ -7290,10 +7290,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-akadia-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-akadia-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/8c926950cfa912"
+"file": "o/35900c6dd65bc6"
 },
 {
 "brand": "MSI",
@@ -7302,10 +7302,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/amber-forrester-cyrus.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/amber-forrester-cyrus.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/f0dbad3c96047e"
+"file": "o/6bc8c994c63f91"
 },
 {
 "brand": "MSI",
@@ -7314,10 +7314,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-austell-grove-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-austell-grove-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/609508f51c1cca"
+"file": "o/e18a97bdd88531"
 },
 {
 "brand": "MSI",
@@ -7326,10 +7326,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/barnstorm-cyrus.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/barnstorm-cyrus.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/bf38d37d280225"
+"file": "o/67437564ea9731"
 },
 {
 "brand": "MSI",
@@ -7338,10 +7338,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-barrell-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-barrell-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/3e6f1493100e16"
+"file": "o/3d2ff3c7a7d1af"
 },
 {
 "brand": "MSI",
@@ -7350,10 +7350,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-bembridge-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-bembridge-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/61ac78cdc04aaa"
+"file": "o/961380933e4aac"
 },
 {
 "brand": "MSI",
@@ -7362,10 +7362,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-billingham-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-billingham-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/1216190514b549"
+"file": "o/9c53004a606ac1"
 },
 {
 "brand": "MSI",
@@ -7374,10 +7374,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-boswell-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-boswell-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/515ca6f1c59b5a"
+"file": "o/1a5fdff5edcc84"
 },
 {
 "brand": "MSI",
@@ -7386,10 +7386,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-bracken-hill-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-bracken-hill-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/baad4024aef42b"
+"file": "o/9e16022fe7c4e6"
 },
 {
 "brand": "MSI",
@@ -7398,10 +7398,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-braly-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-braly-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/f420d38b2c2a15"
+"file": "o/3e2df8143dcfc5"
 },
 {
 "brand": "MSI",
@@ -7410,10 +7410,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-brianka-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-brianka-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/1f251f0f846d80"
+"file": "o/e1c1cffd72f35e"
 },
 {
 "brand": "MSI",
@@ -7422,10 +7422,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/brookings-cyrus.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/brookings-cyrus.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/4b332814e70d0e"
+"file": "o/6b8f4b3c8d2d75"
 },
 {
 "brand": "MSI",
@@ -7434,10 +7434,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-brookline-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-brookline-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/bc1d545bf813f4"
+"file": "o/53b6cc2f290c75"
 },
 {
 "brand": "MSI",
@@ -7446,10 +7446,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-chester-hills-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-chester-hills-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/50e4d93a543c16"
+"file": "o/824e36a8f336c8"
 },
 {
 "brand": "MSI",
@@ -7458,10 +7458,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-cranton-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-cranton-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/e5ce254fc43f9b"
+"file": "o/53c7a83a5cac86"
 },
 {
 "brand": "MSI",
@@ -7470,10 +7470,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-draven-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-draven-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/616ac001493817"
+"file": "o/752dec0ab7a9b4"
 },
 {
 "brand": "MSI",
@@ -7482,10 +7482,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/dulles-tails-cyrus.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/dulles-tails-cyrus.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/dd55a229980c7e"
+"file": "o/6cd93e154d016f"
 },
 {
 "brand": "MSI",
@@ -7494,10 +7494,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-dunite-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-dunite-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/26526c5967848d"
+"file": "o/115a100534dfc3"
 },
 {
 "brand": "MSI",
@@ -7506,10 +7506,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-exotika-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-exotika-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/cdcd92ad59b159"
+"file": "o/1d8d3c2b8cf965"
 },
 {
 "brand": "MSI",
@@ -7518,10 +7518,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-fauna-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-fauna-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/cc983fc72c7fc1"
+"file": "o/52c97f22368d29"
 },
 {
 "brand": "MSI",
@@ -7530,10 +7530,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-finely-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-finely-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/33144a119ab909"
+"file": "o/68c347c79c537f"
 },
 {
 "brand": "MSI",
@@ -7542,10 +7542,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-grayton-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-grayton-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/cacf3518de8af2"
+"file": "o/ca65df7107d054"
 },
 {
 "brand": "MSI",
@@ -7554,10 +7554,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-hawthorne-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-hawthorne-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7b5c46f9fc807d"
+"file": "o/4c92ee58174ff2"
 },
 {
 "brand": "MSI",
@@ -7566,10 +7566,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/honey-bella-oak-cyrus.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/honey-bella-oak-cyrus.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/4d8d99c56f0930"
+"file": "o/eda2d61e559b69"
 },
 {
 "brand": "MSI",
@@ -7578,10 +7578,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-jenta-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-jenta-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/9a2ab1eda76ca7"
+"file": "o/987a16463a8e85"
 },
 {
 "brand": "MSI",
@@ -7590,10 +7590,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-kardigan-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-kardigan-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c5556e7e141f72"
+"file": "o/1d7e0eb6ee1904"
 },
 {
 "brand": "MSI",
@@ -7602,10 +7602,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-katella-ash-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-katella-ash-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/ab0de60b508f7f"
+"file": "o/9ed55a000e8ff3"
 },
 {
 "brand": "MSI",
@@ -7614,10 +7614,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-lenexa-creek-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-lenexa-creek-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/0d1b0c550d97c1"
+"file": "o/81cf1899cf92d2"
 },
 {
 "brand": "MSI",
@@ -7626,10 +7626,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-ludlow-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-ludlow-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/e55cf863b14058"
+"file": "o/c75da14feae13a"
 },
 {
 "brand": "MSI",
@@ -7638,10 +7638,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-mezcla-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-mezcla-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/14f34344ae1814"
+"file": "o/f47dcf938287da"
 },
 {
 "brand": "MSI",
@@ -7650,10 +7650,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-runmill-isle-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-runmill-isle-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/15c785caf32557"
+"file": "o/6c9acaf5c7f6c8"
 },
 {
 "brand": "MSI",
@@ -7662,10 +7662,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-ryder-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-ryder-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/49ab50930e648a"
+"file": "o/defe95fd39633a"
 },
 {
 "brand": "MSI",
@@ -7674,10 +7674,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-sandino-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-sandino-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5693bf3abb3871"
+"file": "o/0af480b9b11bc5"
 },
 {
 "brand": "MSI",
@@ -7686,10 +7686,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-stable-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-stable-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/dc1472edd0b9a7"
+"file": "o/a5469c1378c30b"
 },
 {
 "brand": "MSI",
@@ -7698,10 +7698,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-valleyview-grove-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-valleyview-grove-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/79e006a35d6dfe"
+"file": "o/898f1a7a6ea0c7"
 },
 {
 "brand": "MSI",
@@ -7710,10 +7710,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-walnut-waves-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-walnut-waves-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7ce52d8a7efa70"
+"file": "o/07bd04ddc1d6a1"
 },
 {
 "brand": "MSI",
@@ -7722,10 +7722,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-weathered-brina-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-weathered-brina-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/381e1fd343e70a"
+"file": "o/8c24c6eb3efe22"
 },
 {
 "brand": "MSI",
@@ -7734,10 +7734,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-whitfield-gray-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-whitfield-gray-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/12acbbaffde035"
+"file": "o/ac099a8b79e809"
 },
 {
 "brand": "MSI",
@@ -7746,10 +7746,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-woburn-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-woburn-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/f8eab22b6178f5"
+"file": "o/a9439466e9f541"
 },
 {
 "brand": "MSI",
@@ -7758,10 +7758,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-wolfeboro-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-wolfeboro-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7a36e0b13edfe6"
+"file": "o/295cedec52c58f"
 },
 {
 "brand": "MSI",
@@ -7770,10 +7770,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-aged-hickory-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-aged-hickory-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/30c1d2e472d65d"
+"file": "o/8433d65a65dbc9"
 },
 {
 "brand": "MSI",
@@ -7782,10 +7782,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-bleached-elm-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-bleached-elm-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/227ae5e9ed0e17"
+"file": "o/9ec4dd35ba27fd"
 },
 {
 "brand": "MSI",
@@ -7794,10 +7794,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-burnished-acacia-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-burnished-acacia-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/331c10aebf0a48"
+"file": "o/56160cec564054"
 },
 {
 "brand": "MSI",
@@ -7806,10 +7806,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-charcoal-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-charcoal-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/090620f5ca8439"
+"file": "o/3d7eee93d56db3"
 },
 {
 "brand": "MSI",
@@ -7818,10 +7818,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-coastal-mix-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-coastal-mix-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/3760f577eb1266"
+"file": "o/2ba4ab9223fd5d"
 },
 {
 "brand": "MSI",
@@ -7830,10 +7830,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-elmwood-ash-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-elmwood-ash-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/4c20c8ccaa0f28"
+"file": "o/c42328ed213597"
 },
 {
 "brand": "MSI",
@@ -7842,10 +7842,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-jatoba-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-jatoba-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/0ff207c95bd9b7"
+"file": "o/ca97082c18ef52"
 },
 {
 "brand": "MSI",
@@ -7854,10 +7854,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-lime-washed-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-lime-washed-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/23b113d0277366"
+"file": "o/9c951b6c4d5185"
 },
 {
 "brand": "MSI",
@@ -7866,10 +7866,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-midnight-maple-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-midnight-maple-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/6a26ca72393c2a"
+"file": "o/b5ced7802f5415"
 },
 {
 "brand": "MSI",
@@ -7878,10 +7878,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-reclaimed-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-reclaimed-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/13a98ce114b2c3"
+"file": "o/055bfb7926473b"
 },
 {
 "brand": "MSI",
@@ -7890,10 +7890,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-saddle-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-saddle-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/11927c93d049bf"
+"file": "o/8f6e015a0f8ede"
 },
 {
 "brand": "MSI",
@@ -7902,10 +7902,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-tawny-birch-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-tawny-birch-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/f503c0eaa7e7c1"
+"file": "o/79a8d32dc449de"
 },
 {
 "brand": "MSI",
@@ -7914,10 +7914,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-twilight-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-twilight-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7a2cdc395911b7"
+"file": "o/76e787ce56a228"
 },
 {
 "brand": "MSI",
@@ -7926,10 +7926,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/glenridge-woodrift-gray-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-woodrift-gray-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/dafdc4d771c6f5"
+"file": "o/a7c532268d13a0"
 },
 {
 "brand": "MSI",
@@ -7938,10 +7938,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/katavia-bleached-elm-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/katavia-bleached-elm-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/df8b85f691c267"
+"file": "o/6a506ba5248c06"
 },
 {
 "brand": "MSI",
@@ -7950,10 +7950,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/katavia-burnished-acacia-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/katavia-burnished-acacia-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/cb52479dd0ad7a"
+"file": "o/b065f21c4b09b8"
 },
 {
 "brand": "MSI",
@@ -7962,10 +7962,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/katavia-charcoal-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/katavia-charcoal-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5e3fdefbaad708"
+"file": "o/9ed7c9e2313c83"
 },
 {
 "brand": "MSI",
@@ -7974,10 +7974,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/katavia-elmwood-ash-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/katavia-elmwood-ash-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/4b30cdd6d71e27"
+"file": "o/6a5ba67cdaebba"
 },
 {
 "brand": "MSI",
@@ -7986,10 +7986,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/lime-washed-oak-katavia.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/lime-washed-oak-katavia.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/f1da037e3f3068"
+"file": "o/c77a0585c94f26"
 },
 {
 "brand": "MSI",
@@ -7998,10 +7998,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/katavia-reclaimed-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/katavia-reclaimed-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/f420c1875077cb"
+"file": "o/06fc92fa5a70a2"
 },
 {
 "brand": "MSI",
@@ -8010,10 +8010,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/katavia-twilight-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/katavia-twilight-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/6a8899ef8fbce8"
+"file": "o/09852cb5804f1c"
 },
 {
 "brand": "MSI",
@@ -8022,10 +8022,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/katavia-woodrift-gray-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/katavia-woodrift-gray-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7857e46cac80fd"
+"file": "o/98346d38ffb384"
 },
 {
 "brand": "MSI",
@@ -8034,10 +8034,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-akadia-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-akadia-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/20a9a3de5efcf0"
+"file": "o/586eb0940f5ab1"
 },
 {
 "brand": "MSI",
@@ -8046,10 +8046,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/amber-forrester-prescott.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/amber-forrester-prescott.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/0f363b8dce5c7e"
+"file": "o/399a7e7d6b2c0a"
 },
 {
 "brand": "MSI",
@@ -8058,10 +8058,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-austell-grove-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-austell-grove-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5da788119e5473"
+"file": "o/c2158f76b62f2e"
 },
 {
 "brand": "MSI",
@@ -8070,10 +8070,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/barnstorm-prescott.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/barnstorm-prescott.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c0398a5db2c071"
+"file": "o/e2ea30e18185f4"
 },
 {
 "brand": "MSI",
@@ -8082,10 +8082,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-barrel-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-barrel-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5ce4516ad48798"
+"file": "o/6d07fdce8b6efd"
 },
 {
 "brand": "MSI",
@@ -8094,10 +8094,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-bembridge-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-bembridge-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7f26849d5c804e"
+"file": "o/9aea6465262bd4"
 },
 {
 "brand": "MSI",
@@ -8106,10 +8106,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-billingham-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-billingham-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/df64f0c5133519"
+"file": "o/67b71a9ab4d64b"
 },
 {
 "brand": "MSI",
@@ -8118,10 +8118,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-boswell-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-boswell-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/06af4bfce64cef"
+"file": "o/1df1143745fffa"
 },
 {
 "brand": "MSI",
@@ -8130,10 +8130,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-bracken-hill-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-bracken-hill-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a4b62e991b406c"
+"file": "o/37aa03c82eb536"
 },
 {
 "brand": "MSI",
@@ -8142,10 +8142,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-braly-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-braly-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/f8bc5219580d5f"
+"file": "o/7a40be0f9704fc"
 },
 {
 "brand": "MSI",
@@ -8154,10 +8154,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-brianka-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-brianka-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/183e2b2efb567f"
+"file": "o/7f6d34076d7a56"
 },
 {
 "brand": "MSI",
@@ -8166,10 +8166,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/brookings-prescott.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/brookings-prescott.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/837039873c4cbf"
+"file": "o/d2fb77732eb918"
 },
 {
 "brand": "MSI",
@@ -8178,10 +8178,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-brookline-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-brookline-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/07d7fcf2e02ffa"
+"file": "o/d6c220a4274d23"
 },
 {
 "brand": "MSI",
@@ -8190,10 +8190,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-chester-hills-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-chester-hills-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/ec126ba9cb0758"
+"file": "o/f26b0c26a20318"
 },
 {
 "brand": "MSI",
@@ -8202,10 +8202,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-cranton-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-cranton-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c00cf53a44f56a"
+"file": "o/70dfb8bb771328"
 },
 {
 "brand": "MSI",
@@ -8214,10 +8214,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-draven-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-draven-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/62fc14fd0816e9"
+"file": "o/fde52d9f1337e9"
 },
 {
 "brand": "MSI",
@@ -8226,10 +8226,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/dulles-tails-prescott.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/dulles-tails-prescott.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/19a3d113a650ef"
+"file": "o/04bf7882ff724b"
 },
 {
 "brand": "MSI",
@@ -8238,10 +8238,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-dunite-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-dunite-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7b2382d63a1a35"
+"file": "o/129a0f8a25d6a4"
 },
 {
 "brand": "MSI",
@@ -8250,10 +8250,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-exotika-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-exotika-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/cc81840ce0e3d3"
+"file": "o/291c2a296237d4"
 },
 {
 "brand": "MSI",
@@ -8262,10 +8262,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-fauna-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-fauna-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/b845e8bb29298f"
+"file": "o/f9f342037d0bc5"
 },
 {
 "brand": "MSI",
@@ -8274,10 +8274,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-finely-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-finely-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/91881278eca6cf"
+"file": "o/83ff7d870d822a"
 },
 {
 "brand": "MSI",
@@ -8286,10 +8286,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-grayton-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-grayton-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/15d7b7548ff058"
+"file": "o/91bf8b94874b36"
 },
 {
 "brand": "MSI",
@@ -8298,10 +8298,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-hawthorne-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-hawthorne-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/8793bfd035ed93"
+"file": "o/2a6e3ec99048e6"
 },
 {
 "brand": "MSI",
@@ -8310,10 +8310,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/honey-bella-oak-prescott.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/honey-bella-oak-prescott.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/309580c39f0ad7"
+"file": "o/48475147d3ac1b"
 },
 {
 "brand": "MSI",
@@ -8322,10 +8322,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-jenta-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-jenta-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/b015b00b3cd70b"
+"file": "o/40b0de7ade0e97"
 },
 {
 "brand": "MSI",
@@ -8334,10 +8334,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-kardigan-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-kardigan-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c5579315f2dd3a"
+"file": "o/bbd43097b69249"
 },
 {
 "brand": "MSI",
@@ -8346,10 +8346,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-katella-ash-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-katella-ash-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/0f54eb16d6872e"
+"file": "o/9128b468570e8f"
 },
 {
 "brand": "MSI",
@@ -8358,10 +8358,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-lenexa-creek-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-lenexa-creek-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/f723053ec61dfa"
+"file": "o/1eb54c87603bd9"
 },
 {
 "brand": "MSI",
@@ -8370,10 +8370,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/cyrus-ludlow-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/cyrus-ludlow-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/62a013c37f6c48"
+"file": "o/7501456a738884"
 },
 {
 "brand": "MSI",
@@ -8382,10 +8382,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-mezcla-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-mezcla-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5be40f53548cb3"
+"file": "o/d4cfe0ef693549"
 },
 {
 "brand": "MSI",
@@ -8394,10 +8394,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-runmill-isle-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-runmill-isle-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/d1122deb1cfa21"
+"file": "o/b5d27fcfba8214"
 },
 {
 "brand": "MSI",
@@ -8406,10 +8406,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-ryder-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-ryder-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7ac56653027329"
+"file": "o/d30a23c3baa3ee"
 },
 {
 "brand": "MSI",
@@ -8418,10 +8418,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-sandino-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-sandino-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/1ab5e24b89fdcf"
+"file": "o/b5457fcf40b783"
 },
 {
 "brand": "MSI",
@@ -8430,10 +8430,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-stable-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-stable-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/52570966ec34ba"
+"file": "o/3f027b050c5ee7"
 },
 {
 "brand": "MSI",
@@ -8442,10 +8442,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-valleyview-grove-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-valleyview-grove-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/dade50606caabe"
+"file": "o/57114872a630fe"
 },
 {
 "brand": "MSI",
@@ -8454,10 +8454,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-walnut-waves-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-walnut-waves-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7ad9a5585e59ef"
+"file": "o/b27c48850403eb"
 },
 {
 "brand": "MSI",
@@ -8466,10 +8466,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-weathered-brina-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-weathered-brina-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a0e1b819c943e7"
+"file": "o/1b3df9d51085d3"
 },
 {
 "brand": "MSI",
@@ -8478,10 +8478,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-whitfield-gray-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-whitfield-gray-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/d35f8edd94b4e5"
+"file": "o/a12039c17c6af0"
 },
 {
 "brand": "MSI",
@@ -8490,10 +8490,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-woburn-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-woburn-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/b6f61cfb20f230"
+"file": "o/cc78444fac901e"
 },
 {
 "brand": "MSI",
@@ -8502,10 +8502,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/prescott-wolfeboro-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-wolfeboro-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a4424ebf45b7b6"
+"file": "o/7cb37ae214c8f2"
 },
 {
 "brand": "MSI",
@@ -8514,10 +8514,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/bleached-elm-wilmont.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/bleached-elm-wilmont.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/e8f0611e81412a"
+"file": "o/76150356e5447b"
 },
 {
 "brand": "MSI",
@@ -8526,10 +8526,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/wilmont-burnished-acacia-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/wilmont-burnished-acacia-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/6ce651992b9a55"
+"file": "o/7dc2abc0a090b3"
 },
 {
 "brand": "MSI",
@@ -8538,10 +8538,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/wilmont-charcoal-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/wilmont-charcoal-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/93833e7f1f6aa8"
+"file": "o/a120aa2b54b7cb"
 },
 {
 "brand": "MSI",
@@ -8550,10 +8550,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/wilmont-elmwood-ash-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/wilmont-elmwood-ash-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5111ff98b39612"
+"file": "o/4a358eccee11db"
 },
 {
 "brand": "MSI",
@@ -8562,10 +8562,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/wilmont-lime-washed-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/wilmont-lime-washed-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/0c6b5adffde13a"
+"file": "o/7104e7b9e84b24"
 },
 {
 "brand": "MSI",
@@ -8574,10 +8574,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/wilmont-reclaimed-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/wilmont-reclaimed-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7a6f0af0bee174"
+"file": "o/86048092ad2e60"
 },
 {
 "brand": "MSI",
@@ -8586,10 +8586,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/wilmont-twilight-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/wilmont-twilight-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/aefda8305fddeb"
+"file": "o/1b24a7f325800f"
 },
 {
 "brand": "MSI",
@@ -8598,10 +8598,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/wilmont-woodrift-gray-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/wilmont-woodrift-gray-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5a19f76d204bd1"
+"file": "o/0c09e3cc981e33"
 },
 {
 "brand": "MSI",
@@ -8610,10 +8610,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-ashton-bergen-hill-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-ashton-bergen-hill-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5bd90f151b4db2"
+"file": "o/d2cebc74135225"
 },
 {
 "brand": "MSI",
@@ -8622,10 +8622,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-ashton-colston-hill-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-ashton-colston-hill-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/edad8121b65569"
+"file": "o/470bb8010c84f3"
 },
 {
 "brand": "MSI",
@@ -8634,10 +8634,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-ashton-loton-hill-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-ashton-loton-hill-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/200f04766e815c"
+"file": "o/69fce41dfe85d7"
 },
 {
 "brand": "MSI",
@@ -8646,10 +8646,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-ashton-maracay-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-ashton-maracay-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/4c502455881f60"
+"file": "o/16227a3996ba62"
 },
 {
 "brand": "MSI",
@@ -8658,10 +8658,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-ashton-york-gray-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-ashton-york-gray-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/233837e83578d8"
+"file": "o/77b292da669f2a"
 },
 {
 "brand": "MSI",
@@ -8670,10 +8670,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-akadia-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-akadia-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/f04f84117f3700"
+"file": "o/637c9de30e62af"
 },
 {
 "brand": "MSI",
@@ -8682,10 +8682,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/amber-forrester-xl-cyrus.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/amber-forrester-xl-cyrus.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/095582802bc9e7"
+"file": "o/1d4f667a28cf83"
 },
 {
 "brand": "MSI",
@@ -8694,10 +8694,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-austell-grove-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-austell-grove-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/ca930eb6ef2d4a"
+"file": "o/147226e9f91f93"
 },
 {
 "brand": "MSI",
@@ -8706,10 +8706,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/barnstorm-xl-cyrus.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/barnstorm-xl-cyrus.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/963e49f00a9f99"
+"file": "o/d0463bc2e0e736"
 },
 {
 "brand": "MSI",
@@ -8718,10 +8718,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-barrell-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-barrell-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a9a46337f9d78a"
+"file": "o/e1d9bb7fd8ec5c"
 },
 {
 "brand": "MSI",
@@ -8730,10 +8730,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-bembridge-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-bembridge-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/4a61d9d52813c8"
+"file": "o/64be2f3dff6cfb"
 },
 {
 "brand": "MSI",
@@ -8742,10 +8742,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xlcyrus-billingham-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xlcyrus-billingham-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/cf08b2717e0237"
+"file": "o/1552406c92cac1"
 },
 {
 "brand": "MSI",
@@ -8754,10 +8754,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xlcyrus-boswell-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xlcyrus-boswell-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/424bd1cf87aab1"
+"file": "o/7ded70a3748b4d"
 },
 {
 "brand": "MSI",
@@ -8766,10 +8766,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xlcyrus-bracken-hill-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xlcyrus-bracken-hill-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/3d0ce785065c61"
+"file": "o/dbd1bd5e1e2505"
 },
 {
 "brand": "MSI",
@@ -8778,10 +8778,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-braly-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-braly-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/cf3f4bceb213aa"
+"file": "o/477f4557fe0db9"
 },
 {
 "brand": "MSI",
@@ -8790,10 +8790,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-brianka-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-brianka-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/75a11700df103f"
+"file": "o/fd803658fc5b86"
 },
 {
 "brand": "MSI",
@@ -8802,10 +8802,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/brookings-xl-cyrus.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/brookings-xl-cyrus.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/991ed09367ad6c"
+"file": "o/6e05b2734b3b86"
 },
 {
 "brand": "MSI",
@@ -8814,10 +8814,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-brookline-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-brookline-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/025fba1531e287"
+"file": "o/b19d0b76558032"
 },
 {
 "brand": "MSI",
@@ -8826,10 +8826,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-chester-hills-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-chester-hills-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c21d2bcfdcb06f"
+"file": "o/9c9c92d8853d06"
 },
 {
 "brand": "MSI",
@@ -8838,10 +8838,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xlcyrus-cranton-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xlcyrus-cranton-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/8be0fb9883a4ed"
+"file": "o/017e13d67e1f78"
 },
 {
 "brand": "MSI",
@@ -8850,10 +8850,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xlcyrus-draven-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xlcyrus-draven-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/31a68817691bfe"
+"file": "o/9406804b6683f2"
 },
 {
 "brand": "MSI",
@@ -8862,10 +8862,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/dulles-tails-xl-cyrus.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/dulles-tails-xl-cyrus.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c94f6721f11747"
+"file": "o/0680ae6bcd1b8b"
 },
 {
 "brand": "MSI",
@@ -8874,10 +8874,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-dunite-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-dunite-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/ddc3357e0fe76d"
+"file": "o/f4779cdf32ba2d"
 },
 {
 "brand": "MSI",
@@ -8886,10 +8886,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-exotika-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-exotika-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7a59d9bfb66174"
+"file": "o/b8db97c115e352"
 },
 {
 "brand": "MSI",
@@ -8898,10 +8898,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-fauna-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-fauna-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/13d2f094fb8808"
+"file": "o/553d3bbd8e9cf1"
 },
 {
 "brand": "MSI",
@@ -8910,10 +8910,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-finely-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-finely-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a6ebf9c090f381"
+"file": "o/a35ddca49cdc90"
 },
 {
 "brand": "MSI",
@@ -8922,10 +8922,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-grayton-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-grayton-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/82db25eafc4bad"
+"file": "o/83e2f2d658663e"
 },
 {
 "brand": "MSI",
@@ -8934,10 +8934,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-hawthorne-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-hawthorne-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c72c0ca8989681"
+"file": "o/bbfbd88d4c7297"
 },
 {
 "brand": "MSI",
@@ -8946,10 +8946,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/honey-bella-oak-xl-cyrus.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/honey-bella-oak-xl-cyrus.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/3a680fa81f3197"
+"file": "o/4599ab5e62a25f"
 },
 {
 "brand": "MSI",
@@ -8958,10 +8958,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xlcyrus-jenta-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xlcyrus-jenta-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/9b36447e34aa28"
+"file": "o/1c06a7b4c4c608"
 },
 {
 "brand": "MSI",
@@ -8970,10 +8970,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-kardigan-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-kardigan-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/5c9d83030c111f"
+"file": "o/5d03973ceee206"
 },
 {
 "brand": "MSI",
@@ -8982,10 +8982,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-katella-ash-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-katella-ash-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/891faeb801f082"
+"file": "o/e7b6d0f84878d6"
 },
 {
 "brand": "MSI",
@@ -8994,10 +8994,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-lenexa-creek-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-lenexa-creek-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/795d64b8e3e1c6"
+"file": "o/b5fcd0c32a0280"
 },
 {
 "brand": "MSI",
@@ -9006,10 +9006,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-ludlow-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-ludlow-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7a6f6332b51d17"
+"file": "o/3b835e31c2bc92"
 },
 {
 "brand": "MSI",
@@ -9018,10 +9018,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-mezcla-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-mezcla-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/d26e82d7af2243"
+"file": "o/dbc76c85957c85"
 },
 {
 "brand": "MSI",
@@ -9030,10 +9030,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-runmill-isle-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-runmill-isle-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/2c5db6afbf257c"
+"file": "o/123b6f7a0c3b80"
 },
 {
 "brand": "MSI",
@@ -9042,10 +9042,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-ryder-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-ryder-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7d7af7b971cc87"
+"file": "o/83e8df69baa89a"
 },
 {
 "brand": "MSI",
@@ -9054,10 +9054,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-sandino-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-sandino-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/ab46f9b0ccc4a3"
+"file": "o/faaf11605e88fb"
 },
 {
 "brand": "MSI",
@@ -9066,10 +9066,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-stable-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-stable-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/2a54af6241da6f"
+"file": "o/cdc80771d5f4c6"
 },
 {
 "brand": "MSI",
@@ -9078,10 +9078,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-valleyview-grove-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-valleyview-grove-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a1cbc867ce8be0"
+"file": "o/7fbce66db45337"
 },
 {
 "brand": "MSI",
@@ -9090,10 +9090,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-walnut-waves-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-walnut-waves-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/7bdb54141b81a0"
+"file": "o/0b7ab2b2c70223"
 },
 {
 "brand": "MSI",
@@ -9102,10 +9102,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-weathered-brina-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-weathered-brina-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/0b20697dff4486"
+"file": "o/69f159b28bdde9"
 },
 {
 "brand": "MSI",
@@ -9114,10 +9114,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-cyrus-whitfield-gray-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-cyrus-whitfield-gray-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/95d69f0d8c449f"
+"file": "o/3a8fb59de74e0e"
 },
 {
 "brand": "MSI",
@@ -9126,10 +9126,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xlcyrus-woburn-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xlcyrus-woburn-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/79f86601f245cb"
+"file": "o/7c03c54d834f23"
 },
 {
 "brand": "MSI",
@@ -9138,10 +9138,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xlcyrus-wolfeboro-vinyl-plank-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xlcyrus-wolfeboro-vinyl-plank-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/cbcc17d928bc91"
+"file": "o/b84502ec2fb9f6"
 },
 {
 "brand": "MSI",
@@ -9150,10 +9150,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-akadia-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-akadia-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/e9f9549564aded"
+"file": "o/f03144fceab3eb"
 },
 {
 "brand": "MSI",
@@ -9162,10 +9162,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/amber-forrester-xl-prescott.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/amber-forrester-xl-prescott.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a6c21a1dcbf443"
+"file": "o/715f5f3ffb1f96"
 },
 {
 "brand": "MSI",
@@ -9174,10 +9174,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-austell-grove-vinyl-flooring-a.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-austell-grove-vinyl-flooring-a.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/72e6520437e8f3"
+"file": "o/b700b6549c67e0"
 },
 {
 "brand": "MSI",
@@ -9186,10 +9186,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/barnstorm-xl-prescott.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/barnstorm-xl-prescott.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/f2392aedb104bc"
+"file": "o/1aafc49405b80a"
 },
 {
 "brand": "MSI",
@@ -9198,10 +9198,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-barrell-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-barrell-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/ce196ca3d07f2b"
+"file": "o/805f6cdc8564bf"
 },
 {
 "brand": "MSI",
@@ -9210,10 +9210,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-bembridge-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-bembridge-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c461449ea27af0"
+"file": "o/fc6861e637cb3c"
 },
 {
 "brand": "MSI",
@@ -9222,10 +9222,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-billingham-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-billingham-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/90615dec0c5bc1"
+"file": "o/ef69bf19938cd8"
 },
 {
 "brand": "MSI",
@@ -9234,10 +9234,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-boswell-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-boswell-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/fa7e9c0dc6e56b"
+"file": "o/16c440df7b2335"
 },
 {
 "brand": "MSI",
@@ -9246,10 +9246,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-bracken-hill-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-bracken-hill-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/39bb18e2038f0b"
+"file": "o/d4f9e2d86719bd"
 },
 {
 "brand": "MSI",
@@ -9258,10 +9258,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-braly-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-braly-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/3412a7b486bbbc"
+"file": "o/769e4c3cd5f49c"
 },
 {
 "brand": "MSI",
@@ -9270,10 +9270,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-brianka-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-brianka-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/141c96c58bd2bd"
+"file": "o/9b4757cdcf4e22"
 },
 {
 "brand": "MSI",
@@ -9282,10 +9282,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/brookings-xl-prescott.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/brookings-xl-prescott.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/499effdf4bf236"
+"file": "o/17e25dbe943d0c"
 },
 {
 "brand": "MSI",
@@ -9294,10 +9294,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-brookline-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-brookline-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/734d2a6eccc51a"
+"file": "o/b6b2b0d178115e"
 },
 {
 "brand": "MSI",
@@ -9306,10 +9306,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-chester-hills-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-chester-hills-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/b86e4d06a1602a"
+"file": "o/078686ee8c4619"
 },
 {
 "brand": "MSI",
@@ -9318,10 +9318,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-cranton-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-cranton-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/a23042121e3455"
+"file": "o/b7389e84c2dfd9"
 },
 {
 "brand": "MSI",
@@ -9330,10 +9330,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-draven-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-draven-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/417659020836b0"
+"file": "o/40c60ba403f222"
 },
 {
 "brand": "MSI",
@@ -9342,10 +9342,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/dulles-tails-xl-prescott.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/dulles-tails-xl-prescott.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/cc0262b8a4fcce"
+"file": "o/fa4b32fd72dbd0"
 },
 {
 "brand": "MSI",
@@ -9354,10 +9354,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-dunite-oak-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-dunite-oak-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/022099a2418c25"
+"file": "o/9da2ad59d47785"
 },
 {
 "brand": "MSI",
@@ -9366,10 +9366,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-exotika-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-exotika-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/56d6c322f3e43f"
+"file": "o/d35be75c517c9c"
 },
 {
 "brand": "MSI",
@@ -9378,10 +9378,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-fauna-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-fauna-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/6e1ccaf7e5d15c"
+"file": "o/67b3f8f29837f0"
 },
 {
 "brand": "MSI",
@@ -9390,10 +9390,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-finely-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-finely-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/3c06952f334233"
+"file": "o/e074627d3657c2"
 },
 {
 "brand": "MSI",
@@ -9402,10 +9402,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-grayton-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-grayton-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/97a509909f484e"
+"file": "o/e3744a6ea3dbc1"
 },
 {
 "brand": "MSI",
@@ -9414,10 +9414,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-hawthorne-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-hawthorne-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/fe370c0ce6b146"
+"file": "o/812770fffd595e"
 },
 {
 "brand": "MSI",
@@ -9426,10 +9426,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/honey-bella-oak-xl-prescott.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/honey-bella-oak-xl-prescott.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/48b17625522a05"
+"file": "o/b3a9f3367cdf74"
 },
 {
 "brand": "MSI",
@@ -9438,10 +9438,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-jenta-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-jenta-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/8ab627e7e60e53"
+"file": "o/9b275b1e216367"
 },
 {
 "brand": "MSI",
@@ -9450,10 +9450,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-kardigan-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-kardigan-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c27df13f852751"
+"file": "o/c11672264fe205"
 },
 {
 "brand": "MSI",
@@ -9462,10 +9462,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-katella-ash-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-katella-ash-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/88c69e49eda759"
+"file": "o/628a33b655515e"
 },
 {
 "brand": "MSI",
@@ -9474,10 +9474,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-lenexa-creek-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-lenexa-creek-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/b7545334202cf5"
+"file": "o/f89585e414e9c1"
 },
 {
 "brand": "MSI",
@@ -9486,10 +9486,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-ludlow-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-ludlow-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/763e933f7b6b9c"
+"file": "o/3ec762e3fc3d2c"
 },
 {
 "brand": "MSI",
@@ -9498,10 +9498,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-mezcla-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-mezcla-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/1eed4faf98bcd7"
+"file": "o/0654228276a7d5"
 },
 {
 "brand": "MSI",
@@ -9510,10 +9510,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-runmill-isle-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-runmill-isle-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/182a2ae17731fd"
+"file": "o/4a24ce5225a004"
 },
 {
 "brand": "MSI",
@@ -9522,10 +9522,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-ryder-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-ryder-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/c0b216f8a1b7cc"
+"file": "o/c8ec29b77bc73d"
 },
 {
 "brand": "MSI",
@@ -9534,10 +9534,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-sandino-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-sandino-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/00a0d8ca695d13"
+"file": "o/8b9055d556fef3"
 },
 {
 "brand": "MSI",
@@ -9546,10 +9546,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-valleyview-grove-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-valleyview-grove-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/1695ae804e5525"
+"file": "o/ae6e285a1c292a"
 },
 {
 "brand": "MSI",
@@ -9558,10 +9558,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-walnut-waves-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-walnut-waves-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/9e4f8861abaccf"
+"file": "o/0316cdceb41906"
 },
 {
 "brand": "MSI",
@@ -9570,10 +9570,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-weathered-brina-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-weathered-brina-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/b21a2aab60dbfa"
+"file": "o/0cbd2276ea337c"
 },
 {
 "brand": "MSI",
@@ -9582,10 +9582,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-whitfield-gray-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-whitfield-gray-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/08327120645e94"
+"file": "o/f9d686d0e13c25"
 },
 {
 "brand": "MSI",
@@ -9594,10 +9594,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-woburn-abbey-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-woburn-abbey-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/15e04e30edd2a6"
+"file": "o/ade98f5ccee031"
 },
 {
 "brand": "MSI",
@@ -9606,10 +9606,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/xl-prescott-wolfeboro-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-prescott-wolfeboro-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "wood",
-"file": "o/981d02b6c310ca"
+"file": "o/9b3b899b0e92ba"
 },
 {
 "brand": "MSI",
@@ -9618,10 +9618,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/calcatta-legend-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/calcatta-legend-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/4fe3c7f1fed965"
+"file": "o/4d80ba600a871e"
 },
 {
 "brand": "MSI",
@@ -9630,10 +9630,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/calcatta-marbella-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/calcatta-marbella-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/d95202b696e009"
+"file": "o/27a2777f7103c7"
 },
 {
 "brand": "MSI",
@@ -9642,10 +9642,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/calcatta-serra-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/calcatta-serra-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/23563439ae6f91"
+"file": "o/2f0f1f925e2b54"
 },
 {
 "brand": "MSI",
@@ -9654,10 +9654,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/calcatta-venosa-gold-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/calcatta-venosa-gold-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/27ff0756cebb6a"
+"file": "o/976a604c6e3917"
 },
 {
 "brand": "MSI",
@@ -9666,10 +9666,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/carrara-avell-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/carrara-avell-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/240888e7d9f229"
+"file": "o/e6a0350b8038bb"
 },
 {
 "brand": "MSI",
@@ -9678,10 +9678,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/ivorelle-trecento.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/ivorelle-trecento.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/dcb8baf6b99536"
+"file": "o/d3d84ce4a7e1a8"
 },
 {
 "brand": "MSI",
@@ -9690,10 +9690,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/mountains-gray-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/mountains-gray-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/60e15bff4c7319"
+"file": "o/17b669d8115eb0"
 },
 {
 "brand": "MSI",
@@ -9702,10 +9702,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/quarzo-taj-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/quarzo-taj-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/241194d1a78418"
+"file": "o/b812ed17ada4ed"
 },
 {
 "brand": "MSI",
@@ -9714,10 +9714,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/stormbound-trecento.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/stormbound-trecento.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/3d95c8171cf15e"
+"file": "o/335bab25500d0b"
 },
 {
 "brand": "MSI",
@@ -9726,10 +9726,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/white-ocean-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/white-ocean-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/151dd3e47e051b"
+"file": "o/2266a283bda54b"
 },
 {
 "brand": "MSI",
@@ -9738,10 +9738,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/windsor-crest-trecento-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/windsor-crest-trecento-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/748b26b8d05082"
+"file": "o/4c8e71580a195e"
 },
 {
 "brand": "MSI",
@@ -9750,10 +9750,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/windsor-isle-trecento-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/windsor-isle-trecento-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/5dddf8bff1c005"
+"file": "o/624c77727e8725"
 },
 {
 "brand": "MSI",
@@ -9762,10 +9762,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/calacatta-legend-xl-trecento-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/calacatta-legend-xl-trecento-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/1ccdddb3a4b2b3"
+"file": "o/ada64f750dba08"
 },
 {
 "brand": "MSI",
@@ -9774,10 +9774,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/calacatta-marbello-xl-trecento-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/calacatta-marbello-xl-trecento-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/2c4c518afd666b"
+"file": "o/ed4afc6698f302"
 },
 {
 "brand": "MSI",
@@ -9786,10 +9786,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/calacatta-serra-xl-trecento-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/calacatta-serra-xl-trecento-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/ac8ca29700469f"
+"file": "o/55e9fe521a346f"
 },
 {
 "brand": "MSI",
@@ -9798,10 +9798,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/calacatta-venosa-gold-xl-trecento-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/calacatta-venosa-gold-xl-trecento-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/80cc7d6c4db80f"
+"file": "o/5a82ee54913110"
 },
 {
 "brand": "MSI",
@@ -9810,10 +9810,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/carrara-avell-xl-trecento-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/carrara-avell-xl-trecento-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/7509fc3b1e5f15"
+"file": "o/f02a759f6a611d"
 },
 {
 "brand": "MSI",
@@ -9822,10 +9822,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/ivorelle-xl-trecento.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/ivorelle-xl-trecento.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/39c7d34d4b1027"
+"file": "o/8aed8ec9b0173d"
 },
 {
 "brand": "MSI",
@@ -9834,10 +9834,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/kenzzi-taza-xl-trecento-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/kenzzi-taza-xl-trecento-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/b4978ea6f745b9"
+"file": "o/3b60b8ad1ad702"
 },
 {
 "brand": "MSI",
@@ -9846,10 +9846,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/mountains-gray-xl-trecento-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/mountains-gray-xl-trecento-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/7efafec5574a7c"
+"file": "o/05860df7b0ca3b"
 },
 {
 "brand": "MSI",
@@ -9858,10 +9858,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/quarzo-taj-xl-trecento-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/quarzo-taj-xl-trecento-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/0d95c2cf4d495b"
+"file": "o/eb31aacc065754"
 },
 {
 "brand": "MSI",
@@ -9870,10 +9870,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/colornames/thumbnails/stormbound-xl-trecento.jpg",
+"img": "https://cdn.msisurfaces.com/images/colornames/stormbound-xl-trecento.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/4be320b6d76add"
+"file": "o/2d749a87c60ee1"
 },
 {
 "brand": "MSI",
@@ -9882,10 +9882,10 @@
 "code": "",
 "type": "vinyl plank",
 "install": "",
-"img": "https://cdn.msisurfaces.com/images/lvt/thumbnails/white-ocean-xl-trecento-vinyl-flooring.jpg",
+"img": "https://cdn.msisurfaces.com/images/lvt/detail/white-ocean-xl-trecento-vinyl-flooring.jpg",
 "pic": "msi",
 "look": "tile",
-"file": "o/96b52daaedc866"
+"file": "o/5ef2aa9761acd9"
 },
 {
 "brand": "Mercier",

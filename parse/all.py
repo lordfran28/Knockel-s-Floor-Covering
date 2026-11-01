@@ -141,7 +141,9 @@ for c in ["acclima", "andover", "ashton-2", "ashton", "cyrus-2", "cyrus", "glenr
     for i in page("msi-" + c)["imgs"]:
         m = re.search(r"/%s/%s/([a-z0-9-]+)/?$" % (base, c), i["near"])
         if m and i["src"] and not i["src"].endswith(".svg") and m.group(1) not in got:
-            got[m.group(1)] = i["src"].replace("/thumbnails/", "/") if MSI_BIG else i["src"]
+            u = i["src"]
+            u = u.replace("/lvt/thumbnails/", "/lvt/detail/").replace("/colornames/thumbnails/", "/colornames/")
+            got[m.group(1)] = u
     coll = "Everlife " + MSI_NAMES.get(c, title(c))
     for color, img in sorted(got.items()):
         add(brand="MSI", collection=coll, name=title(color), code="", type="vinyl plank", install="",
