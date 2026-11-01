@@ -1149,3 +1149,6 @@ stock/fc-happy-feet-international-titan-7-x-48-vi-9 https://cdn.shopify.com/s/fi
 stock/msi-bali-front https://cdn.msisurfaces.com/images/lvt/front/bali-buff-6.5x48.jpg
 stock/msi-bali-detail https://cdn.msisurfaces.com/images/lvt/detail/bali-buff.jpg
 stock/ef-windy-gap-0 https://cdn.shopify.com/s/files/1/1506/6562/files/201786_source_1665431225.jpg
+stock/ef-hemlock-trail-0 https://cdn.shopify.com/s/files/1/1506/6562/files/201787_source_1665431247.jpg
+stock/ef-cannons-point-0 https://cdn.shopify.com/s/files/1/1506/6562/files/201788_source_1665431266.jpg
+stock/ef-maulden-wood-0 https://cdn.shopify.com/s/files/1/1506/6562/files/201793_source_1665431428.jpg
