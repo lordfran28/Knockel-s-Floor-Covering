@@ -379,7 +379,7 @@
     if (!(f.photo && f.photo.image)){ say("There’s no picture of this floor yet. Call and we’ll show you the sample."); return; }
     S.floor = f;
     var lk = layoutOf(f).kind;
-    $("turn").textContent = lk === 1 || (f.type === "look" && f.look === "wood") ? "Turn the planks" : lk === 2 ? "Turn the tiles" : "Turn the pattern";
+    $("turn").textContent = lk === 1 || (f.type === "look" && f.look === "wood") || (!lk && /plank|laminate|hardwood/.test(f.type)) ? "Turn the planks" : lk === 2 ? "Turn the tiles" : "Turn the pattern";
     if (cache[f.id]){ f.ready = true; bindFloor(cache[f.id], f); return; }
     f.ready = false; redraw();
     var img = new Image();

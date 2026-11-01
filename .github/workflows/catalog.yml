@@ -3,7 +3,7 @@ name: Catalog
 on:
   push:
     branches: [main]
-    paths: ["inventory.csv", "sales.csv", "tools/inventory.py"]
+    paths: ["inventory.csv", "special-order.csv", "sales.csv", "tools/inventory.py"]
   workflow_dispatch:
 permissions:
   contents: write

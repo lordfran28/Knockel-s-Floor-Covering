@@ -38,6 +38,13 @@ you don't know them. Columns (any order, any capitalisation):
     grout_in         0.125
     grout_color      #BDB6AA
     id               (made from brand, collection and name when blank)
+    code             MPB821                       (the maker's item number)
+    layout           roll                         (lay the photo as one repeating picture, whatever the floor)
+    photo_from       maker                        (the maker's own picture: no cutting out or evening the light)
+    repeat           mirror | blend               (how a repeating picture meets itself at the edges)
+
+special-order.csv (optional) has the same columns for floors that are ordered, not kept in the store
+(the makers' current colors of the lines on display). They show as "Special order", by brand and collection.
 
 sales.csv (optional) holds sales for many floors at once: name, brand, type, install, in_stock_only,
 percent, starts, ends. Blank columns match everything, so "Mohawk, carpet, 15" is 15% off every
@@ -51,6 +58,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, ".."))
 CATALOG = os.path.join(ROOT, "catalog.json")
 FLOORS = "assets/floors"
+ORDER_FLOORS = "assets/floors/order"   # pictures of the floors to order; ones no longer listed are deleted
 
 TYPES = {
     "carpet": "carpet", "carpets": "carpet", "rug": "carpet",
@@ -165,7 +173,7 @@ def product(r, brands):
         if r.get("sale_ends"):
             s["ends"] = day(r["sale_ends"])
         p["sale"] = s
-    layout = LAYOUT[t]
+    layout = r.get("layout", "").lower() if r.get("layout", "").lower() in ("roll", "plank", "tile") else LAYOUT[t]
     ph = {"layout": layout}
     if layout == "roll":
         ph["widthIn"] = num(r.get("sample_width_in")) or 18
@@ -182,6 +190,8 @@ def product(r, brands):
     p["photo"] = ph
     if r.get("notes"):
         p["notes"] = r["notes"]
+    if r.get("code"):
+        p["code"] = r["code"]
     return p
 
 
@@ -207,6 +217,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--inventory", default=os.path.join(ROOT, "inventory.csv"))
     ap.add_argument("--sales", default=os.path.join(ROOT, "sales.csv"))
+    ap.add_argument("--orders", default=os.path.join(ROOT, "special-order.csv"))
     ap.add_argument("--photos", help="folder holding the photos named in the photo column")
     ap.add_argument("--drop-looks", action="store_true", help="take the sample looks out of the room tool")
     a = ap.parse_args()
@@ -218,13 +229,19 @@ def main():
     looks = [] if a.drop_looks else [p for p in old.get("products", []) if p.get("type") == "look"]
 
     products, problems, seen = [], [], set()
-    if os.path.exists(a.inventory):
-        for line, r in rows(a.inventory):
+    sources = [(a.inventory, False), (a.orders, True)]
+    for path, order in sources:
+        if not os.path.exists(path):
+            continue
+        for line, r in rows(path):
             try:
                 p = product(r, brands)
             except ValueError as e:
-                problems.append("inventory.csv line %d: %s" % (line, e))
+                problems.append("%s line %d: %s" % (os.path.basename(path), line, e))
                 continue
+            if order:
+                p.pop("inStock", None)
+                p["order"] = True
             base, n = p["id"], 2
             while p["id"] in seen:
                 p["id"], n = "%s-%d" % (base, n), n + 1
@@ -233,7 +250,10 @@ def main():
             prev = before.get(p["id"], {}).get("photo", {})
             if src and a.photos and os.path.exists(os.path.join(a.photos, src)):
                 from photo_prep import prepare
-                info = prepare(os.path.join(a.photos, src), p["id"], p["photo"], ROOT, FLOORS)
+                small = {"cap": 800, "thumb": 300, "quality": 74} if order else {}
+                if r.get("photo_from", "").lower() == "maker":
+                    small.update(clean=True, repeat=(r.get("repeat") or "mirror").lower())
+                info = prepare(os.path.join(a.photos, src), p["id"], p["photo"], ROOT, ORDER_FLOORS if order else FLOORS, **small)
                 warnings = info.pop("warnings", [])
                 p["photo"].update(info)
                 for w in warnings:
@@ -245,6 +265,24 @@ def main():
             elif src:
                 problems.append("%s: photo %s not found%s" % (p["name"], src, "" if a.photos else " (run with --photos FOLDER)"))
             products.append(p)
+
+    # a floor taken off special-order.csv takes its pictures with it
+    used = set()
+    for p in products:
+        for k in ("image", "thumb"):
+            if p["photo"].get(k):
+                used.add(os.path.normpath(p["photo"][k]))
+    gone = 0
+    for sub in ("", "thumbs"):
+        d = os.path.join(ROOT, ORDER_FLOORS, sub)
+        if os.path.isdir(d):
+            for f in os.listdir(d):
+                rel = os.path.normpath(os.path.join(ORDER_FLOORS, sub, f))
+                if f.endswith(".jpg") and rel not in used:
+                    os.remove(os.path.join(ROOT, rel))
+                    gone += 1
+    if gone:
+        print("removed %d pictures of floors no longer listed" % gone)
 
     sales = []
     if os.path.exists(a.sales):
@@ -261,10 +299,14 @@ def main():
         "products": products + looks,
     }
     with open(CATALOG, "w", encoding="utf-8") as f:
-        json.dump(cat, f, ensure_ascii=False, indent=1)
-        f.write("\n")
+        # one floor per line keeps the file small and its changes readable
+        f.write('{\n "version": 2,\n "brands": %s,\n "sales": %s,\n "products": [\n' % (
+            json.dumps(cat["brands"], ensure_ascii=False), json.dumps(cat["sales"], ensure_ascii=False)))
+        f.write(",\n".join("  " + json.dumps(p, ensure_ascii=False) for p in cat["products"]))
+        f.write("\n ]\n}\n")
     shown = sum(1 for p in products if p["photo"].get("image"))
-    print("catalog.json: %d floors from the inventory (%d with photos), %d sample looks, %d sales." % (len(products), shown, len(looks), len(sales)))
+    orders = sum(1 for p in products if p.get("order"))
+    print("catalog.json: %d floors in the store and %d to order (%d with photos), %d sample looks, %d sales." % (len(products) - orders, orders, shown, len(looks), len(sales)))
     for p in problems:
         print("  ! " + p)
     return 1 if problems else 0

@@ -78,6 +78,7 @@
     if (p.notes) out.push(p.notes);
     if (p.install) out.push(INSTALL[p.install]);
     if (st) out.push(st);
+    if (p.order) out.push("Special order" + (p.code ? ", item " + p.code : ""));
     return out;
   }
 
@@ -95,6 +96,23 @@
     if (types.length < 2 && !always) return byInstall(n);
     types.forEach(function(t){ var k = mk(n.path + "/" + t, TYPE[t], n.items.filter(function(p){ return p.type === t; }), n); n.kids.push(k); byInstall(k); });
   }
+  /* a brand with lines to order: one shelf per collection, the floors in the store first */
+  function byCollection(n){
+    var orders = n.items.filter(function(p){ return p.order; });
+    if (!orders.length) return false;
+    var stock = n.items.filter(function(p){ return !p.order; });
+    if (stock.length) n.kids.push(mk(n.path + "/in-store", "In the store", stock, n));
+    var names = [];
+    orders.forEach(function(p){ var c = p.collection || "Other"; if (names.indexOf(c) < 0) names.push(c); });
+    names.sort(function(a, b){ return a.localeCompare(b); });
+    names.forEach(function(c){
+      var k = mk(n.path + "/c/" + slug(c), c, orders.filter(function(p){ return (p.collection || "Other") === c; }), n);
+      k.order = true; n.kids.push(k);
+    });
+    n.order = true;
+    return true;
+  }
+  function slug(t){ return String(t).toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
   function byInstall(n){
     var ins = Object.keys(INSTALL).filter(function(i){ return n.items.some(function(p){ return p.install === i; }); });
     if (!ins.length) return;
@@ -108,10 +126,17 @@
     all.forEach(function(p){ BYID[p.id] = p; });
     var real = all.filter(function(p){ return p.type !== "look"; }), looks = all.filter(function(p){ return p.type === "look"; });
     ROOT = mk("", "Floors", [], null);
-    var stock = real.filter(function(p){ return p.inStock; });
+    var stock = real.filter(function(p){ return p.inStock; }), order = real.filter(function(p){ return p.order; });
     if (stock.length){ var s = mk("stock", "In stock", stock, ROOT); byType(s, true); ROOT.kids.push(s); }
     var sale = real.filter(function(p){ var pr = priceOf(p); return pr && (pr.was || p.wasInstalled > p.priceInstalled); });
     if (sale.length){ var o = mk("sale", "On sale", sale, ROOT); byType(o, false); ROOT.kids.push(o); }
+    if (order.length){
+      var so = mk("order", "Special order", order, ROOT), bids = [];
+      order.forEach(function(p){ if (p.brand && bids.indexOf(p.brand) < 0) bids.push(p.brand); });
+      bids.sort(function(a, b){ return (BRAND[a] || a).localeCompare(BRAND[b] || b); });
+      bids.forEach(function(id){ var b = mk("order/" + id, BRAND[id] || id, order.filter(function(p){ return p.brand === id; }), so); byCollection(b); so.kids.push(b); });
+      so.order = true; ROOT.kids.push(so);
+    }
     ROOT.families = [];
     FAMILY.forEach(function(f){
       var inF = real.filter(function(p){ return f[2].indexOf(p.type) >= 0 && p.brand; });
@@ -121,7 +146,7 @@
       var fam = {label: f[1], brands: []};
       ids.forEach(function(id){
         var n = mk("brand/" + f[0] + "/" + id, BRAND[id] || id, inF.filter(function(p){ return p.brand === id; }), ROOT);
-        n.family = f[1]; byType(n, false); fam.brands.push(n);
+        n.family = f[1]; if (!byCollection(n)) byType(n, false); fam.brands.push(n);
       });
       ROOT.families.push(fam);
     });
@@ -148,7 +173,7 @@
       (hasPic(p) ? '<span class="ph"><img src="' + esc(p.photo.thumb || p.photo.image) + '" alt="" loading="lazy" decoding="async" width="560" height="560">'
                  : '<span class="ph none"><span class="pc">Picture coming</span>') + (tags.length ? '<span class="tags">' + tags.join("") + "</span>" : "") + "</span>" +
       '<span class="nm">' + esc(p.name) + "</span>" + (sub ? '<span class="sub">' + esc(sub) + "</span>" : "") + priceHTML(p) +
-      (stockLine(p) ? '<span class="left">' + esc(stockLine(p)) + "</span>" : "") + "</button></li>";
+      (stockLine(p) ? '<span class="left">' + esc(stockLine(p)) + "</span>" : p.order ? '<span class="left">Special order</span>' : "") + "</button></li>";
   }
   function count(n){ return n.items.length; }
   function crumbs(n){
@@ -162,14 +187,14 @@
   function menu(n){
     var h = "";
     if (n === ROOT){
-      var big = ROOT.kids.filter(function(k){ return k.path === "stock" || k.path === "sale"; });
+      var big = ROOT.kids.filter(function(k){ return k.path === "stock" || k.path === "sale" || k.path === "order"; });
       if (big.length) h += '<ul class="shelves">' + big.map(function(k){ return '<li><button type="button" class="shelf' + (k.path === "sale" ? " is-sale" : "") + '" data-go="' + k.path + '">' + esc(k.label) + '<span class="n">' + count(k) + "</span></button></li>"; }).join("") + "</ul>";
       if (ROOT.families.length){
         h += '<div class="brands">' + ROOT.families.map(function(f){
           return '<div class="fam"><h3>' + esc(f.label) + ' brands</h3><ul class="chips">' + f.brands.map(function(b){ return '<li><button type="button" class="chip" data-go="' + esc(b.path) + '">' + esc(b.label) + '<span class="n">' + count(b) + "</span></button></li>"; }).join("") + "</ul></div>";
         }).join("") + "</div>";
       }
-      var rest = ROOT.kids.filter(function(k){ return k.path !== "stock" && k.path !== "sale"; });
+      var rest = ROOT.kids.filter(function(k){ return k.path !== "stock" && k.path !== "sale" && k.path !== "order"; });
       if (rest.length && (big.length || ROOT.families.length)) h += '<h3 class="morehead">More to try</h3><ul class="chips more">' + rest.map(function(k){ return '<li><button type="button" class="chip" data-go="' + k.path + '">' + esc(k.label) + '<span class="n">' + count(k) + "</span></button></li>"; }).join("") + "</ul>";
       return h;
     }
@@ -185,6 +210,8 @@
     /* on the front shelf with only the sample looks, open them straight away */
     if (n === ROOT && ROOT.kids.length === 1 && !ROOT.families.length && ROOT.show){ $("menu").innerHTML = menu(ROOT.show); }
     var items = list ? list.items : [];
+    /* a big shelf of floors to order: pick a brand or collection first */
+    if (list && list.order && list.kids.length && items.length > 60) items = items.filter(function(p){ return !p.order; });
     $("list-h").textContent = n === ROOT && list && (ROOT.kids.length > 1 || ROOT.families.length) ? list.label : "";
     $("list-h").hidden = !$("list-h").textContent;
     var a = [], b = [];
@@ -192,7 +219,7 @@
     $("s-left").innerHTML = a.map(function(p){ return card(p, list); }).join("");
     $("s-right").innerHTML = b.map(function(p){ return card(p, list); }).join("");
     document.querySelector(".rail.right").classList.toggle("empty", !b.length);
-    $("empty-note").hidden = items.length > 0;
+    $("empty-note").hidden = items.length > 0 || !!(list && list.order && list.kids.length);
   }
   function go(path, keepScroll){
     cur = NODES[path] || ROOT;

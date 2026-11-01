@@ -39,6 +39,17 @@ def _find_sample(rgb):
     return int(x0 + dx), int(y0 + dy), int(x1 - dx), int(y1 - dy)
 
 
+def _trim_flat(im):
+    """Cut plain white or black bands off the edges of a maker's picture."""
+    a = np.asarray(im.convert("L"), dtype=np.int16)
+    busy = (a < 238) & (a > 12)
+    rows = np.nonzero(busy.mean(axis=1) > 0.03)[0]
+    cols = np.nonzero(busy.mean(axis=0) > 0.03)[0]
+    if len(rows) < 16 or len(cols) < 16:
+        return im
+    return im.crop((int(cols[0]), int(rows[0]), int(cols[-1]) + 1, int(rows[-1]) + 1))
+
+
 def _even_light(a, sigma_frac=0.22):
     """Divide out the slow change in brightness across the sample, keeping its average."""
     lum = a.mean(axis=2)
@@ -60,15 +71,19 @@ def _seamless(a):
     return a * m + sh * (1 - m)
 
 
-def prepare(src, pid, photo, root, floors):
+def prepare(src, pid, photo, root, floors, cap=None, thumb=560, quality=88, clean=False, repeat=None):
+    """clean: a maker's own picture, already cut and lit; repeat: "mirror" or "blend" for a roll."""
     warnings = []
     im = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
+    if clean:
+        im = _trim_flat(im)
     W, H = im.size
     k = min(1.0, 1400.0 / max(W, H))
     small = np.asarray(im.resize((max(1, int(W * k)), max(1, int(H * k))), Image.BILINEAR), dtype=np.float32)
-    box = _find_sample(small)
+    box = None if clean else _find_sample(small)
     if box is None or (box[2] - box[0]) * (box[3] - box[1]) > 0.97 * small.shape[0] * small.shape[1]:
-        x0, y0, x1, y1 = int(W * 0.02), int(H * 0.02), int(W * 0.98), int(H * 0.98)  # the sample fills the frame
+        e = 0.01 if clean else 0.02
+        x0, y0, x1, y1 = int(W * e), int(H * e), int(W * (1 - e)), int(H * (1 - e))  # the sample fills the frame
     else:
         x0, y0, x1, y1 = [int(v / k) for v in box]
     im = im.crop((x0, y0, x1, y1))
@@ -76,16 +91,18 @@ def prepare(src, pid, photo, root, floors):
     if layout == "plank" and im.height > im.width:
         im = im.rotate(90, expand=True)
     real = photo.get("widthIn") if layout == "roll" else (photo.get("plankIn") or [7, 48])[1] if layout == "plank" else (photo.get("tileIn") or [12])[0]
-    if real and im.width / float(real) < 25:
+    if real and not clean and im.width / float(real) < 25:
         warnings.append("only %d pixels per inch of sample; get closer or use the full camera resolution" % (im.width / float(real)))
 
-    cap = 1024 if layout == "tile" else MAX
+    cap = cap or (1024 if layout == "tile" else MAX)
     s = min(1.0, cap / max(im.size))
     if s < 1:
         im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
-    a = _even_light(np.asarray(im, dtype=np.float32))
+    a = np.asarray(im, dtype=np.float32) if clean else _even_light(np.asarray(im, dtype=np.float32))
     out = {}
-    if layout == "roll":
+    if layout == "roll" and repeat == "mirror":
+        out["seamless"] = False   # the room mirrors it at the edges instead of blending
+    elif layout == "roll":
         a = _seamless(a)
         out["seamless"] = True
     img = Image.fromarray(a.astype(np.uint8))
@@ -93,11 +110,11 @@ def prepare(src, pid, photo, root, floors):
 
     os.makedirs(os.path.join(root, floors, "thumbs"), exist_ok=True)
     rel = "%s/%s.jpg" % (floors, pid)
-    img.save(os.path.join(root, rel), quality=88, optimize=True, progressive=True)
+    img.save(os.path.join(root, rel), quality=quality, optimize=True, progressive=True)
     side = min(img.size)
     cx, cy = img.width // 2, img.height // 2
-    th = img.crop((cx - side // 2, cy - side // 2, cx - side // 2 + side, cy - side // 2 + side)).resize((560, 560), Image.LANCZOS)
+    th = img.crop((cx - side // 2, cy - side // 2, cx - side // 2 + side, cy - side // 2 + side)).resize((thumb, thumb), Image.LANCZOS)
     trel = "%s/thumbs/%s.jpg" % (floors, pid)
-    th.save(os.path.join(root, trel), quality=86, optimize=True, progressive=True)
+    th.save(os.path.join(root, trel), quality=min(86, quality), optimize=True, progressive=True)
     out.update({"image": rel, "thumb": trel, "warnings": warnings})
     return out
