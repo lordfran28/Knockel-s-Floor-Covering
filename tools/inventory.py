@@ -41,7 +41,7 @@ you don't know them. Columns (any order, any capitalisation):
     code             MPB821                       (the maker's item number)
     layout           roll                         (lay the photo as one repeating picture, whatever the floor)
     photo_from       maker                        (the maker's own picture: no cutting out or evening the light)
-    repeat           mirror | blend               (how a repeating picture meets itself at the edges)
+    repeat           mirror | blend | tile        (how a repeating picture meets itself; tile: made by tools/quilt.py)
 
 special-order.csv (optional) has the same columns for floors that are ordered, not kept in the store
 (the makers' current colors of the lines on display). They show as "Special order", by brand and collection.
@@ -259,7 +259,7 @@ def main():
                 for w in warnings:
                     problems.append("%s (%s): %s" % (p["name"], src, w))
             elif prev.get("image") and os.path.exists(os.path.join(ROOT, prev["image"])):
-                for k in ("image", "thumb", "aspect", "seamless"):
+                for k in ("image", "thumb", "aspect", "seamless", "pattern"):
                     if k in prev:
                         p["photo"][k] = prev[k]
             elif src:

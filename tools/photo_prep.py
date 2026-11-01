@@ -100,7 +100,10 @@ def prepare(src, pid, photo, root, floors, cap=None, thumb=560, quality=88, clea
         im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
     a = np.asarray(im, dtype=np.float32) if clean else _even_light(np.asarray(im, dtype=np.float32))
     out = {}
-    if layout == "roll" and repeat == "mirror":
+    if layout == "roll" and repeat == "tile":
+        out["seamless"] = True    # already made to repeat from the photo's own pixels (tools/quilt.py)
+        out["pattern"] = True     # lay it as it is
+    elif layout == "roll" and repeat == "mirror":
         out["seamless"] = False   # the room mirrors it at the edges instead of blending
     elif layout == "roll":
         a = _seamless(a)
