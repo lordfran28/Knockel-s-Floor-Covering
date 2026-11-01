@@ -115,6 +115,30 @@
 .visit .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:.4em}
 .map{min-height:360px;border:0;width:100%;height:100%;border-radius:3px;background:#DDD8CD}
 @media (max-width:860px){.visit{grid-template-columns:1fr}.map{min-height:320px}}
+.hero-actions{gap:6px 26px}
+.visit .actions{gap:6px 26px}
+
+/* Phones: smaller and lighter, so the floor being laid shows around everything */
+@media (max-width:760px){
+  .hero h1{font-size:2.6rem}
+  .hero .where{font-size:1rem;margin:.6em 0 .8em}
+  .front h2,.store h2,.tryit h2,.floors h2,.services h2,.visit h2,.river h2{font-size:1.55rem}
+  .window{aspect-ratio:4/3}
+  .stack{padding:0 10% 0 14%}
+  .steps li::before{font-size:1.05rem}
+  .compare{max-width:88%;margin:0 auto}
+  .wall{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:1.4em 0 1.4em}
+  .chip span{font-size:.78rem}
+  .kinds li{padding:.22em 0}
+  .brands{font-size:1rem}
+  .svc li{padding:.8em 0}
+  .services figure{max-width:80%;margin:0 auto}
+  .river{min-height:58svh}
+  .river p{font-size:.95rem}
+  .addr{font-size:1.1rem}
+  .bigphone{font-size:1.75rem}
+  .map{min-height:240px}
+}
 </style>
 </head>
 <body>
@@ -273,7 +297,7 @@
     </div>
     <details class="credits">
       <summary>Photo credits</summary>
-      <p>Main Street, Monona, c. 1925: postcard, public domain. The Mississippi at Pikes Peak: Archbob, CC0. Showroom photos and the sign: Knockel's Floor Covering. Bay-window room: Tomwsulcer, CC0. Corner room: aismallard, CC BY-SA 3.0. All via Wikimedia Commons. Floor samples: Poly Haven and ambientCG, CC0. The carpet behind the page: Simon Svensson Thunman, CC0, lightened. The back of the roll: a carpet in Auckland Museum, CC BY 4.0. Plywood under it: Poly Haven, CC0. Marble vinyl tiles: ambientCG, CC0. Type: Zilla Slab and Public Sans, SIL Open Font License.</p>
+      <p>Main Street, Monona, c. 1925: postcard, public domain. The Mississippi at Pikes Peak: Archbob, CC0. Showroom photos and the sign: Knockel's Floor Covering. Bay-window room: Tomwsulcer, CC0. Corner room: aismallard, CC BY-SA 3.0. All via Wikimedia Commons. Floor samples: Poly Haven and ambientCG, CC0. The carpet behind the page: Simon Svensson Thunman, CC0, lightened. The back of the roll: a carpet in Auckland Museum, CC BY 4.0. Plywood under it: Poly Haven, CC0. Marble vinyl tiles: ambientCG, CC0. The tile floor behind the room page: an old hallway floor in Dresden, Jörg Blobelt, CC BY-SA 4.0. Type: Zilla Slab and Public Sans, SIL Open Font License.</p>
     </details>
   </div>
 </footer>
