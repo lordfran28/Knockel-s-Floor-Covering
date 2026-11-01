@@ -369,7 +369,7 @@
     var B = window.KnockelsShelf, pr = B.priceOf(f), el = $("chosen"); el.innerHTML = "";
     var what = [f.name, [B.brandName(f.brand), f.collection].filter(Boolean).join(" ")].filter(Boolean).join(", ");
     var price = pr ? (pr.was ? "$" + pr.now.toFixed(2) + " a " + pr.unit + ", on sale from $" + pr.was.toFixed(2) : "$" + pr.now.toFixed(2) + " a " + pr.unit) : "";
-    if (pr && typeof f.priceInstalled === "number") price += ", $" + f.priceInstalled.toFixed(2) + " installed";
+    if (pr && typeof f.priceInstalled === "number") price += ", $" + f.priceInstalled.toFixed(2) + " installed" + (f.wasInstalled > f.priceInstalled ? ", on sale from $" + f.wasInstalled.toFixed(2) : "");
     var more = B.details ? B.details(f) : [];
     var line = [what, price].concat(more).filter(Boolean).join(". ") + (!more.length && f.inStock ? ". In stock" : "") + ". ";
     el.appendChild(document.createTextNode(line));

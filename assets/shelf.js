@@ -47,7 +47,7 @@
   function priceHTML(p){
     var pr = priceOf(p); if (!pr) return "";
     return '<span class="price">' + (pr.was ? '<s>' + money(pr.was) + '</s> <b class="now">' + money(pr.now) + "</b>" : "<b>" + money(pr.now) + "</b>") +
-      '<small>/' + esc(pr.unit) + "</small>" + (typeof p.priceInstalled === "number" ? '<span class="inst">' + money(p.priceInstalled) + " installed</span>" : "") +
+      '<small>/' + esc(pr.unit) + "</small>" + (typeof p.priceInstalled === "number" ? '<span class="inst">' + (p.wasInstalled > p.priceInstalled ? "<s>" + money(p.wasInstalled) + "</s> " : "") + money(p.priceInstalled) + " installed</span>" : "") +
       (pr.was && pr.ends ? '<em class="ends">Sale ends ' + shortDay(pr.ends) + "</em>" : "") + "</span>";
   }
   function hasPic(p){ return !!(p && p.photo && p.photo.image); }
@@ -62,10 +62,15 @@
     var out = [];
     var th = [typeof p.thickness === "number" ? p.thickness + " mm thick" : "", typeof p.wear === "number" ? p.wear + " mil wear layer" : "", p.ac ? p.ac + " rated" : ""].filter(Boolean).join(", ");
     if (th) out.push(th.charAt(0).toUpperCase() + th.slice(1));
-    if (p.size) out.push("Planks " + p.size);
+    var roll = p.type === "carpet" || p.type === "sheet-vinyl", st = stockLine(p);
+    /* carpet and sheet vinyl: the piece in the store, by its size */
+    if (p.size && roll){
+      var sq = typeof p.onHand === "number" ? " (" + amount(p) + ")" : "";
+      st = (p.reorder === false ? "Only a " + p.size + " piece left" + sq : p.size + " in stock" + sq + (p.reorder ? ", more can be ordered" : ""));
+    } else if (p.size) out.push("Planks " + p.size);
     if (p.notes) out.push(p.notes);
     if (p.install) out.push(INSTALL[p.install]);
-    var st = stockLine(p); if (st) out.push(st);
+    if (st) out.push(st);
     return out;
   }
 

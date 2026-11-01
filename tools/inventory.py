@@ -15,6 +15,7 @@ you don't know them. Columns (any order, any capitalisation):
     in_stock         yes / no
     price            2.99                         (a number, no $; the cash and carry price)
     installed_price  5.99                         (the price installed, when there is one)
+    regular_installed_price  3.67                 (on sale: the installed price before the sale)
     unit             sq ft | sq yd | each | box   (default sq ft)
     on_hand          1100                         (how much is in the store, in the unit above)
     can_get_more     yes / no                     (no: when it's gone it's gone)
@@ -136,6 +137,9 @@ def product(r, brands):
     if inst is not None:
         p["priceInstalled"] = round(inst, 2)
         p.setdefault("unit", UNITS.get(r.get("unit", "").lower(), "sq ft"))
+        was = num(r.get("regular_installed_price"))
+        if was is not None and was > inst:
+            p["wasInstalled"] = round(was, 2)
     on = num(r.get("on_hand"))
     if on is not None:
         p["onHand"] = int(on) if on == int(on) else on

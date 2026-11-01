@@ -914,6 +914,313 @@
    "notes": "Real oak veneer"
   },
   {
+   "id": "quinn-new-vision-filaments",
+   "name": "Filaments",
+   "type": "carpet",
+   "collection": "New Vision",
+   "brand": "quinn",
+   "inStock": true,
+   "price": 1.95,
+   "unit": "sq ft",
+   "priceInstalled": 3.2,
+   "wasInstalled": 3.67,
+   "onHand": 840,
+   "reorder": true,
+   "size": "12' x 70'",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "quinn-smoky-quartz",
+   "name": "Smoky Quartz",
+   "type": "carpet",
+   "brand": "quinn",
+   "inStock": true,
+   "price": 1.95,
+   "unit": "sq ft",
+   "priceInstalled": 3.2,
+   "wasInstalled": 4.88,
+   "onHand": 696,
+   "size": "12' x 58'",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   },
+   "notes": "60 oz face weight"
+  },
+  {
+   "id": "quinn-top-flight-iii-sweet-maple",
+   "name": "Sweet Maple",
+   "type": "carpet",
+   "collection": "Top Flight III",
+   "brand": "quinn",
+   "inStock": true,
+   "price": 1.95,
+   "unit": "sq ft",
+   "priceInstalled": 3.2,
+   "wasInstalled": 3.69,
+   "onHand": 864,
+   "reorder": true,
+   "size": "12' x 72'",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "quinn-top-flight-iii-pine-log",
+   "name": "Pine Log",
+   "type": "carpet",
+   "collection": "Top Flight III",
+   "brand": "quinn",
+   "inStock": true,
+   "price": 1.95,
+   "unit": "sq ft",
+   "priceInstalled": 3.2,
+   "wasInstalled": 3.69,
+   "onHand": 288,
+   "reorder": true,
+   "size": "12' x 24'",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "quinn-dream-walk-nightshade",
+   "name": "Nightshade",
+   "type": "carpet",
+   "collection": "Dream Walk",
+   "brand": "quinn",
+   "inStock": true,
+   "price": 1.95,
+   "unit": "sq ft",
+   "priceInstalled": 3.2,
+   "wasInstalled": 3.69,
+   "onHand": 528,
+   "size": "12' x 44'",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "quinn-top-flight-iii-gravestone",
+   "name": "Gravestone",
+   "type": "carpet",
+   "collection": "Top Flight III",
+   "brand": "quinn",
+   "inStock": true,
+   "price": 2.35,
+   "unit": "sq ft",
+   "priceInstalled": 3.55,
+   "wasInstalled": 3.89,
+   "onHand": 1776,
+   "reorder": true,
+   "size": "12' x 148'",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "quinn-masterpiece-ii-almond-creme",
+   "name": "Almond Creme",
+   "type": "carpet",
+   "collection": "Masterpiece II",
+   "brand": "quinn",
+   "inStock": true,
+   "price": 2.35,
+   "unit": "sq ft",
+   "priceInstalled": 3.55,
+   "wasInstalled": 3.89,
+   "onHand": 636,
+   "size": "12' x 53'",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "quinn-kingston-grey",
+   "name": "Kingston Grey",
+   "type": "carpet",
+   "brand": "quinn",
+   "inStock": true,
+   "price": 1.95,
+   "unit": "sq ft",
+   "priceInstalled": 3.2,
+   "wasInstalled": 3.45,
+   "onHand": 546,
+   "size": "12' x 45' 6\"",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   },
+   "notes": "50 oz face weight"
+  },
+  {
+   "id": "mohawk-pure-admiration-quiet-beige",
+   "name": "Quiet Beige",
+   "type": "carpet",
+   "collection": "Pure Admiration",
+   "brand": "mohawk",
+   "inStock": true,
+   "onHand": 937.5,
+   "size": "15' x 62' 6\"",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "quinn-capricorn",
+   "name": "Capricorn",
+   "type": "carpet",
+   "brand": "quinn",
+   "inStock": true,
+   "onHand": 948,
+   "reorder": true,
+   "size": "12' x 79'",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "quinn-magnetic",
+   "name": "Magnetic",
+   "type": "carpet",
+   "brand": "quinn",
+   "inStock": true,
+   "onHand": 462,
+   "reorder": true,
+   "size": "12' x 38' 6\"",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "southwind-50-oz",
+   "name": "50 oz",
+   "type": "carpet",
+   "brand": "southwind",
+   "inStock": true,
+   "price": 1.95,
+   "unit": "sq ft",
+   "priceInstalled": 3.2,
+   "wasInstalled": 3.69,
+   "onHand": 1056,
+   "size": "12' x 88'",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "quinn-island-space",
+   "name": "Island Space",
+   "type": "carpet",
+   "brand": "quinn",
+   "inStock": true,
+   "price": 1.95,
+   "unit": "sq ft",
+   "priceInstalled": 3.2,
+   "wasInstalled": 3.7,
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "generations-ii-creek-bed",
+   "name": "Creek Bed",
+   "type": "carpet",
+   "collection": "Generations II",
+   "inStock": true,
+   "price": 1.95,
+   "unit": "sq ft",
+   "priceInstalled": 3.2,
+   "wasInstalled": 3.7,
+   "onHand": 294,
+   "reorder": true,
+   "size": "12' x 24' 6\"",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "shaw-good-more-ii-sterling",
+   "name": "Sterling",
+   "type": "carpet",
+   "collection": "Good More II",
+   "brand": "shaw",
+   "inStock": true,
+   "price": 1.95,
+   "unit": "sq ft",
+   "priceInstalled": 3.2,
+   "onHand": 312,
+   "reorder": true,
+   "size": "12' x 26'",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "shaw-vintage-flare-chromatic",
+   "name": "Chromatic",
+   "type": "carpet",
+   "collection": "Vintage Flare",
+   "brand": "shaw",
+   "inStock": true,
+   "price": 1.95,
+   "unit": "sq ft",
+   "priceInstalled": 3.2,
+   "onHand": 1500,
+   "reorder": true,
+   "size": "12' x 125'",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "atlantic-sand",
+   "name": "Atlantic Sand",
+   "type": "carpet",
+   "inStock": true,
+   "price": 1.95,
+   "unit": "sq ft",
+   "priceInstalled": 3.2,
+   "wasInstalled": 3.75,
+   "onHand": 300,
+   "size": "12' x 25'",
+   "tag": "Sale",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   },
+   "notes": "Sale price is for this piece only"
+  },
+  {
    "id": "washed-oak",
    "name": "Washed oak",
    "type": "look",
