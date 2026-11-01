@@ -52,17 +52,28 @@ def pages():
                 for _ in range(scroll):
                     pg.mouse.wheel(0, 2500)
                     time.sleep(0.6)
-                # press "load more" style buttons a few times
-                for _ in range(15):
-                    b = pg.locator("button:has-text('Load More'), a:has-text('Load More'), button:has-text('View More'), button:has-text('Show More')")
-                    if b.count() == 0 or not b.first.is_visible():
+                # press "load more" style buttons until they're gone
+                more = re.compile(r"^\s*(load|show|view|see)\s+more", re.I)
+                for _ in range(60):
+                    b = pg.get_by_text(more)
+                    vis = [b.nth(i) for i in range(min(b.count(), 6)) if b.nth(i).is_visible()]
+                    if not vis:
                         break
                     try:
-                        b.first.click(timeout=3000)
-                        time.sleep(1.5)
-                        pg.mouse.wheel(0, 4000)
+                        vis[0].scroll_into_view_if_needed(timeout=3000)
+                        vis[0].click(timeout=4000)
+                        time.sleep(2)
                     except Exception:
                         break
+                # keep scrolling while the page grows
+                last = 0
+                for _ in range(40):
+                    h = pg.evaluate("document.body.scrollHeight")
+                    if h == last:
+                        break
+                    last = h
+                    pg.mouse.wheel(0, h)
+                    time.sleep(0.8)
                 time.sleep(1)
                 html = pg.content()
                 imgs = pg.evaluate("""() => Array.from(document.querySelectorAll('img, source, [data-src], [data-bg], [style*="background"]')).map(e => ({

@@ -44,3 +44,34 @@ ddg-trends https://html.duckduckgo.com/html/?q=TRENDS+tile+%22Simple+Solutions%2
 ddg-elegance https://html.duckduckgo.com/html/?q=%22Elegance%22+porcelain+tile+fifteen36
 ddg-genesis https://html.duckduckgo.com/html/?q=Metroflor+Genesis+WPC+colors
 ddg-sequoia https://html.duckduckgo.com/html/?q=Paramount+TimbrCORE+Sequoia+colors
+mannington-aduramax https://www.mannington.com/residential/products/luxury-vinyl/aduramax 25
+mannington-adurarigid https://www.mannington.com/residential/products/luxury-vinyl/adurarigid 25
+mannington-aduraflex https://www.mannington.com/residential/products/luxury-vinyl/aduraflex 25
+mannington-lvs https://www.mannington.com/residential/products/luxury-vinyl-sheet 30
+karndean-vangogh https://www.karndean.com/en-us/floors/products/our-ranges/van-gogh/ 25
+beauflor-list-blacktex https://www.beauflor.us/en/products/luxury-vinyl-rolls?page=1&sorting=CreationDateAsc&filters=collection:black 20
+beauflor-list-craftech https://www.beauflor.us/en/products/luxury-vinyl-rolls?page=1&sorting=CreationDateAsc&filters=collection:craftech 20
+paramount-cat-bliss https://www.paramountflooring.com/products/product-catalog/?brand%5Bbliss%5D&sort=auto 30
+paramount-sequoia https://www.paramountflooring.com/product/sequoia/
+paramount-floorganic https://www.paramountflooring.com/product/floorganic/
+paramount-floorganic-xpt https://www.paramountflooring.com/product/floorganic-xpt/
+paramount-life-protect https://www.paramountflooring.com/product/life-protect/
+paramount-bliss-50 https://www.paramountflooring.com/product/bliss-5-0/
+southwind-authentic-mix https://www.southwindfloors.com/product/authentic-mix/
+southwind-authentic-plank https://www.southwindfloors.com/product/authentic-plank/
+southwind-authentic-prime https://www.southwindfloors.com/product/authentic-prime/
+southwind-harbor-plank https://www.southwindfloors.com/product/harbor-plank/
+southwind-new-traditions https://www.southwindfloors.com/product/new-traditions/
+southwind-refine-pressed https://www.southwindfloors.com/product/refine-pressed/
+southwind-summit https://www.southwindfloors.com/product/summit/
+southwind-timeless-plank https://www.southwindfloors.com/product/timeless-plank/
+southwind-woodwind-pressed https://www.southwindfloors.com/product/woodwind-pressed/
+southwind-advantage-plank https://www.southwindfloors.com/product/advantage-plank/
+southwind-boundless-spc https://www.southwindfloors.com/product/boundless-spc/
+southwind-cohutta-tile https://www.southwindfloors.com/product/cohutta-tile/
+southwind-equity-plank https://www.southwindfloors.com/product/equity-plank/
+southwind-panoramic https://www.southwindfloors.com/product/panoramic/
+southwind-rigid-plus https://www.southwindfloors.com/product/rigid-plus/
+southwind-sweet-home https://www.southwindfloors.com/product/sweet-home/
+mercier-pro-list https://mercier-wood-flooring.com/us/en/hardwood-flooring/?collection=pro 25
+shaw-pp-carpet https://shawfloors.com/en-us/carpet-collections/pet-perfect 30
