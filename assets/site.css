@@ -24,6 +24,7 @@
   --pillow:rgba(251,247,241,.8);
   --pillow-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 44px 80px -44px rgba(72,50,28,.5),0 12px 26px -16px rgba(72,50,28,.28);
   --col:66rem;
+  --box:50rem;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -33,7 +34,7 @@ img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration-color:var(--oak);text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{text-decoration-thickness:2px}
 h1,h2,h3{font-family:var(--slab);font-weight:600;line-height:1.08;margin:0;letter-spacing:-.005em;text-wrap:balance}
-h2{font-size:clamp(2rem,4.4vw,3.25rem)}
+h2{font-size:clamp(1.6rem,2.6vw,2.3rem)}
 h3{font-size:1.4rem}
 p{margin:0 0 1em}
 :focus-visible{outline:3px solid var(--lamp);outline-offset:3px;border-radius:2px}
@@ -79,7 +80,8 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .floor-scene{position:fixed;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none;display:block}
 html.has-scene body::before{opacity:0}
 /* Each part of the page rests on the carpet like a cushion */
-.pillow{width:calc(100% - 2*var(--edge));max-width:calc(var(--col) + 8rem);margin:0 auto;padding:clamp(26px,5.5vw,72px) clamp(20px,5vw,72px);
+/* narrow, so the floor shows wide on both sides */
+.pillow{width:calc(100% - 2*var(--edge));max-width:var(--box);margin:0 auto;padding:clamp(22px,3vw,40px) clamp(20px,3vw,44px);
   border-radius:26px;background:var(--pillow);box-shadow:var(--pillow-shadow);
   -webkit-backdrop-filter:blur(18px) saturate(1.08);backdrop-filter:blur(18px) saturate(1.08)}
 .pillow-dark{background:rgba(43,36,31,.94);color:#E9E2D8}
@@ -115,8 +117,8 @@ figcaption{font-size:.88rem;color:var(--muted);margin-top:.6em;font-style:italic
   h2{font-size:1.25rem}
   h3{font-size:1rem}
   .lead{font-size:.9rem}
-  :root{--edge:32px;--gutter:14px}
-  .pillow{padding:16px 16px 14px;border-radius:16px}
+  :root{--edge:14vw;--gutter:12px}
+  .pillow{padding:14px 14px 12px;border-radius:14px}
   .section{padding:40px 0}
   figcaption{font-size:.72rem}
   .btn{font-size:.98rem;min-height:38px}
