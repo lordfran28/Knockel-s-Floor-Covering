@@ -108,10 +108,13 @@
   var wall = document.getElementById("wall");
   fetch("catalog.json").then(function(r){ return r.json(); }).then(function(cat){
     var pick = ["washed-oak","brown-oak","honey-oak","oak-herringbone","white-pine","walnut-basketweave","limestone","marble-checkerboard","white-porcelain","slate-flagstone","terracotta","wheat","cream-berber","pewter"];
-    var byId = {}; cat.floors.forEach(function(f){ byId[f.id] = f; });
-    wall.innerHTML = pick.filter(function(id){ return byId[id]; }).map(function(id){
-      var f = byId[id];
-      return '<li><a class="chip" href="room.html#floor=' + f.id + '"><img src="' + f.thumb + '" alt="" loading="lazy" width="560" height="560"><span>' + f.name + "</span></a></li>";
+    /* the store's own floors once they're photographed (in stock first), else the sample looks */
+    var all = (cat.products || (cat.floors || []).map(function(f){ return {id: f.id, name: f.name, type: "look", photo: {thumb: f.thumb, image: f.image}}; })).filter(function(f){ return f.photo && (f.photo.thumb || f.photo.image); });
+    var own = all.filter(function(f){ return f.type !== "look"; }).sort(function(a, b){ return (b.inStock ? 1 : 0) - (a.inStock ? 1 : 0); });
+    var byId = {}; all.forEach(function(f){ byId[f.id] = f; });
+    var list = own.length >= 6 ? own.slice(0, 14) : pick.map(function(id){ return byId[id]; }).filter(Boolean);
+    wall.innerHTML = list.map(function(f){
+      return '<li><a class="chip" href="room.html#floor=' + encodeURIComponent(f.id) + '"><img src="' + (f.photo.thumb || f.photo.image) + '" alt="" loading="lazy" width="560" height="560"><span>' + String(f.name).replace(/[&<>"]/g, "") + "</span></a></li>";
     }).join("");
   }).catch(function(){ wall.hidden = true; });
 

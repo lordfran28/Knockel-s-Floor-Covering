@@ -25,8 +25,39 @@ body::after{background:radial-gradient(90% 70% at 50% 0%,rgba(255,255,255,.55),r
   box-shadow:0 8px 18px -12px rgba(40,30,20,.6)}
 .sample:hover img{transform:translateY(-2px)}
 .sample[aria-pressed="true"] img{outline-color:var(--oak)}
-.sample span{display:block;margin-top:.4em;font:600 1.02rem/1.2 var(--slab)}
-.sample[aria-pressed="true"] span::after{content:"  \2713";color:var(--oak)}
+.sample .ph{position:relative;display:block}
+.sample .nm{display:block;margin-top:.45em;font:600 1.02rem/1.2 var(--slab)}
+.sample[aria-pressed="true"] .nm::after{content:"  \2713";color:var(--oak)}
+.sample .sub{display:block;font-size:.86rem;color:#6B5F53;margin-top:.1em}
+.sample .price{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .3em;margin-top:.2em;font:500 1rem/1.25 var(--slab);color:var(--ink)}
+.sample .price s{color:#8A7E72;font-weight:400;text-decoration-thickness:1.5px}
+.sample .price .now{color:#9C2F1E}
+.sample .price small{font-size:.8rem;color:#6B5F53}
+.sample .price .ends{flex-basis:100%;font:italic .82rem/1.3 var(--sans,inherit);color:#9C2F1E}
+.sample .tags{position:absolute;left:6px;top:6px;display:flex;gap:4px}
+.tag{font:600 .72rem/1 var(--slab);font-style:normal;letter-spacing:.06em;text-transform:uppercase;padding:4px 6px 3px;border-radius:2px;background:rgba(250,248,243,.92);color:var(--river);box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.tag.sale{background:#9C2F1E;color:#FFF6EE}
+
+/* the shelves: where you are, then what's inside */
+.crumbs{font:500 .92rem/1.4 var(--slab);color:#6B5F53;margin:0 0 .2em}
+.crumbs a{color:var(--river);text-decoration:none;opacity:.8}
+.crumbs a:hover{opacity:1;text-decoration:underline}
+.crumbs .sep{margin:0 .35em;opacity:.6}
+.rail h3{font:600 1rem/1.2 var(--slab);margin:1.1em 0 .5em;color:#4F463E}
+.shelves,.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.shelves{flex-direction:column;margin-bottom:.4em}
+.shelf{display:flex;justify-content:space-between;align-items:baseline;width:100%;padding:.7em .9em;border:1px solid var(--line);border-radius:4px;background:rgba(255,255,255,.6);
+  font:600 1.15rem/1.1 var(--slab);color:var(--river);cursor:pointer;transition:border-color .2s ease,background .2s ease}
+.shelf:hover{border-color:var(--river);background:#fff}
+.shelf.is-sale{color:#9C2F1E}
+.chip{display:inline-flex;align-items:baseline;gap:.4em;padding:.45em .7em;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.55);
+  font:600 .98rem/1.1 var(--slab);color:var(--river);cursor:pointer;transition:border-color .2s ease,background .2s ease}
+.chip:hover{border-color:var(--river);background:#fff}
+.n{font:500 .8rem/1 var(--sans,inherit);color:#857868}
+.chips + .listh,#menu:not(:empty) + .listh{margin-top:1.2em}
+#menu:not(:empty){margin-bottom:1em}
+.listh{font:600 1.05rem/1.2 var(--slab)}
+.small{font-size:.92rem;color:#6B5F53}
 
 .work{display:flex;flex-direction:column;min-width:0;min-height:0;padding:14px clamp(12px,2vw,24px) 16px}
 .viewwrap{position:relative;flex:1 1 auto;min-height:0;border-radius:3px;overflow:hidden;background:#1B1916;touch-action:none}
@@ -75,6 +106,7 @@ body::after{background:radial-gradient(90% 70% at 50% 0%,rgba(255,255,255,.55),r
   .rail.right{margin-bottom:40px}
   .rail.right{padding-top:14px;padding-bottom:16px}
   .samples{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+  .rail.right.empty{display:none}
 }
 </style>
 </head>
@@ -89,9 +121,13 @@ body::after{background:radial-gradient(90% 70% at 50% 0%,rgba(255,255,255,.55),r
 </header>
 
 <main class="studio">
-  <aside class="rail left" aria-label="Wood and plank samples">
-    <h2>Wood and plank</h2>
-    <ul class="samples" id="s-wood"></ul>
+  <aside class="rail left" aria-label="Floors">
+    <nav class="crumbs" id="crumbs" aria-label="Where you are" hidden></nav>
+    <h2 id="shelf-h">Floors</h2>
+    <div id="menu"></div>
+    <h3 class="listh" id="list-h" hidden></h3>
+    <ul class="samples" id="s-left"></ul>
+    <p class="small" id="empty-note" hidden>Nothing here yet. Call the store and ask.</p>
   </aside>
 
   <section class="work" aria-label="Your room">
@@ -121,14 +157,12 @@ body::after{background:radial-gradient(90% 70% at 50% 0%,rgba(255,255,255,.55),r
     </div>
   </section>
 
-  <aside class="rail right" aria-label="Tile, stone and carpet samples">
-    <h2>Tile and stone</h2>
-    <ul class="samples" id="s-tile"></ul>
-    <h2>Carpet</h2>
-    <ul class="samples" id="s-carpet"></ul>
+  <aside class="rail right" aria-label="More floors">
+    <ul class="samples" id="s-right"></ul>
   </aside>
 </main>
 
-<script src="assets/room.js?v=3"></script>
+<script src="assets/shelf.js?v=1"></script>
+<script src="assets/room.js?v=4"></script>
 </body>
 </html>

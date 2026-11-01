@@ -6,9 +6,17 @@ Later it can live at knockelsfloorcovering.com.
 - `index.html` — the home page. The opening floor lays itself as you scroll (`assets/home.js`).
 - `room.html` — "Try a floor in your room": a visitor's photo, four corners, and a sample laid in
   perspective with the room's own light (`assets/room.js`). Everything runs on the visitor's device.
-- `catalog.json` — the samples in the room tool and on the home page. To add a real product, put a
-  straight-on photo in `assets/floors/` and a 560 px copy in `assets/floors/thumbs/`, then add an entry.
-  `size` is how many metres wide the photo is in real life; `across: true` if its boards run left to right.
+- `catalog.json` — the floors in the room tool and on the home page. Don't edit it by hand: it's
+  built from `inventory.csv` (one row per floor: name, brand, type, glue-down or click, in stock,
+  price, sale price or percent, sale dates, photo, real sizes) and `sales.csv` (sales across many
+  floors) by `python3 tools/inventory.py --photos FOLDER`, which also prepares the sample photos
+  (`tools/photo_prep.py`: finds the sample, evens the light, makes carpet repeat without a seam,
+  writes `assets/floors/<id>.jpg` and a thumbnail). The columns are listed at the top of the script.
+- The room page's side bars (`assets/shelf.js`) build the shelves from the catalog: In stock (by kind,
+  vinyl plank by glue-down or click), On sale, then each kind's brands. The sample looks stay until the
+  store's own floors replace them (`--drop-looks`).
+- Sizes are real: planks from one board's width and length (the photo holds a few boards side by side),
+  tiles from one tile, carpet and sheet vinyl from the width of the piece in the photo.
 
 ## Still needed from the store
 - Store hours (the page says "Call ahead for store hours" until then).

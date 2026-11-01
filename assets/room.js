@@ -9,14 +9,14 @@
 
   var ROOMS = [
     {src: "assets/photos/room-bay.jpg", w: 786, h: 629, widthM: 2.6,
-     quad: [[188,497],[598,497],[746,629],[40,629]],
+     quad: [[188,497],[598,497],[728,612],[58,612]],
      area: [[0,512],[97,497],[100,472],[176,443],[304,441],[380,475],[492,488],[500,512],[538,512],[545,472],[786,468],[786,629],[0,629]]},
     {src: "assets/photos/room-corner.jpg", w: 1600, h: 1200, widthM: 1.8,
      quad: [[810,764],[1240,860],[830,1075],[440,830]],
      area: [[0,1006],[592,864],[596,820],[810,764],[1600,942],[1600,1200],[0,1200]]}
   ];
   var S = {room: 0, iw: 1, ih: 1, quad: null, floor: null, rot: false, size: 1, mode: "corners", before: false, user: false, widthM: 3.6};
-  var catalog = [], cache = {};
+  var cache = {};
 
   function say(t){ msgEl.textContent = t || ""; msgEl.hidden = !t; }
   var HELP = {
@@ -32,24 +32,51 @@
     return;
   }
   var deriv = gl.getExtension("OES_standard_derivatives");
+  var lod = deriv && gl.getExtension("EXT_shader_texture_lod");
   var aniso = gl.getExtension("EXT_texture_filter_anisotropic") || gl.getExtension("WEBKIT_EXT_texture_filter_anisotropic");
   var VS = "attribute vec2 aPos;uniform vec2 uScale,uOff,uCanvas;varying vec2 vImg;" +
     "void main(){vImg=aPos;vec2 c=(aPos*uScale+uOff)/uCanvas*2.0-1.0;gl_Position=vec4(c.x,-c.y,0.0,1.0);}";
-  var FS = (deriv ? "#extension GL_OES_standard_derivatives : enable\n" : "") +
-    "precision highp float;uniform sampler2D uPhoto,uFloor,uAdd,uKeep,uLight;uniform mat3 uH;uniform vec2 uImg,uRep;" +
-    "uniform float uRot,uShade,uAvg,uOn;varying vec2 vImg;" +
+  /* The floor is laid in metres: m runs across the marked rectangle (x) and away from you (y).
+     uLayout 0: a roll (carpet, sheet vinyl, the sample looks), the photo repeated at its real size.
+     uLayout 1: planks. The photo holds uN boards lengthwise; each board on the floor takes one of them,
+                some turned end for end, rows staggered, a fine dark joint between boards.
+     uLayout 2: tiles, one photo per tile, some turned, with grout lines. */
+  var FS = (deriv ? "#extension GL_OES_standard_derivatives : enable\n" : "") + (lod ? "#extension GL_EXT_shader_texture_lod : enable\n" : "") +
+    "precision highp float;uniform sampler2D uPhoto,uFloor,uAdd,uKeep,uLight;uniform mat3 uH;uniform vec2 uImg,uRoom,uUnit;" +
+    "uniform float uRot,uShade,uAvg,uOn,uLayout,uN,uPL,uSeam,uTurn;uniform vec3 uGrout;varying vec2 vImg;" +
+    "float h1(float n){return fract(sin(n*91.3458)*47453.5453);}" +
+    "float h2(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}" +
+    "vec3 tex(vec2 t,vec2 gx,vec2 gy){" + (lod ? "return texture2DGradEXT(uFloor,t,gx,gy).rgb;" : "return texture2D(uFloor,t).rgb;") + "}" +
+    "float aa(float e,float w){" + (deriv ? "float px=max(fwidth(e),1e-6);" : "float px=w*0.5;") +
+    "return (1.0-smoothstep(w-px*0.5,w+px*0.5,e))*clamp(2.0*w/px,0.2,1.0);}" +
     "void main(){vec2 st=vImg/uImg;vec3 ph=texture2D(uPhoto,st).rgb;vec3 p=uH*vec3(vImg,1.0);vec2 uv=p.xy/p.z;" +
     "float d=min(min(uv.x,1.0-uv.x),min(uv.y,1.0-uv.y));" +
     (deriv ? "float w=max(fwidth(d),1e-5)*1.2;" : "float w=0.003;") +
     "float inside=smoothstep(0.0,w,d)*step(0.0,p.z);" +
     "float area=clamp(max(inside,texture2D(uAdd,st).a)-texture2D(uKeep,st).a,0.0,1.0)*step(0.0,p.z);" +
-    "vec2 f=uv*uRep;if(uRot>0.5)f=vec2(f.y,-f.x);vec3 fl=texture2D(uFloor,f).rgb;" +
+    "vec2 m=uv*uRoom;if(uRot>0.5)m=vec2(m.y,-m.x);" +
+    (deriv ? "vec2 dx=dFdx(m),dy=dFdy(m);" : "vec2 dx=vec2(0.0),dy=vec2(0.0);") +
+    "vec3 fl;" +
+    "if(uLayout<0.5){fl=texture2D(uFloor,m/uUnit).rgb;}" +
+    "else if(uLayout<1.5){" +
+      "float row=floor(m.y/uUnit.y);float x=m.x+h1(row+0.5)*uUnit.x;float col=floor(x/uUnit.x);" +
+      "vec2 loc=vec2(fract(x/uUnit.x),fract(m.y/uUnit.y));float id=h2(vec2(row,col));" +
+      "float k=min(floor(id*uN),uN-1.0);vec2 l=loc;if(fract(id*17.13)>0.5)l=1.0-l;" +
+      "float tx=uPL>=0.999?l.x:fract(l.x/uPL+fract(id*5.71));" +
+      "vec2 sc=vec2(1.0/(uUnit.x*uPL),1.0/(uUnit.y*uN));" +
+      "fl=tex(vec2(tx,(k+l.y)/uN),dx*sc,dy*sc)*(0.95+0.1*fract(id*31.7));" +
+      "vec2 e=min(loc,1.0-loc)*uUnit;fl*=1.0-0.45*max(aa(e.x,uSeam),aa(e.y,uSeam));}" +
+    "else{" +
+      "vec2 c=floor(m/uUnit);vec2 loc=fract(m/uUnit);float id=h2(c);vec2 l=loc;" +
+      "if(uTurn>0.5){if(fract(id*7.31)>0.5)l=1.0-l;if(uTurn>1.5&&fract(id*3.17)>0.5)l=vec2(l.y,1.0-l.x);}" +
+      "vec2 sc=1.0/uUnit;fl=tex(l,dx*sc,dy*sc);" +
+      "vec2 e=min(loc,1.0-loc)*uUnit;fl=mix(fl,uGrout,max(aa(e.x,uSeam),aa(e.y,uSeam)));}" +
     "float l=texture2D(uLight,st).r;float light=mix(1.0,clamp(pow(l/uAvg,0.75),0.38,1.45),uShade);" +
     "gl_FragColor=vec4(mix(ph,fl*light,area*uOn),1.0);}";
   function shader(type, src){ var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; }
   var prog = gl.createProgram();
   gl.attachShader(prog, shader(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(prog); gl.useProgram(prog);
-  var U = {}; ["uScale","uOff","uCanvas","uPhoto","uFloor","uAdd","uKeep","uLight","uH","uImg","uRep","uRot","uShade","uAvg","uOn"].forEach(function(n){ U[n] = gl.getUniformLocation(prog, n); });
+  var U = {}; ["uScale","uOff","uCanvas","uPhoto","uFloor","uAdd","uKeep","uLight","uH","uImg","uRoom","uUnit","uRot","uShade","uAvg","uOn","uLayout","uN","uPL","uSeam","uTurn","uGrout"].forEach(function(n){ U[n] = gl.getUniformLocation(prog, n); });
   var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
   var aPos = gl.getAttribLocation(prog, "aPos"); gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
   function texture(unit){ var t = gl.createTexture(); gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, t);
@@ -160,22 +187,40 @@
     gl.uniform2f(U.uImg, S.iw, S.ih);
     var h = homography(S.quad);
     gl.uniformMatrix3fv(U.uH, false, new Float32Array([h[0], h[3], h[6], h[1], h[4], h[7], h[2], h[5], h[8]]));
-    var r = aspect(S.quad), widthM = S.widthM, tile = (S.floor ? S.floor.size : 2)*S.size;
-    gl.uniform2f(U.uRep, widthM/tile, widthM/r/tile);
+    var r = aspect(S.quad), L = layoutOf(S.floor);
+    gl.uniform2f(U.uRoom, S.widthM/S.size, S.widthM/r/S.size);
+    gl.uniform2f(U.uUnit, L.unit[0], L.unit[1]);
+    gl.uniform1f(U.uLayout, L.kind); gl.uniform1f(U.uN, L.n); gl.uniform1f(U.uPL, L.pl); gl.uniform1f(U.uSeam, L.seam); gl.uniform1f(U.uTurn, L.turn);
+    gl.uniform3f(U.uGrout, L.grout[0], L.grout[1], L.grout[2]);
     /* planks run away from you unless turned; some photos have their boards lying across */
-    gl.uniform1f(U.uRot, (S.rot !== !!(S.floor && S.floor.across)) ? 1 : 0); gl.uniform1f(U.uShade, 0.8); gl.uniform1f(U.uAvg, avgLight);
-    gl.uniform1f(U.uOn, S.floor && S.floor.ready && !S.before ? 1 : 0);
+    gl.uniform1f(U.uRot, (S.rot !== L.across) ? 1 : 0); gl.uniform1f(U.uShade, 0.8); gl.uniform1f(U.uAvg, avgLight);
+    gl.uniform1f(U.uOn, S.floor && S.floor.ready && !S.before && convex(S.quad) ? 1 : 0);
   }
+  /* the four corners must make a shape that doesn't fold over itself */
+  function convex(q){
+    var sign = 0;
+    for (var i = 0; i < 4; i++){
+      var a = q[i], b = q[(i + 1) % 4], c = q[(i + 2) % 4];
+      var z = (b[0] - a[0])*(c[1] - b[1]) - (b[1] - a[1])*(c[0] - b[0]);
+      if (Math.abs(z) < 1e-6) return false;
+      if (!sign) sign = z > 0 ? 1 : -1; else if ((z > 0 ? 1 : -1) !== sign) return false;
+    }
+    return true;
+  }
+  var crossedSaid = false;
   function draw(){
     if (!S.quad) return;
+    var ok = convex(S.quad);
+    if (!ok && !crossedSaid){ say("Two corners have crossed. Drag them back so the dots go around the floor."); crossedSaid = true; }
+    else if (ok && crossedSaid){ say(""); crossedSaid = false; }
     gl.viewport(0, 0, cv.width, cv.height);
     gl.clearColor(0.106, 0.098, 0.086, 1); gl.clear(gl.COLOR_BUFFER_BIT);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0, 0, S.iw, 0, 0, S.ih, S.iw, S.ih]), gl.DYNAMIC_DRAW);
     setUniforms(view.cw, view.ch, view.s, view.ox, view.oy);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   }
-  var pending = false;
-  function redraw(){ if (pending) return; pending = true; requestAnimationFrame(function(){ pending = false; draw(); }); }
+  var pending = false, paintDirty = false;
+  function redraw(){ if (pending) return; pending = true; requestAnimationFrame(function(){ pending = false; if (paintDirty){ paintDirty = false; upload(2, T.add, addC); upload(3, T.keep, keepC); } draw(); }); }
 
   /* ---------- Corners ---------- */
   var handles = [];
@@ -198,14 +243,14 @@
     h.addEventListener("pointermove", function(e){
       if (e.pointerId !== id) return;
       var r = wrap.getBoundingClientRect(), p = toImage(e.clientX - r.left, e.clientY - r.top);
-      p[0] = Math.max(-S.iw*0.5, Math.min(S.iw*1.5, p[0])); p[1] = Math.max(-S.ih*0.5, Math.min(S.ih*1.5, p[1]));
+      p[0] = Math.max(0, Math.min(S.iw, p[0])); p[1] = Math.max(0, Math.min(S.ih, p[1]));
       S.quad[i] = p; placeHandles(); redraw();
     });
     function end(e){ if (e.pointerId !== id) return; id = null; measureLight(); redraw(); }
     h.addEventListener("pointerup", end); h.addEventListener("pointercancel", end);
     h.addEventListener("keydown", function(e){
       var step = 4/view.s, d = {ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step]}[e.key];
-      if (!d) return; e.preventDefault(); S.quad[i] = [S.quad[i][0] + d[0], S.quad[i][1] + d[1]]; placeHandles(); measureLight(); redraw();
+      if (!d) return; e.preventDefault(); S.quad[i] = [Math.max(0, Math.min(S.iw, S.quad[i][0] + d[0])), Math.max(0, Math.min(S.ih, S.quad[i][1] + d[1]))]; placeHandles(); measureLight(); redraw();
     });
   }
 
@@ -223,7 +268,7 @@
       if (prev){ ctx.moveTo(prev[0], prev[1]); ctx.lineTo(px, py); ctx.stroke(); }
       else { ctx.arc(px, py, rad, 0, Math.PI*2); ctx.fill(); }
     });
-    upload(2, T.add, addC); upload(3, T.keep, keepC); redraw();
+    paintDirty = true; redraw();
     return [px, py];
   }
   cv.addEventListener("pointerdown", function(e){
@@ -243,7 +288,7 @@
   }
   document.querySelectorAll(".seg button").forEach(function(b){ b.addEventListener("click", function(){ setMode(b.getAttribute("data-mode")); }); });
   $("clearpaint").addEventListener("click", function(){
-    addX.clearRect(0, 0, addC.width, addC.height); keepX.clearRect(0, 0, keepC.width, keepC.height);
+    addX.clearRect(0, 0, addC.width, addC.height); keepX.clearRect(0, 0, keepC.width, keepC.height); presetArea();
     upload(2, T.add, addC); upload(3, T.keep, keepC); redraw();
   });
 
@@ -257,24 +302,30 @@
     [addC, keepC].forEach(function(c){ c.width = Math.round(S.iw*mk); c.height = Math.round(S.ih*mk); });
     addX.clearRect(0, 0, addC.width, addC.height); keepX.clearRect(0, 0, keepC.width, keepC.height);
     S.widthM = preset ? preset.widthM : 3.6;
+    S.preset = preset;
     if (preset){
       var k = S.iw/preset.w;
       S.quad = preset.quad.map(function(p){ return [p[0]*k, p[1]*k]; });
-      addX.globalCompositeOperation = "source-over"; addX.fillStyle = "#000"; addX.beginPath();
-      preset.area.forEach(function(p, i){ var x = p[0]*k*mk, y = p[1]*k*mk; if (i) addX.lineTo(x, y); else addX.moveTo(x, y); });
-      addX.closePath(); addX.fill();
+      presetArea();
     } else {
       S.quad = [[S.iw*0.27, S.ih*0.6], [S.iw*0.73, S.ih*0.6], [S.iw*0.97, S.ih*0.97], [S.iw*0.03, S.ih*0.97]];
     }
     upload(2, T.add, addC); upload(3, T.keep, keepC);
     makeLight(); measureLight(); fit();
   }
+  function presetArea(){
+    var pr = S.preset; if (!pr) return;
+    var k = S.iw/pr.w*addC.width/S.iw;
+    addX.globalCompositeOperation = "source-over"; addX.fillStyle = "#000"; addX.beginPath();
+    pr.area.forEach(function(p, i){ var x = p[0]*k, y = p[1]*k; if (i) addX.lineTo(x, y); else addX.moveTo(x, y); });
+    addX.closePath(); addX.fill();
+  }
   function loadRoom(n){
     S.room = n % ROOMS.length; S.user = false; var room = ROOMS[S.room];
     var img = new Image(); img.onload = function(){ useImage(img, room); setMode("corners"); help.textContent = "This is a sample room. Tap a floor on the side, or use a picture of your own room."; };
     img.src = room.src;
   }
-  $("nextroom").addEventListener("click", function(){ loadRoom(S.room + 1); });
+  $("nextroom").addEventListener("click", function(){ loadRoom(S.user ? S.room : S.room + 1); $("nextroom").textContent = "Another sample room"; });
   $("photo").addEventListener("change", function(e){
     var f = e.target.files && e.target.files[0]; if (!f) return;
     var url = URL.createObjectURL(f), img = new Image();
@@ -284,41 +335,64 @@
   });
 
   /* ---------- Floors ---------- */
+  var IN = 0.0254;
+  function hex(c){ var m = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(c || ""); return m ? [parseInt(m[1], 16)/255, parseInt(m[2], 16)/255, parseInt(m[3], 16)/255] : [0.74, 0.71, 0.67]; }
+  /* How a product's photo is laid, in metres (see the shader). */
+  function layoutOf(f){
+    var ph = (f && f.photo) || {}, asp = ph.aspect || (f && f.img ? f.img.naturalWidth/f.img.naturalHeight : 1) || 1;
+    var out = {kind: 0, unit: [2, 2], n: 1, pl: 1, seam: 0.0004, turn: 0, grout: [0.74, 0.71, 0.67], across: !!ph.across};
+    if (ph.layout === "plank"){
+      var pw = (ph.plankIn || [7, 48]);
+      out.kind = 1; out.unit = [pw[1]*IN, pw[0]*IN]; out.n = Math.max(1, ph.planks || 1);
+      out.pl = Math.min(1, (ph.photoLengthIn || pw[1])/pw[1]);
+      out.seam = (ph.jointIn || 0.03)*IN;
+      out.across = !ph.across;   /* the photo's boards lie left to right; on the floor they run away from you */
+    } else if (ph.layout === "tile"){
+      var tw = (ph.tileIn || [12, 12]);
+      out.kind = 2; out.unit = [tw[1]*IN, tw[0]*IN]; out.seam = Math.max(0.0003, (ph.groutIn == null ? 0.125 : ph.groutIn)*IN/2);
+      out.turn = ph.turn === false ? 0 : (tw[0] === tw[1] ? 2 : 1); out.grout = hex(ph.grout || "#BDB6AA");
+    } else {
+      var wm = ph.widthM || (ph.widthIn ? ph.widthIn*IN : 2);
+      out.unit = [wm, wm/asp];
+    }
+    return out;
+  }
+  /* WebGL 1 repeats and smooths only pictures whose sides are powers of two */
+  function pow2(n){ var p = 1; while (p*2 <= n*1.33 && p < 2048) p *= 2; return Math.max(64, p); }
+  function prepared(img){
+    var w = pow2(img.naturalWidth), h = pow2(img.naturalHeight);
+    if (w === img.naturalWidth && h === img.naturalHeight) return img;
+    var c = document.createElement("canvas"); c.width = w; c.height = h;
+    var x = c.getContext("2d"); x.imageSmoothingQuality = "high"; x.drawImage(img, 0, 0, w, h); return c;
+  }
   function chooseFloor(f){
     S.floor = f;
-    document.querySelectorAll(".sample").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-id") === f.id ? "true" : "false"); });
-    $("chosen").innerHTML = "";
-    var t = document.createTextNode(f.name + ". Like it? "); $("chosen").appendChild(t);
-    var a = document.createElement("a"); a.href = "tel:+15635392772"; a.textContent = "Call 563-539-2772"; $("chosen").appendChild(a);
-    $("chosen").appendChild(document.createTextNode(" and ask about floors like this one."));
-    try { history.replaceState(null, "", "#floor=" + f.id); } catch(e){}
-    if (cache[f.id]){ f.ready = true; bindFloor(cache[f.id]); return; }
+    var B = window.KnockelsShelf, pr = B.priceOf(f), el = $("chosen"); el.innerHTML = "";
+    var what = [f.name, [B.brandName(f.brand), f.collection].filter(Boolean).join(" ")].filter(Boolean).join(", ");
+    var line = what + (pr ? ". " + (pr.was ? "$" + pr.now.toFixed(2) + " a " + pr.unit + ", on sale from $" + pr.was.toFixed(2) : "$" + pr.now.toFixed(2) + " a " + pr.unit) : "") + (f.inStock ? ". In stock" : "") + ". ";
+    el.appendChild(document.createTextNode(line));
+    var a = document.createElement("a"); a.href = "tel:+15635392772"; a.textContent = "Call 563-539-2772"; el.appendChild(a);
+    el.appendChild(document.createTextNode(f.type === "look" ? " and ask about floors like this one." : " to order it or see the sample."));
+    var lk = layoutOf(f).kind;
+    $("turn").textContent = lk === 1 || (f.type === "look" && f.look === "wood") ? "Turn the planks" : lk === 2 ? "Turn the tiles" : "Turn the pattern";
+    if (cache[f.id]){ f.ready = true; bindFloor(cache[f.id], f); return; }
     f.ready = false; redraw();
     var img = new Image();
-    img.onload = function(){ cache[f.id] = img; if (S.floor === f){ f.ready = true; bindFloor(img); } };
-    img.src = f.image;
+    img.onload = function(){ f.img = img; cache[f.id] = prepared(img); if (S.floor === f){ f.ready = true; bindFloor(cache[f.id], f); } };
+    img.onerror = function(){ if (S.floor === f) say("That floor's picture couldn't be loaded. Try another, or reload the page."); };
+    img.src = f.photo.image;
   }
-  function bindFloor(img){
+  function bindFloor(src, f){
+    var L = layoutOf(f), wrapMode = L.kind ? gl.CLAMP_TO_EDGE : (f.photo.seamless === false ? gl.MIRRORED_REPEAT : gl.REPEAT);
     gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, T.floor);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, src);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, wrapMode); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, wrapMode);
     gl.generateMipmap(gl.TEXTURE_2D);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
     if (aniso) gl.texParameterf(gl.TEXTURE_2D, aniso.TEXTURE_MAX_ANISOTROPY_EXT, Math.min(8, gl.getParameter(aniso.MAX_TEXTURE_MAX_ANISOTROPY_EXT)));
-    redraw();
+    say(""); redraw();
   }
-  function sampleHTML(f){ return '<li><button type="button" class="sample" data-id="' + f.id + '" aria-pressed="false"><img src="' + f.thumb + '" alt="" loading="lazy" width="560" height="560"><span>' + f.name + "</span></button></li>"; }
-  fetch("catalog.json").then(function(r){ return r.json(); }).then(function(c){
-    catalog = c.floors;
-    $("s-wood").innerHTML = catalog.filter(function(f){ return f.kind === "wood"; }).map(sampleHTML).join("");
-    $("s-tile").innerHTML = catalog.filter(function(f){ return f.kind === "tile"; }).map(sampleHTML).join("");
-    $("s-carpet").innerHTML = catalog.filter(function(f){ return f.kind === "carpet"; }).map(sampleHTML).join("");
-    document.querySelectorAll(".sample").forEach(function(b){ b.addEventListener("click", function(){
-      var f = catalog.filter(function(x){ return x.id === b.getAttribute("data-id"); })[0]; if (f) chooseFloor(f);
-    }); });
-    var want = (location.hash.match(/floor=([\w-]+)/) || [])[1];
-    chooseFloor(catalog.filter(function(f){ return f.id === want; })[0] || catalog[0]);
-  }).catch(function(){ say("The floor samples couldn't be loaded. Check the connection and reload the page."); });
+  window.KnockelsShelf.start(chooseFloor).catch(function(){ say("The floor samples couldn't be loaded. Check the connection and reload the page."); });
 
   /* ---------- Tools ---------- */
   $("turn").addEventListener("click", function(){ S.rot = !S.rot; redraw(); });
@@ -330,7 +404,12 @@
   bf.addEventListener("keydown", function(e){ if (e.key === " " || e.key === "Enter"){ S.before = true; redraw(); } });
   bf.addEventListener("keyup", holdOff);
   bf.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+  bf.style.webkitUserSelect = bf.style.userSelect = "none"; bf.style.webkitTouchCallout = "none"; bf.style.touchAction = "none";
 
+  function download(blob, name){
+    var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name;
+    document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  }
   $("save").addEventListener("click", function(){
     /* draw once at the photo's own size, then hand it over */
     var w = cv.width, h = cv.height, big = Math.min(1, 2048/Math.max(S.iw, S.ih));
@@ -345,17 +424,16 @@
       if (!blob) return;
       var file = null; try { file = new File([blob], name, {type: "image/jpeg"}); } catch(e){}
       if (file && navigator.canShare && navigator.canShare({files: [file]})){
-        navigator.share({files: [file], title: "My room with " + (S.floor ? S.floor.name : "a new floor")}).catch(function(){});
-      } else {
-        var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name;
-        document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
-      }
+        navigator.share({files: [file], title: "My room with " + (S.floor ? S.floor.name : "a new floor")}).catch(function(e){ if (!e || e.name !== "AbortError") download(blob, name); });
+      } else download(blob, name);
     }, "image/jpeg", 0.9);
   });
 
+  cv.addEventListener("webglcontextlost", function(e){ e.preventDefault(); say("Reloading the picture…"); });
+  cv.addEventListener("webglcontextrestored", function(){ location.reload(); });
   window.addEventListener("resize", fit);
   if (window.ResizeObserver) new ResizeObserver(fit).observe(wrap);
   /* for checking the drawing without a screen */
-  window.KnockelsRoom = {state: S, choose: function(id){ var f = catalog.filter(function(x){ return x.id === id; })[0]; if (f) chooseFloor(f); }, draw: draw};
+  window.KnockelsRoom = {state: S, choose: chooseFloor, layoutOf: layoutOf, draw: draw};
   loadRoom(0);
 })();
