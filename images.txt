@@ -312,7 +312,7 @@ o/6586670e3de667 http://manningtonprod.pimcoreclient.com/TransformedImages/13003
 o/b9aabd31b99091 http://manningtonprod.pimcoreclient.com/TransformedImages/130260-Full-Capri-Alabaster.jpeg
 o/00edcf37848ff6 http://manningtonprod.pimcoreclient.com/TransformedImages/130262-Full-Capri-Basalt.jpeg
 o/7c8624cf93bf3a http://manningtonprod.pimcoreclient.com/TransformedImages/130261-Full-Capri-Marble.jpeg
-o/cde5edf42d42ea http://manningtonprod.pimcoreclient.com/TransformedImages/130470-FullProp-Carrara-Ivory.jpeg
+o/b4084146438bf7 http://manningtonprod.pimcoreclient.com/TransformedImages/130470-Full-Carrara-Ivory.jpeg
 o/ea1c3321175653 http://manningtonprod.pimcoreclient.com/TransformedImages/4191-FullProp-Carrara-Pearl.jpeg
 o/df87c746320948 http://manningtonprod.pimcoreclient.com/TransformedImages/130301-Full-Chaumont-Iron_Gate.jpeg
 o/0626a2ba789d5c https://manningtonprod.pimcoreclient.com/Mannington/Sheet%20Vinyl/Luxury%20Vinyl%20Sheet/130110_cityplaza_calico_full.jpg
@@ -325,7 +325,7 @@ o/8be0cbba1208d3 http://manningtonprod.pimcoreclient.com/TransformedImages/13039
 o/28d917bee474cb http://manningtonprod.pimcoreclient.com/TransformedImages/130390-Full-Deco-Wrought_Iron.jpeg
 o/b23dacfbb00959 http://manningtonprod.pimcoreclient.com/TransformedImages/130353-Full-Filigree-Iron.jpeg
 o/781fccfbd24fc4 http://manningtonprod.pimcoreclient.com/TransformedImages/130352-Full-Filigree-Pewter.jpeg
-o/85f2dbdabe9671 http://manningtonprod.pimcoreclient.com/TransformedImages/80202-100202-130202_havana_tobacco_swatch.jpeg
+o/938c30842dd9a3 http://manningtonprod.pimcoreclient.com/TransformedImages/130202-Swatch-Havana-Tobacco.jpeg
 o/83c86d4dfaf8a4 https://manningtonprod.pimcoreclient.com/Mannington/Mannington%20on%20Main/Hex/Full-Hexx-Cauldron.jpg
 o/c09988c8dcd27e https://manningtonprod.pimcoreclient.com/Mannington/Mannington%20on%20Main/Hex/Full-Hexx-Charm.jpg
 o/55e0ab810ca67b http://manningtonprod.pimcoreclient.com/TransformedImages/130381-Full-Hive-Honey.jpeg
@@ -338,14 +338,14 @@ o/661f0fd98ad569 http://manningtonprod.pimcoreclient.com/TransformedImages/13019
 o/9b3f5fe2ad405d http://manningtonprod.pimcoreclient.com/TransformedImages/130370-Full-Niagara-Mist.jpeg
 o/4ccb30643d1012 http://manningtonprod.pimcoreclient.com/TransformedImages/130440-Full-Oceana-Sand_Dollar.jpeg
 o/47960e92b6e324 http://manningtonprod.pimcoreclient.com/TransformedImages/130441-Full-Oceana-Shell.jpeg
-o/33b8148958d845 http://manningtonprod.pimcoreclient.com/TransformedImages/130420-Full-Patina-Ash.jpeg
+o/0134ac706b769d http://manningtonprod.pimcoreclient.com/TransformedImages/130420-FullProp-Patina-Ash.jpeg
 o/150455e8846d27 http://manningtonprod.pimcoreclient.com/TransformedImages/130332-Full-Penny_Lane-Quartzite_with_Granite.jpeg
 o/4f0fcec82ac755 http://manningtonprod.pimcoreclient.com/TransformedImages/130333-Full-Penny_Lane-White_Quartz_wBasalt.jpeg
 o/8718f7f9e6cee1 http://manningtonprod.pimcoreclient.com/TransformedImages/130081-Full-Serena-Pebble_Beach.jpeg
 o/ca57cbbbe4b659 http://manningtonprod.pimcoreclient.com/TransformedImages/130080-Full-Serena-Sand.jpeg
 o/cf486b27a2d405 http://manningtonprod.pimcoreclient.com/TransformedImages/130082-Full-Serena-Volcanic.jpeg
 o/e153eb94b10c79 http://manningtonprod.pimcoreclient.com/TransformedImages/130272-Full-Stone_Harbor-Fog.jpeg
-o/305a13bebeaf31 http://manningtonprod.pimcoreclient.com/TransformedImages/130452-Full-Tapestry-Denim.jpeg
+o/d1e2f5cd398756 http://manningtonprod.pimcoreclient.com/TransformedImages/130452-FullProp-Tapestry-Denim.jpeg
 o/6d1e0ce39fe48e http://manningtonprod.pimcoreclient.com/TransformedImages/130450-Full-Tapestry-Linen_2.jpeg
 o/621bba83894b9d http://manningtonprod.pimcoreclient.com/TransformedImages/130451-Full-Tapestry-Wool.jpeg
 o/da3d979aba0de4 http://manningtonprod.pimcoreclient.com/TransformedImages/130530-100530-080530-Full-Twill-Linen.jpeg
