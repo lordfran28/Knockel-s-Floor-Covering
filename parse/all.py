@@ -91,12 +91,12 @@ for code, r in lvs.items():
             img=img, pic="full" if full else "swatch", look="wood" if "/platinum-wood/" in r["href"] else "tile", notes="Comes in Platinum, Gold and Silver")
 
 # Beauflor luxury vinyl rolls
-for slug, coll in [("beauflor-list-craftech", "Craftech"), ("beauflor-list-blacktex-1", "Blacktex HD"), ("beauflor-list-blacktex-2", "Blacktex HD"), ("beauflor-list-blacktex-3", "Blacktex HD")]:
+for slug, coll in [("beauflor-list-craftech", "Craftech"), ("beauflor-craftech-2", "Craftech"), ("beauflor-blacktex-1", "Blacktex HD"), ("beauflor-blacktex-2", "Blacktex HD"), ("beauflor-blacktex-3", "Blacktex HD")]:
     if not os.path.exists("out/pages/%s.json" % slug):
         continue
     seen_b = set(i["name"] for i in items if i["brand"] == "Beauflor")
     for i in page(slug)["imgs"]:
-        m = re.search(r"/([a-z0-9-]+?)_(\d{3}[a-z])_cv_beauflor", i["src"], re.I)
+        m = re.search(r"/([a-z0-9_-]+?)_(\d{3}[a-z])_cv_beauflor", i["src"], re.I)
         if not m or title(m.group(1)) in seen_b:
             continue
         seen_b.add(title(m.group(1)))
@@ -117,6 +117,46 @@ for slug in ("congoleum-advantage", "congoleum-evolution", "congoleum-plus"):
         add(brand="Congoleum", collection=html.unescape(det.group(1)).strip(), name=html.unescape(nm.group(1)).strip(), code=det.group(2).strip(),
             type="sheet vinyl", install="", img=re.sub(r"-\d+x\d+(\.\w+)$", r"\1", img.group(1)), pic="chip",
             look="wood" if des and "wood" in des.group(1) else "tile")
+
+# Paramount Bliss 5.0
+for slug, coll, look in [("paramount-bliss50-plank", "Bliss 5.0 Plank", "wood"), ("paramount-bliss50-tile", "Bliss 5.0 Tile", "tile")]:
+    if not os.path.exists("out/pages/%s.html" % slug):
+        continue
+    for v in woo(slug):
+        c = v["attributes"].get("attribute_pa_color", "")
+        m = re.match(r"(.+)-(pa5mm\d+|5mm\d+)$", c)
+        name, code = (title(m.group(1)), m.group(2).upper().replace("PA", "")) if m else (title(c), "")
+        img = (v.get("image") or {}).get("full_src")
+        if img:
+            add(brand="Paramount", collection=coll, name=name, code=code, type="vinyl plank", install="click", img=img, pic="plank", look=look)
+
+# MSI Everlife luxury vinyl
+MSI_BIG = os.path.exists("out/img/test/msi-big.jpg")
+MSI_NAMES = {"ashton-2": "Ashton 2.0", "cyrus-2": "Cyrus 2.0", "xl-ashton": "XL Ashton", "xl-cyrus": "XL Cyrus", "xl-prescott": "XL Prescott", "xl-trecento": "XL Trecento"}
+for c in ["acclima", "andover", "ashton-2", "ashton", "cyrus-2", "cyrus", "glenridge", "katavia", "prescott", "wilmont", "xl-ashton", "xl-cyrus", "xl-prescott", "trecento", "xl-trecento"]:
+    if not os.path.exists("out/pages/msi-%s.json" % c):
+        continue
+    base = "luxury-vinyl-tile" if "trecento" in c else "luxury-vinyl-planks"
+    got = {}
+    for i in page("msi-" + c)["imgs"]:
+        m = re.search(r"/%s/%s/([a-z0-9-]+)/?$" % (base, c), i["near"])
+        if m and i["src"] and not i["src"].endswith(".svg") and m.group(1) not in got:
+            got[m.group(1)] = i["src"].replace("/thumbnails/", "/") if MSI_BIG else i["src"]
+    coll = "Everlife " + MSI_NAMES.get(c, title(c))
+    for color, img in sorted(got.items()):
+        add(brand="MSI", collection=coll, name=title(color), code="", type="vinyl plank", install="",
+            img=img, pic="msi", look="tile" if "trecento" in c else "wood")
+
+# Mercier PRO hardwood
+for sp in ("red-oak", "hard-maple"):
+    for c in ("acorn-brown", "brookline", "concrete-grey", "gunstock", "keystone", "linen", "moccasin", "natural"):
+        slug = "mercier-%s-%s" % (sp, c)
+        if not os.path.exists("out/pages/%s.html" % slug):
+            continue
+        m = re.search(r'og:image" content="([^"]+)"', open("out/pages/%s.html" % slug).read())
+        if m:
+            add(brand="Mercier", collection="PRO " + title(sp), name=title(c), code="", type="hardwood", install="", img=m.group(1), pic="mercier", look="wood",
+                notes="3¼ or 4¼ inch solid, or 5 inch engineered")
 
 # Mohawk carpet styles on the store's PetPremier and SmartStrand displays
 MOHAWK = {"3M40", "3M34", "3M35", "3M41", "3M42", "3N78", "2R31", "2R32", "2R33", "2S68", "2S53", "2M64", "2S73", "2F65", "2N80", "2N81"}
@@ -149,7 +189,7 @@ json.dump(items, open("parse/orders.json", "w"), indent=0, ensure_ascii=False)
 want = {}
 for i in items:
     want[i["file"]] = urllib.parse.quote(i["img"], safe=":/?&=%#,+@;~!$'()*")
-keep = [l for l in open("images.txt") if l.startswith("#")]
+keep = [l for l in open("images.txt") if l.startswith("#") or l.startswith("test/msi")]
 with open("images.txt", "w") as f:
     f.writelines(keep)
     for k, u in want.items():
