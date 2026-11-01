@@ -1,1 +1,1 @@
-{"url": "https://www.dreamweavercarpet.com/", "error": "Page.goto: net::ERR_CONNECTION_RESET at https://www.dreamweavercarpet.com/\nCall log:\n  - navigating to \"https://www.dreamweavercarpet.com/\", waiting until \"domcontentloaded\"\n"}
+{"url": "https://www.dreamweavercarpet.com/", "error": "Page.goto: net::ERR_CONNECTION_CLOSED at https://www.dreamweavercarpet.com/\nCall log:\n  - navigating to \"https://www.dreamweavercarpet.com/\", waiting until \"domcontentloaded\"\n"}
