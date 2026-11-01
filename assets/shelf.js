@@ -31,7 +31,11 @@
       (!s.inStock || p.inStock) && (!s.ids || s.ids.indexOf(p.id) >= 0);
   }
   function priceOf(p){
-    if (typeof p.price !== "number") return null;
+    /* a floor priced only installed (the discontinued carpets, by the yard with pad) */
+    if (typeof p.price !== "number"){
+      if (typeof p.priceInstalled !== "number") return null;
+      return {now: p.priceInstalled, was: p.wasInstalled > p.priceInstalled ? p.wasInstalled : null, unit: p.unit || "sq ft", ends: null, installed: true};
+    }
     var d = today(), best = null;
     function consider(s){
       if (!live(s, d)) return;
@@ -44,8 +48,11 @@
     (CAT.sales || []).forEach(function(s){ if (fits(s, p)) consider(s); });
     return {now: best ? best.now : p.price, was: best ? p.price : null, unit: p.unit || "sq ft", ends: best ? best.ends : null};
   }
+  function perFoot(pr){ return pr.unit === "sq yd" ? " (" + money(Math.round(pr.now/9*100)/100) + " a sq ft)" : ""; }
   function priceHTML(p){
     var pr = priceOf(p); if (!pr) return "";
+    if (pr.installed) return '<span class="price">' + (pr.was ? '<s>' + money(pr.was) + '</s> <b class="now">' + money(pr.now) + "</b>" : "<b>" + money(pr.now) + "</b>") +
+      '<small>/' + esc(pr.unit) + '</small><span class="inst">Installed' + perFoot(pr) + "</span></span>";
     return '<span class="price">' + (pr.was ? '<s>' + money(pr.was) + '</s> <b class="now">' + money(pr.now) + "</b>" : "<b>" + money(pr.now) + "</b>") +
       '<small>/' + esc(pr.unit) + "</small>" + (typeof p.priceInstalled === "number" ? '<span class="inst">' + (p.wasInstalled > p.priceInstalled ? "<s>" + money(p.wasInstalled) + "</s> " : "") + money(p.priceInstalled) + " installed</span>" : "") +
       (pr.was && pr.ends ? '<em class="ends">Sale ends ' + shortDay(pr.ends) + "</em>" : "") + "</span>";
@@ -66,7 +73,7 @@
     /* carpet and sheet vinyl: the piece in the store, by its size */
     if (p.size && roll){
       var sq = typeof p.onHand === "number" ? " (" + amount(p) + ")" : "";
-      st = (p.reorder === false ? "Only a " + p.size + " piece left" + sq : p.size + " in stock" + sq + (p.reorder ? ", more can be ordered" : ""));
+      st = (p.reorder === false ? "Only " + p.size + " left" + sq : p.size + " in stock" + sq + (p.reorder ? ", more can be ordered" : ""));
     } else if (p.size) out.push("Planks " + p.size);
     if (p.notes) out.push(p.notes);
     if (p.install) out.push(INSTALL[p.install]);
@@ -103,7 +110,7 @@
     ROOT = mk("", "Floors", [], null);
     var stock = real.filter(function(p){ return p.inStock; });
     if (stock.length){ var s = mk("stock", "In stock", stock, ROOT); byType(s, true); ROOT.kids.push(s); }
-    var sale = real.filter(function(p){ var pr = priceOf(p); return pr && pr.was; });
+    var sale = real.filter(function(p){ var pr = priceOf(p); return pr && (pr.was || p.wasInstalled > p.priceInstalled); });
     if (sale.length){ var o = mk("sale", "On sale", sale, ROOT); byType(o, false); ROOT.kids.push(o); }
     ROOT.families = [];
     FAMILY.forEach(function(f){

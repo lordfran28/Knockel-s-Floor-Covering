@@ -1126,7 +1126,11 @@
    "tag": "Sale",
    "photo": {
     "layout": "roll",
-    "widthIn": 18
+    "widthIn": 18.0,
+    "seamless": true,
+    "aspect": 1.1083,
+    "image": "assets/floors/southwind-50-oz.jpg",
+    "thumb": "assets/floors/thumbs/southwind-50-oz.jpg"
    }
   },
   {
@@ -1142,7 +1146,11 @@
    "tag": "Sale",
    "photo": {
     "layout": "roll",
-    "widthIn": 18
+    "widthIn": 15.0,
+    "seamless": true,
+    "aspect": 2.0,
+    "image": "assets/floors/quinn-island-space.jpg",
+    "thumb": "assets/floors/thumbs/quinn-island-space.jpg"
    }
   },
   {
@@ -1161,7 +1169,11 @@
    "tag": "Sale",
    "photo": {
     "layout": "roll",
-    "widthIn": 18
+    "widthIn": 12.0,
+    "seamless": true,
+    "aspect": 2.5032,
+    "image": "assets/floors/generations-ii-creek-bed.jpg",
+    "thumb": "assets/floors/thumbs/generations-ii-creek-bed.jpg"
    }
   },
   {
@@ -1180,7 +1192,11 @@
    "tag": "Sale",
    "photo": {
     "layout": "roll",
-    "widthIn": 18
+    "widthIn": 17.0,
+    "seamless": true,
+    "aspect": 1.5655,
+    "image": "assets/floors/shaw-good-more-ii-sterling.jpg",
+    "thumb": "assets/floors/thumbs/shaw-good-more-ii-sterling.jpg"
    }
   },
   {
@@ -1199,7 +1215,11 @@
    "tag": "Sale",
    "photo": {
     "layout": "roll",
-    "widthIn": 18
+    "widthIn": 17.0,
+    "seamless": true,
+    "aspect": 1.7593,
+    "image": "assets/floors/shaw-vintage-flare-chromatic.jpg",
+    "thumb": "assets/floors/thumbs/shaw-vintage-flare-chromatic.jpg"
    }
   },
   {
@@ -1216,9 +1236,255 @@
    "tag": "Sale",
    "photo": {
     "layout": "roll",
-    "widthIn": 18
+    "widthIn": 7.0,
+    "seamless": true,
+    "aspect": 0.8668,
+    "image": "assets/floors/atlantic-sand.jpg",
+    "thumb": "assets/floors/thumbs/atlantic-sand.jpg"
    },
    "notes": "Sale price is for this piece only"
+  },
+  {
+   "id": "discontinued-cream-with-brown-fleck",
+   "name": "Cream with brown fleck",
+   "type": "carpet",
+   "inStock": true,
+   "priceInstalled": 20.99,
+   "unit": "sq yd",
+   "wasInstalled": 27.99,
+   "onHand": 204,
+   "reorder": false,
+   "size": "15' 4\" x 120'",
+   "tag": "Discontinued",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 16.0,
+    "seamless": true,
+    "aspect": 1.0361,
+    "image": "assets/floors/discontinued-cream-with-brown-fleck.jpg",
+    "thumb": "assets/floors/thumbs/discontinued-cream-with-brown-fleck.jpg"
+   },
+   "notes": "Pad included"
+  },
+  {
+   "id": "discontinued-tan",
+   "name": "Tan",
+   "type": "carpet",
+   "inStock": true,
+   "priceInstalled": 20.99,
+   "unit": "sq yd",
+   "wasInstalled": 27.99,
+   "onHand": 51,
+   "reorder": false,
+   "size": "13' 6\" x 34'",
+   "tag": "Discontinued",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 16.0,
+    "seamless": true,
+    "aspect": 0.8196,
+    "image": "assets/floors/discontinued-tan.jpg",
+    "thumb": "assets/floors/thumbs/discontinued-tan.jpg"
+   },
+   "notes": "Pad included"
+  },
+  {
+   "id": "discontinued-grey",
+   "name": "Grey",
+   "type": "carpet",
+   "inStock": true,
+   "priceInstalled": 20.99,
+   "unit": "sq yd",
+   "wasInstalled": 27.99,
+   "onHand": 16,
+   "reorder": false,
+   "size": "12' x 12'",
+   "tag": "Discontinued",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 16.0,
+    "seamless": true,
+    "aspect": 1.3698,
+    "image": "assets/floors/discontinued-grey.jpg",
+    "thumb": "assets/floors/thumbs/discontinued-grey.jpg"
+   },
+   "notes": "Pad included"
+  },
+  {
+   "id": "discontinued-light-grey",
+   "name": "Light grey",
+   "type": "carpet",
+   "inStock": true,
+   "priceInstalled": 20.99,
+   "unit": "sq yd",
+   "wasInstalled": 27.99,
+   "onHand": 192,
+   "reorder": false,
+   "size": "13' 6\" x 128'",
+   "tag": "Discontinued",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 16.0,
+    "seamless": true,
+    "aspect": 0.843,
+    "image": "assets/floors/discontinued-light-grey.jpg",
+    "thumb": "assets/floors/thumbs/discontinued-light-grey.jpg"
+   },
+   "notes": "Pad included"
+  },
+  {
+   "id": "discontinued-white-and-brown",
+   "name": "White and brown",
+   "type": "carpet",
+   "inStock": true,
+   "priceInstalled": 20.99,
+   "unit": "sq yd",
+   "wasInstalled": 27.99,
+   "onHand": 132,
+   "reorder": false,
+   "size": "12' x 99'",
+   "tag": "Discontinued",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 16.0,
+    "seamless": true,
+    "aspect": 0.9888,
+    "image": "assets/floors/discontinued-white-and-brown.jpg",
+    "thumb": "assets/floors/thumbs/discontinued-white-and-brown.jpg"
+   },
+   "notes": "Pad included"
+  },
+  {
+   "id": "discontinued-grey-and-beige",
+   "name": "Grey and beige",
+   "type": "carpet",
+   "inStock": true,
+   "priceInstalled": 20.99,
+   "unit": "sq yd",
+   "wasInstalled": 27.99,
+   "onHand": 160,
+   "reorder": false,
+   "size": "12' x 120'",
+   "tag": "Discontinued",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 14.0,
+    "seamless": true,
+    "aspect": 1.19,
+    "image": "assets/floors/discontinued-grey-and-beige.jpg",
+    "thumb": "assets/floors/thumbs/discontinued-grey-and-beige.jpg"
+   },
+   "notes": "Pad included"
+  },
+  {
+   "id": "discontinued-charcoal-and-beige",
+   "name": "Charcoal and beige",
+   "type": "carpet",
+   "inStock": true,
+   "priceInstalled": 20.99,
+   "unit": "sq yd",
+   "wasInstalled": 27.99,
+   "onHand": 92,
+   "reorder": false,
+   "size": "12' x 69'",
+   "tag": "Discontinued",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 13.0,
+    "seamless": true,
+    "aspect": 0.7803,
+    "image": "assets/floors/discontinued-charcoal-and-beige.jpg",
+    "thumb": "assets/floors/thumbs/discontinued-charcoal-and-beige.jpg"
+   },
+   "notes": "Rubber back, no pad needed"
+  },
+  {
+   "id": "discontinued-grey-brown",
+   "name": "Grey-brown",
+   "type": "carpet",
+   "inStock": true,
+   "priceInstalled": 20.99,
+   "unit": "sq yd",
+   "wasInstalled": 27.99,
+   "onHand": 101,
+   "reorder": false,
+   "size": "12' x 76'",
+   "tag": "Discontinued",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 14.0,
+    "seamless": true,
+    "aspect": 0.842,
+    "image": "assets/floors/discontinued-grey-brown.jpg",
+    "thumb": "assets/floors/thumbs/discontinued-grey-brown.jpg"
+   },
+   "notes": "Pad included"
+  },
+  {
+   "id": "discontinued-brown-and-beige",
+   "name": "Brown and beige",
+   "type": "carpet",
+   "inStock": true,
+   "priceInstalled": 20.99,
+   "unit": "sq yd",
+   "wasInstalled": 27.99,
+   "onHand": 67,
+   "reorder": false,
+   "size": "15' x 40'",
+   "tag": "Discontinued",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 15.0,
+    "seamless": true,
+    "aspect": 1.0394,
+    "image": "assets/floors/discontinued-brown-and-beige.jpg",
+    "thumb": "assets/floors/thumbs/discontinued-brown-and-beige.jpg"
+   },
+   "notes": "Pad included"
+  },
+  {
+   "id": "discontinued-brown",
+   "name": "Brown",
+   "type": "carpet",
+   "inStock": true,
+   "priceInstalled": 20.99,
+   "unit": "sq yd",
+   "wasInstalled": 27.99,
+   "onHand": 25,
+   "reorder": false,
+   "size": "13' 4\" x 17'",
+   "tag": "Discontinued",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 15.0,
+    "seamless": true,
+    "aspect": 1.0506,
+    "image": "assets/floors/discontinued-brown.jpg",
+    "thumb": "assets/floors/thumbs/discontinued-brown.jpg"
+   },
+   "notes": "Pad included"
+  },
+  {
+   "id": "discontinued-beige-with-black-fleck",
+   "name": "Beige with black fleck",
+   "type": "carpet",
+   "inStock": true,
+   "priceInstalled": 20.99,
+   "unit": "sq yd",
+   "wasInstalled": 25.99,
+   "onHand": 51,
+   "reorder": false,
+   "size": "12' x 38'",
+   "tag": "Discontinued",
+   "photo": {
+    "layout": "roll",
+    "widthIn": 13.0,
+    "seamless": true,
+    "aspect": 0.5502,
+    "image": "assets/floors/discontinued-beige-with-black-fleck.jpg",
+    "thumb": "assets/floors/thumbs/discontinued-beige-with-black-fleck.jpg"
+   },
+   "notes": "Rubber back, no pad needed. The size is approximate"
   },
   {
    "id": "washed-oak",
