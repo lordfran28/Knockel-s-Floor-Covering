@@ -155,9 +155,9 @@ for sp in ("red-oak", "hard-maple"):
         slug = "mercier-%s-%s" % (sp, c)
         if not os.path.exists("out/pages/%s.html" % slug):
             continue
-        m = re.search(r'og:image" content="([^"]+)"', open("out/pages/%s.html" % slug).read())
-        if m:
-            add(brand="Mercier", collection="PRO " + title(sp), name=title(c), code="", type="hardwood", install="", img=m.group(1), pic="mercier", look="wood",
+        gallery = re.findall(r'data-image="([^"]+)"', open("out/pages/%s.html" % slug).read())
+        if len(gallery) > 1:   # the first is a room, the second the boards close up
+            add(brand="Mercier", collection="PRO " + title(sp), name=title(c), code="", type="hardwood", install="", img=gallery[1], pic="mercier", look="wood",
                 notes="3¼ or 4¼ inch solid, or 5 inch engineered")
 
 # Mohawk carpet styles on the store's PetPremier and SmartStrand displays
