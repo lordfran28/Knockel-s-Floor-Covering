@@ -1,0 +1,19 @@
+# SLUG URL [scrolls]
+karndean-home https://www.karndean.com/en-us
+knb-home https://www.knbmills.com/
+knb-sequoia https://www.knbmills.com/products/sequoia-collection
+paramount-home https://www.paramountflooring.com/
+metroflor-home https://www.metroflorusa.com/
+metroflor-genesis https://www.metroflorusa.com/genesis
+southwind-home https://www.southwindfloors.com/
+southwindcarpet-home https://www.southwindcarpet.com/
+mannington-home https://www.mannington.com/
+beauflor-home https://www.beauflor.us/
+mohawk-home https://www.mohawkflooring.com/
+ef-home https://www.engineeredfloors.com/
+dreamweaver-home https://www.dreamweavercarpet.com/
+congoleum-home https://www.congoleum.com/
+mercier-home https://www.mercier-wood-flooring.com/
+msi-lvt https://www.msisurfaces.com/luxury-vinyl-flooring/
+aladdin-home https://www.aladdincommercial.com/
+tarkett-home https://home.tarkett.com/en_US/
