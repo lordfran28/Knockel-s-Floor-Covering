@@ -109,14 +109,16 @@ figcaption{font-size:.88rem;color:var(--muted);margin-top:.6em;font-style:italic
 @media (max-width:760px){.callbar{display:block}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.callbar,.top{transition:none}}
 
-/* Phones: smaller words and narrower cushions, so the floor being laid shows around them */
+/* Phones: small words and narrow cushions, so the floor being laid shows around them */
 @media (max-width:760px){
-  body{font-size:.94rem;line-height:1.55}
-  h2{font-size:1.6rem}
-  h3{font-size:1.15rem}
-  .lead{font-size:1rem}
-  :root{--edge:22px;--gutter:16px}
-  .pillow{padding:20px 18px;border-radius:18px}
-  .section{padding:44px 0}
-  figcaption{font-size:.8rem}
+  body{font-size:.86rem;line-height:1.5}
+  h2{font-size:1.25rem}
+  h3{font-size:1rem}
+  .lead{font-size:.9rem}
+  :root{--edge:32px;--gutter:14px}
+  .pillow{padding:16px 16px 14px;border-radius:16px}
+  .section{padding:40px 0}
+  figcaption{font-size:.72rem}
+  .btn{font-size:.98rem;min-height:38px}
+  .foot{font-size:.82rem}
 }

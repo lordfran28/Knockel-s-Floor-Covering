@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#163536">
 <link rel="preload" href="assets/fonts/ZillaSlab-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/floors/brown-oak.jpg" as="image">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=3">
 <style>
 /* Opening: the floor lays itself as you scroll */
 .hero{position:relative;height:205svh;background:var(--river);color:var(--on-river)}
@@ -118,26 +118,38 @@
 .hero-actions{gap:6px 26px}
 .visit .actions{gap:6px 26px}
 
-/* Phones: smaller and lighter, so the floor being laid shows around everything */
+/* Phones: small and compact, so the floor being laid shows around everything */
 @media (max-width:760px){
-  .hero h1{font-size:2.6rem}
-  .hero .where{font-size:1rem;margin:.6em 0 .8em}
-  .front h2,.store h2,.tryit h2,.floors h2,.services h2,.visit h2,.river h2{font-size:1.55rem}
-  .window{aspect-ratio:4/3}
-  .stack{padding:0 10% 0 14%}
-  .steps li::before{font-size:1.05rem}
-  .compare{max-width:88%;margin:0 auto}
-  .wall{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:1.4em 0 1.4em}
-  .chip span{font-size:.78rem}
-  .kinds li{padding:.22em 0}
-  .brands{font-size:1rem}
-  .svc li{padding:.8em 0}
-  .services figure{max-width:80%;margin:0 auto}
-  .river{min-height:58svh}
-  .river p{font-size:.95rem}
-  .addr{font-size:1.1rem}
-  .bigphone{font-size:1.75rem}
-  .map{min-height:240px}
+  .hero h1{font-size:2.05rem;line-height:.95}
+  .hero .where{font-size:.9rem;margin:.55em 0 .5em}
+  .hero-text{padding-top:calc(70px + 2vh)}
+  .front h2,.store h2,.tryit h2,.floors h2,.services h2,.visit h2,.river h2{font-size:1.25rem;margin-bottom:.45em!important}
+  .front{padding:40px 0 20px}
+  .front-head{margin-bottom:10px}
+  .window{aspect-ratio:16/10}
+  .long{display:none!important}
+  .store{gap:14px}
+  .stack{padding:0 0 0 12%;width:78%;margin:0 auto}
+  .stack figcaption{font-size:.72rem}
+  .tryit{gap:14px}
+  .steps{margin:.7em 0 .8em}
+  .steps li{margin:.2em 0;grid-template-columns:1.6em 1fr}
+  .steps li::before{font-size:.9rem}
+  .compare{max-width:82%;margin:0 auto}
+  .wall{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:1em 0}
+  .chip span{font-size:.68rem;line-height:1.15}
+  .kinds{columns:2;column-gap:1rem;font-size:.8rem;margin-bottom:.8em}
+  .kinds li{padding:.15em 0}
+  .brands{font-size:.85rem}
+  .svc li{padding:.55em 0}
+  .svc h3{font-size:.98rem;margin-bottom:.15em}
+  .river{min-height:44svh;border-radius:16px}
+  .river p{font-size:.85rem}
+  .river small{font-size:.7rem}
+  .visit{gap:14px}
+  .addr{font-size:.95rem}
+  .bigphone{font-size:1.45rem}
+  .map{min-height:200px}
 }
 </style>
 </head>
@@ -185,8 +197,8 @@
     <div class="measure">
       <h2>On Center Street since 1980</h2>
       <p class="lead">Knockel's has sold floors and put them down in Monona for over forty years. Carpet, tile, vinyl, wood, porcelain, laminate and stone.</p>
-      <p>Most jobs start the same way. Somebody comes in with a picture on their phone, or a cabinet door under one arm, and says the kitchen floor has had it. We walk the samples together. We ask about the dog and the kids and the mud that comes in every March. Then we find a floor that will look right in that room and hold up for a long time.</p>
-      <p>Bathrooms, kitchens, bedrooms, the whole house. We measure, we order, and our own crew does the installing.</p>
+      <p class="long">Most jobs start the same way. Somebody comes in with a picture on their phone, or a cabinet door under one arm, and says the kitchen floor has had it. We walk the samples together. We ask about the dog and the kids and the mud that comes in every March. Then we find a floor that will look right in that room and hold up for a long time.</p>
+      <p class="long">Bathrooms, kitchens, bedrooms, the whole house. We measure, we order, and our own crew does the installing.</p>
       <p>Come by and see the samples in person. Bring the picture.</p>
     </div>
     <figure class="stack">
@@ -249,7 +261,7 @@
         <li><h3>Pick-up</h3><p>Ask about pick-up service when you call.</p></li>
       </ul>
     </div>
-    <figure>
+    <figure class="long">
       <img src="assets/store/showroom-carpet.jpg" width="1400" height="1050" loading="lazy" alt="A rack of carpet sample books in the Knockel's showroom.">
       <figcaption>Carpet samples in the showroom.</figcaption>
     </figure>
@@ -304,7 +316,7 @@
 
 <div class="callbar" id="callbar"><a class="btn btn-call" href="tel:+15635392772">Call the store: 563-539-2772</a></div>
 
-<script src="assets/floor-scene.js"></script>
-<script src="assets/home.js"></script>
+<script src="assets/floor-scene.js?v=3"></script>
+<script src="assets/home.js?v=3"></script>
 </body>
 </html>
