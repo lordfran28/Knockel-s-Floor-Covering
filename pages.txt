@@ -17,3 +17,30 @@ mercier-home https://www.mercier-wood-flooring.com/
 msi-lvt https://www.msisurfaces.com/luxury-vinyl-flooring/
 aladdin-home https://www.aladdincommercial.com/
 tarkett-home https://home.tarkett.com/en_US/
+paramount-bliss https://www.paramountflooring.com/products/product-catalog/?collecton%5Bbliss%5D&sort=auto 25
+paramount-timbrcore https://www.paramountflooring.com/products/product-catalog/?brand%5Btimbrcore%5D&sort=auto 25
+karndean-ranges https://www.karndean.com/en-us/floors/products/our-ranges/
+mannington-aduramax https://www.mannington.com/residential/products/luxury-vinyl/aduramax 25
+mannington-adurarigid https://www.mannington.com/residential/products/luxury-vinyl/adurarigid 25
+mannington-aduraflex https://www.mannington.com/residential/products/luxury-vinyl/aduraflex 25
+mannington-lvs https://www.mannington.com/residential/products/luxury-vinyl-sheet 30
+beauflor-blacktex https://www.beauflor.us/en/curated-collections-luxury-vinyl-roll/blacktex-hd 20
+beauflor-craftech https://www.beauflor.us/en/curated-collections-luxury-vinyl-roll/craftech 20
+congoleum-advantage https://www.congoleum.com/vinyl-sheet/airstep/airstep-advantage/ 20
+congoleum-evolution https://www.congoleum.com/vinyl-sheet/airstep/airstep-evolution/ 20
+congoleum-plus https://www.congoleum.com/vinyl-sheet/airstep/airstep-plus/ 20
+mohawk-carpet https://www.mohawkflooring.com/shop/carpet?colorGroup=all&look=all&type=Carpet&page=1 20
+mohawk-petpremier https://www.mohawkflooring.com/carpet/petpremier
+mohawk-smartstrand https://www.mohawkflooring.com/carpet/smartstrand
+mercier-catalog https://mercier-wood-flooring.com/us/en/hardwood-flooring/ 25
+mercier-pro https://mercier-wood-flooring.com/us/en/hardwood-flooring/red-oak-gunstock-pro/samples/
+aladdin-lvt https://www.aladdincommercial.com/hardsurface?pt=Luxury%20Vinyl%20Tile 25
+shaw-petperfect https://shawfloors.com/en-us/pet-perfect-collections-overview 20
+southwind-wpc https://www.southwindfloors.com/product-category/wpc/
+southwind-spc https://www.southwindfloors.com/product-category/spc/
+msi-new-lvt https://www.msisurfaces.com/new-products/flooring/everlife-lvt/ 20
+ddg-callaway https://html.duckduckgo.com/html/?q=Milliken+Callaway+Design+Center+carpet
+ddg-trends https://html.duckduckgo.com/html/?q=TRENDS+tile+%22Simple+Solutions%22+%22Porcelain+Solutions%22
+ddg-elegance https://html.duckduckgo.com/html/?q=%22Elegance%22+porcelain+tile+fifteen36
+ddg-genesis https://html.duckduckgo.com/html/?q=Metroflor+Genesis+WPC+colors
+ddg-sequoia https://html.duckduckgo.com/html/?q=Paramount+TimbrCORE+Sequoia+colors
