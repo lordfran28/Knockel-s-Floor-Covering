@@ -127,3 +127,5 @@ ef-puregrain https://www.engineeredfloors.com/technology/puregrain-renew/ 10
 shaw-endura-plus https://shawfloors.shawinc.com/en-us/vinyl/endura-plus-wild-dunes-7-/0736v-07089 10
 floorcity-windy-gap https://www.floorcity.com/products/engineered-floors-puregrain-renew-wood-tech-d030-3002-windy-gap 6
 cw-windy-gap https://ww2.carpet-wholesale.com/item-474107/laminate/puregrain-renew-by-engineered-floors/wood-tech/windy-gap.php 6
+ef-hard-surface https://www.engineeredfloors.com/products/hard-surface/?product-line=puregrain-renew-laminate 15
+ef-hard-all https://www.engineeredfloors.com/products/hard-surface/ 25

@@ -20,3 +20,7 @@ hf-stoneandtile-2 https://stoneandtileshoppe.com/collections/happy-feet/products
 ef-woodtech-floorcity https://www.floorcity.com/products/engineered-floors-puregrain-renew-wood-tech-d030-3002-windy-gap.json
 arko-hf https://arkoflooring.com/collections/happy-feet/products.json?limit=250
 villo-woodhills https://villohome.com/products/msi-engineered-waterproof-hardwood-woodhills-bali-buff-oak.json
+ef-wt-3003 https://www.floorcity.com/products/engineered-floors-puregrain-renew-wood-tech-d030-3003-hemlock-trail.json
+ef-wt-3004 https://www.floorcity.com/products/engineered-floors-puregrain-renew-wood-tech-d030-3004-cannons-point.json
+ef-wt-3009 https://www.floorcity.com/products/engineered-floors-puregrain-renew-wood-tech-d030-3009-maulden-wood.json
+floorcity-ef-all https://www.floorcity.com/collections/engineered-floors/products.json?limit=250

@@ -191,7 +191,7 @@ json.dump(items, open("parse/orders.json", "w"), indent=0, ensure_ascii=False)
 want = {}
 for i in items:
     want[i["file"]] = urllib.parse.quote(i["img"], safe=":/?&=%#,+@;~!$'()*")
-keep = [l for l in open("images.txt") if l.startswith("#") or l.startswith("test/msi")]
+keep = [l for l in open("images.txt") if l.startswith("#") or l.startswith("test/msi") or l.startswith("stock/")]
 with open("images.txt", "w") as f:
     f.writelines(keep)
     for k, u in want.items():
