@@ -117,7 +117,7 @@ def images():
             r.raise_for_status()
             im = Image.open(io.BytesIO(r.content))
             im = im.convert("RGB")
-            m = 2000
+            m = 1600
             if max(im.size) > m:
                 k = m / max(im.size)
                 im = im.resize((round(im.width * k), round(im.height * k)), Image.LANCZOS)
