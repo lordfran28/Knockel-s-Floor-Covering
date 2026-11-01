@@ -68,6 +68,79 @@ for slug in sw:
             add(brand="Southwind", collection="XRP " + coll, name=title(c), code=v.get("sku", ""), type="vinyl plank", install="click",
                 img=img, pic="thumb", look="tile" if "tile" in coll.lower() else "wood")
 
+# Mannington luxury vinyl sheet (each design comes in Platinum, Gold and Silver)
+d = page("mannington-lvs")
+lvs = {}
+for i in d["imgs"]:
+    m = re.match(r"Luxury Vinyl Sheet (\w+) (.+) (\d{5,6})$", i["alt"].strip())
+    if not m:
+        continue
+    u = urllib.parse.parse_qs(urllib.parse.urlparse(i["src"]).query).get("url", [i["src"]])[0]
+    r = lvs.setdefault(m.group(3), {"label": m.group(2), "imgs": set(), "href": ""})
+    if "logo" not in u.lower():
+        r["imgs"].add(u)
+    if i["near"]:
+        r["href"] = i["near"]
+for code, r in lvs.items():
+    full = [u for u in r["imgs"] if "full" in u.lower()]
+    sw = [u for u in r["imgs"] if "swatch" in u.lower()]
+    other = [u for u in r["imgs"] if not re.search(r"-(rs|angle|prop)-|_rs|RS\.", u, re.I)]
+    img = (full or sw or other or [None])[0]
+    if img:
+        add(brand="Mannington", collection="Luxury Vinyl Sheet", name=r["label"], code=code, type="sheet vinyl", install="",
+            img=img, pic="full" if full else "swatch", look="wood" if "/platinum-wood/" in r["href"] else "tile", notes="Comes in Platinum, Gold and Silver")
+
+# Beauflor luxury vinyl rolls
+for slug, coll in [("beauflor-list-craftech", "Craftech"), ("beauflor-list-blacktex-1", "Blacktex HD"), ("beauflor-list-blacktex-2", "Blacktex HD"), ("beauflor-list-blacktex-3", "Blacktex HD")]:
+    if not os.path.exists("out/pages/%s.json" % slug):
+        continue
+    seen_b = set(i["name"] for i in items if i["brand"] == "Beauflor")
+    for i in page(slug)["imgs"]:
+        m = re.search(r"/([a-z0-9-]+?)_(\d{3}[a-z])_cv_beauflor", i["src"], re.I)
+        if not m or title(m.group(1)) in seen_b:
+            continue
+        seen_b.add(title(m.group(1)))
+        img = re.sub(r"beaulieu_600_crop,default", "beaulieu_1600,default", i["src"]) if False else i["src"]
+        add(brand="Beauflor", collection=coll, name=title(m.group(1)), code=m.group(2).upper(), type="sheet vinyl", install="",
+            img=img, pic="roll", look="wood")
+
+# Congoleum AirStep
+for slug in ("congoleum-advantage", "congoleum-evolution", "congoleum-plus"):
+    h = open("out/pages/%s.html" % slug).read()
+    for blk in re.findall(r'<div class="product-imageholder.*?</ul>', h, re.S):
+        img = re.search(r'src="([^"]+_CHIP[^"]*)"', blk)
+        det = re.search(r'class="details">([^<|]+)\|\s*([^<]+)<', blk)
+        nm = re.search(r'class="name"><strong><a[^>]*>([^<]+)<', blk)
+        des = re.search(r'data-design="([^"]+)"', blk)
+        if not (img and det and nm):
+            continue
+        add(brand="Congoleum", collection=html.unescape(det.group(1)).strip(), name=html.unescape(nm.group(1)).strip(), code=det.group(2).strip(),
+            type="sheet vinyl", install="", img=re.sub(r"-\d+x\d+(\.\w+)$", r"\1", img.group(1)), pic="chip",
+            look="wood" if des and "wood" in des.group(1) else "tile")
+
+# Mohawk carpet styles on the store's PetPremier and SmartStrand displays
+MOHAWK = {"3M40", "3M34", "3M35", "3M41", "3M42", "3N78", "2R31", "2R32", "2R33", "2S68", "2S53", "2M64", "2S73", "2F65", "2N80", "2N81"}
+seen = set()
+for f in sorted(os.popen("ls out/api/mohawk-*.json").read().split()):
+    try:
+        j = json.load(open(f))
+    except Exception:
+        continue
+    for d in j["response"]["docs"]:
+        for v in d.get("variants", []):
+            sn = (v.get("style_number") or [""])[0]
+            if sn not in MOHAWK:
+                continue
+            color, code = (v.get("color_name") or [""])[0], (v.get("color_code") or [""])[0]
+            img = ((v.get("swatch_images") or v.get("sku_swatch_images") or [""])[0])
+            key = (sn, code)
+            if not img or key in seen:
+                continue
+            seen.add(key)
+            line = (v.get("product_line") or [""])[0]
+            add(brand="Mohawk", collection="%s %s" % (line, (v.get("style_name") or [""])[0]), name=color, code="%s-%s" % (sn, code),
+                type="carpet", install="", img=img + "?wid=1200&hei=1200&fmt=jpg&qlt=90", pic="carpet", look="carpet")
+
 import hashlib
 for i in items:
     i["file"] = "o/" + hashlib.sha1(i["img"].encode()).hexdigest()[:14]
