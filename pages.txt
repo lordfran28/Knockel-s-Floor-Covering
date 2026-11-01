@@ -75,3 +75,5 @@ southwind-rigid-plus https://www.southwindfloors.com/product/rigid-plus/
 southwind-sweet-home https://www.southwindfloors.com/product/sweet-home/
 mercier-pro-list https://mercier-wood-flooring.com/us/en/hardwood-flooring/?collection=pro 25
 shaw-pp-carpet https://shawfloors.com/en-us/carpet-collections/pet-perfect 30
+karndean-vg-gluedown https://www.karndean.com/en-us/floors/products/our-ranges/van-gogh/van-gogh-gluedown/ 25
+karndean-vg-rigid https://www.karndean.com/en-us/floors/products/our-ranges/van-gogh/van-gogh-rigid-core/ 25

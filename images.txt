@@ -1,1 +1,19 @@
 # NAME URL
+test/mann-MTE701-mte701-rte701-swatch-lagos-cove https://manningtonprod.pimcoreclient.com/Mannington/LVT/ADURA®Max/Lagos/mte701-rte701-swatch-lagos-cove.jpg
+test/mann-MTE701-mte701-rte701-angle-lagos-cove https://manningtonprod.pimcoreclient.com/TransformedImages/mte701-rte701-angle-lagos-cove.jpeg
+test/mann-MTE701-mte701-rte701-full-lagos-cove https://manningtonprod.pimcoreclient.com/TransformedImages/mte701-rte701-full-lagos-cove.jpeg
+test/mann-MTE701-mte701-rte701-prop-lagos-cove https://manningtonprod.pimcoreclient.com/TransformedImages/mte701-rte701-prop-lagos-cove.jpeg
+test/mann-MTE701-mte701-rte701-rs-lagos-cove https://manningtonprod.pimcoreclient.com/TransformedImages/mte701-rte701-rs-lagos-cove.jpeg
+test/mann-MPB821-mpb821-rpb821-swatch-noble_oak-acorn https://manningtonprod.pimcoreclient.com/Mannington/LVT/ADURA®Max/Noble Oak/mpb821-rpb821-swatch-noble_oak-acorn.jpg
+test/mann-MPB821-mpb821-rpb821-angle-noble_oak-acorn https://manningtonprod.pimcoreclient.com/TransformedImages/mpb821-rpb821-angle-noble_oak-acorn.jpeg
+test/mann-MPB821-mpb821-rpb821-full-noble_oak-acorn https://manningtonprod.pimcoreclient.com/TransformedImages/mpb821-rpb821-full-noble_oak-acorn.jpeg
+test/mann-MPB821-mpb821-rpb821-prop-noble_oak-acorn https://manningtonprod.pimcoreclient.com/TransformedImages/mpb821-rpb821-prop-noble_oak-acorn.jpeg
+test/mann-MPB821-mpb821-rpb821-rs-noble_oak-acorn https://manningtonprod.pimcoreclient.com/TransformedImages/mpb821-rpb821-rs-noble_oak-acorn.jpeg
+test/mann-MAX061-FXP061-Full-Napa-Tannin_2_RE http://manningtonprod.pimcoreclient.com/TransformedImages/FXP061-Full-Napa-Tannin_2_RE.jpeg
+test/mann-MAX061-mannington_simplestair_talent3_7193 http://manningtonprod.pimcoreclient.com/TransformedImages/mannington_simplestair_talent3_7193.jpeg
+test/mann-MAX061-max061-rgp061-fxp061-swatch-napa-tannin https://manningtonprod.pimcoreclient.com/Mannington/LVT/ADURA®Max/Napa/max061-rgp061-fxp061-swatch-napa-tannin.jpg
+test/para-cliff https://www.paramountflooring.com/wp-content/uploads/2026/08/TC72010-cliff-creek.jpg
+test/para-cliff-1 https://www.paramountflooring.com/wp-content/uploads/2026/08/TC72010-cliff-creek-1.jpg
+test/sw-acacia-thumb https://www.southwindfloors.com/wp-content/uploads/harborplank_2014acacia_thumbnail.jpg
+test/sw-capecod-thumb https://www.southwindfloors.com/wp-content/uploads/2024/06/HarborPlank_2001CapeCodGrey_Thumbnail.jpg
+test/sw-carthage https://www.southwindfloors.com/wp-content/uploads/Harbor-Plank-Carthage-Pine.jpg
