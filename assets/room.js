@@ -43,10 +43,23 @@
      uLayout 2: tiles, one photo per tile, some turned, with grout lines. */
   var FS = (deriv ? "#extension GL_OES_standard_derivatives : enable\n" : "") + (lod ? "#extension GL_EXT_shader_texture_lod : enable\n" : "") +
     "precision highp float;uniform sampler2D uPhoto,uFloor,uAdd,uKeep,uLight;uniform mat3 uH;uniform vec2 uImg,uRoom,uUnit;" +
-    "uniform float uRot,uShade,uAvg,uOn,uLayout,uN,uPL,uSeam,uTurn;uniform vec3 uGrout;varying vec2 vImg;" +
+    "uniform float uRot,uShade,uAvg,uOn,uLayout,uN,uPL,uSeam,uTurn,uBreak;uniform vec3 uGrout,uMean;uniform vec4 uWin;varying vec2 vImg;" +
     "float h1(float n){return fract(sin(n*91.3458)*47453.5453);}" +
     "float h2(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}" +
     "vec3 tex(vec2 t,vec2 gx,vec2 gy){" + (lod ? "return texture2DGradEXT(uFloor,t,gx,gy).rgb;" : "return texture2D(uFloor,t).rgb;") + "}" +
+    /* Carpet: the floor is cut into small overlapping pieces, each taken from a different spot of the untouched
+       middle of the sample photo, so no spot of the photo lines up in rows across the room. Where two pieces
+       meet they are mixed so the fibres keep their contrast instead of going soft. */
+    "vec3 roll(vec2 m,vec2 dx,vec2 dy){vec2 sc=1.0/uUnit;if(uBreak<0.5)return tex(m*sc,dx*sc,dy*sc);" +
+      "float cell=0.42,band=0.16,slack=1.0-cell*(1.0+2.0*band);vec2 C=uUnit*uWin.zw*cell;" +
+      "vec2 g=m/C;vec2 i0=floor(g);vec2 t=g-i0;vec2 b=smoothstep(0.5-band,0.5+band,t);" +
+      "vec3 s=vec3(0.0);float ww=0.0;" +
+      "for(int k=0;k<4;k++){vec2 o=vec2(mod(float(k),2.0),floor(float(k)/2.0));vec2 id=i0+o;" +
+        "vec2 wv=mix(1.0-b,b,o);float w=wv.x*wv.y;" +
+        "vec2 r=vec2(h2(id+0.37),h2(id.yx+5.17));" +
+        "vec2 tc=uWin.xy+uWin.zw*(0.5+(r-0.5)*slack)+(g-id)*C*sc;" +
+        "s+=w*(tex(tc,dx*sc,dy*sc)-uMean);ww+=w*w;}" +
+      "return clamp(uMean+s/sqrt(max(ww,1e-4)),0.0,1.0);}" +
     "float aa(float e,float w){" + (deriv ? "float px=max(fwidth(e),1e-6);" : "float px=w*0.5;") +
     "return (1.0-smoothstep(w-px*0.5,w+px*0.5,e))*clamp(2.0*w/px,0.2,1.0);}" +
     "void main(){vec2 st=vImg/uImg;vec3 ph=texture2D(uPhoto,st).rgb;vec3 p=uH*vec3(vImg,1.0);vec2 uv=p.xy/p.z;" +
@@ -57,7 +70,7 @@
     "vec2 m=uv*uRoom;if(uRot>0.5)m=vec2(m.y,-m.x);" +
     (deriv ? "vec2 dx=dFdx(m),dy=dFdy(m);" : "vec2 dx=vec2(0.0),dy=vec2(0.0);") +
     "vec3 fl;" +
-    "if(uLayout<0.5){fl=texture2D(uFloor,m/uUnit).rgb;}" +
+    "if(uLayout<0.5){fl=roll(m,dx,dy);}" +
     "else if(uLayout<1.5){" +
       "float row=floor(m.y/uUnit.y);float x=m.x+h1(row+0.5)*uUnit.x;float col=floor(x/uUnit.x);" +
       "vec2 loc=vec2(fract(x/uUnit.x),fract(m.y/uUnit.y));float id=h2(vec2(row,col));" +
@@ -76,7 +89,7 @@
   function shader(type, src){ var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; }
   var prog = gl.createProgram();
   gl.attachShader(prog, shader(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(prog); gl.useProgram(prog);
-  var U = {}; ["uScale","uOff","uCanvas","uPhoto","uFloor","uAdd","uKeep","uLight","uH","uImg","uRoom","uUnit","uRot","uShade","uAvg","uOn","uLayout","uN","uPL","uSeam","uTurn","uGrout"].forEach(function(n){ U[n] = gl.getUniformLocation(prog, n); });
+  var U = {}; ["uScale","uOff","uCanvas","uPhoto","uFloor","uAdd","uKeep","uLight","uH","uImg","uRoom","uUnit","uRot","uShade","uAvg","uOn","uLayout","uN","uPL","uSeam","uTurn","uGrout","uBreak","uMean","uWin"].forEach(function(n){ U[n] = gl.getUniformLocation(prog, n); });
   var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
   var aPos = gl.getAttribLocation(prog, "aPos"); gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
   function texture(unit){ var t = gl.createTexture(); gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, t);
@@ -192,6 +205,8 @@
     gl.uniform2f(U.uUnit, L.unit[0], L.unit[1]);
     gl.uniform1f(U.uLayout, L.kind); gl.uniform1f(U.uN, L.n); gl.uniform1f(U.uPL, L.pl); gl.uniform1f(U.uSeam, L.seam); gl.uniform1f(U.uTurn, L.turn);
     gl.uniform3f(U.uGrout, L.grout[0], L.grout[1], L.grout[2]);
+    gl.uniform1f(U.uBreak, L.breakup ? 1 : 0); gl.uniform4f(U.uWin, L.win[0], L.win[1], L.win[2], L.win[3]);
+    var mean = (S.floor && S.floor.mean) || [0.5, 0.5, 0.5]; gl.uniform3f(U.uMean, mean[0], mean[1], mean[2]);
     /* planks run away from you unless turned; some photos have their boards lying across */
     gl.uniform1f(U.uRot, (S.rot !== L.across) ? 1 : 0); gl.uniform1f(U.uShade, 0.8); gl.uniform1f(U.uAvg, avgLight);
     gl.uniform1f(U.uOn, S.floor && S.floor.ready && !S.before && convex(S.quad) ? 1 : 0);
@@ -340,7 +355,7 @@
   /* How a product's photo is laid, in metres (see the shader). */
   function layoutOf(f){
     var ph = (f && f.photo) || {}, asp = ph.aspect || (f && f.img ? f.img.naturalWidth/f.img.naturalHeight : 1) || 1;
-    var out = {kind: 0, unit: [2, 2], n: 1, pl: 1, seam: 0.0004, turn: 0, grout: [0.74, 0.71, 0.67], across: !!ph.across};
+    var out = {kind: 0, unit: [2, 2], n: 1, pl: 1, seam: 0.0004, turn: 0, grout: [0.74, 0.71, 0.67], across: !!ph.across, breakup: false, win: [0, 0, 1, 1]};
     if (ph.layout === "plank"){
       var pw = (ph.plankIn || [7, 48]);
       out.kind = 1; out.unit = [pw[1]*IN, pw[0]*IN]; out.n = Math.max(1, ph.planks || 1);
@@ -354,6 +369,11 @@
     } else {
       var wm = ph.widthM || (ph.widthIn ? ph.widthIn*IN : 2);
       out.unit = [wm, wm/asp];
+      /* carpet photos had their edges blended into each other to repeat; only the middle two thirds is the carpet as photographed */
+      if (f && f.type === "carpet" && !ph.pattern){
+        out.breakup = true;
+        out.win = ph.seamless === false ? [0.03, 0.03, 0.94, 0.94] : [0.18, 0.18, 0.64, 0.64];
+      }
     }
     return out;
   }
@@ -377,8 +397,11 @@
     el.appendChild(document.createTextNode(f.type === "look" ? " and ask about floors like this one." : " to order it or see the sample."));
     /* a floor without its picture yet: the room keeps the floor it has */
     if (!(f.photo && f.photo.image)){ say("There’s no picture of this floor yet. Call and we’ll show you the sample."); return; }
+    var wasCarpet = S.floor && S.floor.type === "carpet";
     S.floor = f;
-    var lk = layoutOf(f).kind;
+    var lk = layoutOf(f).kind, sz = $("size");
+    if (f.type === "carpet"){ sz.value = sz.max; S.size = Math.pow(2, parseFloat(sz.max)/100); }
+    else if (wasCarpet){ sz.value = 0; S.size = 1; }
     $("turn").textContent = lk === 1 || (f.type === "look" && f.look === "wood") || (!lk && /plank|laminate|hardwood/.test(f.type)) ? "Turn the planks" : lk === 2 ? "Turn the tiles" : "Turn the pattern";
     if (cache[f.id]){ f.ready = true; bindFloor(cache[f.id], f); return; }
     f.ready = false; redraw();
@@ -387,10 +410,21 @@
     img.onerror = function(){ if (S.floor === f) say("That floor's picture couldn't be loaded. Try another, or reload the page."); };
     img.src = f.photo.image;
   }
+  function meanOf(src, L){
+    try {
+      var c = document.createElement("canvas"); c.width = c.height = 24; var x = c.getContext("2d");
+      var w = src.naturalWidth || src.width, h = src.naturalHeight || src.height;
+      x.drawImage(src, L.win[0]*w, L.win[1]*h, L.win[2]*w, L.win[3]*h, 0, 0, 24, 24);
+      var d = x.getImageData(0, 0, 24, 24).data, m = [0, 0, 0];
+      for (var i = 0; i < d.length; i += 4){ m[0] += d[i]; m[1] += d[i + 1]; m[2] += d[i + 2]; }
+      return m.map(function(v){ return v/(255*576); });
+    } catch (e){ return null; }
+  }
   function bindFloor(src, f){
     var L = layoutOf(f), wrapMode = L.kind ? gl.CLAMP_TO_EDGE : (f.photo.seamless === false ? gl.MIRRORED_REPEAT : gl.REPEAT);
     gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, T.floor);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, src);
+    if (L.breakup && !f.mean) f.mean = meanOf(src, L);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, wrapMode); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, wrapMode);
     gl.generateMipmap(gl.TEXTURE_2D);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
