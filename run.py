@@ -129,6 +129,23 @@ def images():
     print("images: %d ok, %d failed" % (ok, bad))
 
 
+def apis():
+    """api.txt: SLUG URL. Plain GET, the body saved as out/api/SLUG.json."""
+    todo = [p for p in lines("api.txt") if not os.path.exists(os.path.join(OUT, "api", p[0] + ".json"))]
+    if not todo:
+        return
+    import requests
+    os.makedirs(os.path.join(OUT, "api"), exist_ok=True)
+    for slug, url in [(p[0], p[1]) for p in todo]:
+        try:
+            r = requests.get(url, headers={"User-Agent": UA, "Accept": "application/json,*/*"}, timeout=60)
+            open(os.path.join(OUT, "api", slug + ".json"), "w", encoding="utf-8").write(r.text)
+            print("api", r.status_code, slug, len(r.text))
+        except Exception as e:
+            print("api FAILED", slug, e)
+
+
 if __name__ == "__main__":
+    apis()
     pages()
     images()

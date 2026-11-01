@@ -3,7 +3,7 @@ name: Fetch
 on:
   push:
     branches: [fetch]
-    paths: ["pages.txt", "images.txt", "run.py", ".github/workflows/fetch.yml"]
+    paths: ["pages.txt", "images.txt", "api.txt", "run.py", ".github/workflows/fetch.yml"]
 permissions:
   contents: write
 concurrency:
