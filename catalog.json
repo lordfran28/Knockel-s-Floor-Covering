@@ -30,6 +30,10 @@
    "name": "Southwind"
   },
   {
+   "id": "stonetec",
+   "name": "StoneTec"
+  },
+  {
    "id": "tarkett",
    "name": "Tarkett"
   }
@@ -637,8 +641,9 @@
    "priceInstalled": 5.8,
    "onHand": 1000,
    "reorder": false,
-   "thickness": 8,
-   "wear": 20,
+   "thickness": 4.5,
+   "wear": 12,
+   "size": "7\" x 48\"",
    "photo": {
     "layout": "plank",
     "plankIn": [
@@ -646,7 +651,8 @@
      48.0
     ],
     "planks": 1
-   }
+   },
+   "notes": "1 mm pad attached"
   },
   {
    "id": "quinn-titanium-galveston",
@@ -673,9 +679,10 @@
    }
   },
   {
-   "id": "quinn-euromax",
+   "id": "quinn-rigid-core-max-22-euromax",
    "name": "Euromax",
    "type": "vinyl-plank",
+   "collection": "Rigid Core MAX 22",
    "brand": "quinn",
    "install": "click",
    "inStock": true,
@@ -683,6 +690,7 @@
    "unit": "sq ft",
    "priceInstalled": 5.99,
    "reorder": true,
+   "thickness": 5,
    "photo": {
     "layout": "plank",
     "plankIn": [
@@ -690,13 +698,15 @@
      48
     ],
     "planks": 1
-   }
+   },
+   "notes": "Waterproof stone-composite core, Drop-Lock joints, acoustic pad attached, made in Turkey, 23.8 sq ft (10 planks) per box"
   },
   {
-   "id": "spc-impact-foxtail",
+   "id": "stonetec-impact-foxtail",
    "name": "Foxtail",
    "type": "vinyl-plank",
-   "collection": "SPC Impact",
+   "collection": "Impact",
+   "brand": "stonetec",
    "install": "click",
    "inStock": true,
    "price": 2.35,
@@ -706,14 +716,16 @@
    "reorder": false,
    "thickness": 5,
    "wear": 20,
+   "size": "9\" x 60\"",
    "photo": {
     "layout": "plank",
     "plankIn": [
-     7,
-     48
+     9.0,
+     60.0
     ],
     "planks": 1
-   }
+   },
+   "notes": "Waterproof rigid vinyl (SPC), 1.5 mm pad attached, item HF2001"
   },
   {
    "id": "southwind-harbor-plank-hickory",
@@ -737,7 +749,8 @@
      48
     ],
     "planks": 1
-   }
+   },
+   "notes": "Waterproof WPC core"
   },
   {
    "id": "southwind-whisper-click",
