@@ -397,17 +397,22 @@
     el.appendChild(document.createTextNode(f.type === "look" ? " and ask about floors like this one." : " to order it or see the sample."));
     /* a floor without its picture yet: the room keeps the floor it has */
     if (!(f.photo && f.photo.image)){ say("There’s no picture of this floor yet. Call and we’ll show you the sample."); return; }
-    var wasCarpet = S.floor && S.floor.type === "carpet";
-    S.floor = f;
-    var lk = layoutOf(f).kind, sz = $("size");
-    if (f.type === "carpet"){ sz.value = sz.max; S.size = Math.pow(2, parseFloat(sz.max)/100); }
-    else if (wasCarpet){ sz.value = 0; S.size = 1; }
-    $("turn").textContent = lk === 1 || (f.type === "look" && f.look === "wood") || (!lk && /plank|laminate|hardwood/.test(f.type)) ? "Turn the planks" : lk === 2 ? "Turn the tiles" : "Turn the pattern";
-    if (cache[f.id]){ f.ready = true; bindFloor(cache[f.id], f); return; }
-    f.ready = false; redraw();
+    /* the floor on screen stays until the new one's picture is in, so the room never shows its old floor in between */
+    S.want = f;
+    function show(){
+      if (S.want !== f) return;
+      var wasCarpet = S.floor && S.floor.type === "carpet";
+      S.floor = f; f.ready = true;
+      var lk = layoutOf(f).kind, sz = $("size");
+      if (f.type === "carpet"){ sz.value = sz.max; S.size = Math.pow(2, parseFloat(sz.max)/100); }
+      else if (wasCarpet){ sz.value = 0; S.size = 1; }
+      $("turn").textContent = lk === 1 || (f.type === "look" && f.look === "wood") || (!lk && /plank|laminate|hardwood/.test(f.type)) ? "Turn the planks" : lk === 2 ? "Turn the tiles" : "Turn the pattern";
+      bindFloor(cache[f.id], f);
+    }
+    if (cache[f.id]){ show(); return; }
     var img = new Image();
-    img.onload = function(){ f.img = img; cache[f.id] = prepared(img); if (S.floor === f){ f.ready = true; bindFloor(cache[f.id], f); } };
-    img.onerror = function(){ if (S.floor === f) say("That floor's picture couldn't be loaded. Try another, or reload the page."); };
+    img.onload = function(){ f.img = img; cache[f.id] = prepared(img); show(); };
+    img.onerror = function(){ if (S.want === f) say("That floor's picture couldn't be loaded. Try another, or reload the page."); };
     img.src = f.photo.image;
   }
   function meanOf(src, L){
