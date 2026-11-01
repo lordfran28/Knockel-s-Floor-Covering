@@ -13,8 +13,16 @@ you don't know them. Columns (any order, any capitalisation):
     type             carpet | vinyl plank | sheet vinyl | laminate | hardwood | tile
     install          glue-down | click            (vinyl plank and laminate)
     in_stock         yes / no
-    price            2.99                         (a number, no $)
+    price            2.99                         (a number, no $; the cash and carry price)
+    installed_price  5.99                         (the price installed, when there is one)
     unit             sq ft | sq yd | each | box   (default sq ft)
+    on_hand          1100                         (how much is in the store, in the unit above)
+    can_get_more     yes / no                     (no: when it's gone it's gone)
+    thickness_mm     5
+    wear_mil         20                           (wear layer)
+    ac_rating        AC4                          (laminate)
+    size             9" x 60"                     (as it should read on the site)
+    tag              Closeout                     (a word on the picture: Sale price, Closeout ...)
     sale_price       2.49                         (or sale_percent 15)
     sale_percent     15
     sale_starts      2026-11-01                   (optional; the sale shows from this day)
@@ -124,6 +132,23 @@ def product(r, brands):
     if price is not None:
         p["price"] = round(price, 2)
         p["unit"] = UNITS.get(r.get("unit", "").lower(), "sq ft")
+    inst = num(r.get("installed_price"))
+    if inst is not None:
+        p["priceInstalled"] = round(inst, 2)
+        p.setdefault("unit", UNITS.get(r.get("unit", "").lower(), "sq ft"))
+    on = num(r.get("on_hand"))
+    if on is not None:
+        p["onHand"] = int(on) if on == int(on) else on
+    more = str(r.get("can_get_more") or "").strip().lower()
+    if more:
+        p["reorder"] = yes(more)
+    for col, key in (("thickness_mm", "thickness"), ("wear_mil", "wear")):
+        v = num(r.get(col))
+        if v is not None:
+            p[key] = int(v) if v == int(v) else v
+    for col, key in (("ac_rating", "ac"), ("size", "size"), ("tag", "tag")):
+        if r.get(col):
+            p[key] = r[col]
     sp, pc = num(r.get("sale_price")), num(r.get("sale_percent"))
     if sp is not None or pc is not None:
         s = {}

@@ -366,13 +366,18 @@
     var x = c.getContext("2d"); x.imageSmoothingQuality = "high"; x.drawImage(img, 0, 0, w, h); return c;
   }
   function chooseFloor(f){
-    S.floor = f;
     var B = window.KnockelsShelf, pr = B.priceOf(f), el = $("chosen"); el.innerHTML = "";
     var what = [f.name, [B.brandName(f.brand), f.collection].filter(Boolean).join(" ")].filter(Boolean).join(", ");
-    var line = what + (pr ? ". " + (pr.was ? "$" + pr.now.toFixed(2) + " a " + pr.unit + ", on sale from $" + pr.was.toFixed(2) : "$" + pr.now.toFixed(2) + " a " + pr.unit) : "") + (f.inStock ? ". In stock" : "") + ". ";
+    var price = pr ? (pr.was ? "$" + pr.now.toFixed(2) + " a " + pr.unit + ", on sale from $" + pr.was.toFixed(2) : "$" + pr.now.toFixed(2) + " a " + pr.unit) : "";
+    if (pr && typeof f.priceInstalled === "number") price += ", $" + f.priceInstalled.toFixed(2) + " installed";
+    var more = B.details ? B.details(f) : [];
+    var line = [what, price].concat(more).filter(Boolean).join(". ") + (!more.length && f.inStock ? ". In stock" : "") + ". ";
     el.appendChild(document.createTextNode(line));
     var a = document.createElement("a"); a.href = "tel:+15635392772"; a.textContent = "Call 563-539-2772"; el.appendChild(a);
     el.appendChild(document.createTextNode(f.type === "look" ? " and ask about floors like this one." : " to order it or see the sample."));
+    /* a floor without its picture yet: the room keeps the floor it has */
+    if (!(f.photo && f.photo.image)){ say("There’s no picture of this floor yet. Call and we’ll show you the sample."); return; }
+    S.floor = f;
     var lk = layoutOf(f).kind;
     $("turn").textContent = lk === 1 || (f.type === "look" && f.look === "wood") ? "Turn the planks" : lk === 2 ? "Turn the tiles" : "Turn the pattern";
     if (cache[f.id]){ f.ready = true; bindFloor(cache[f.id], f); return; }

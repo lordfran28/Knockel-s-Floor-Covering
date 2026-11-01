@@ -2,6 +2,10 @@
  "version": 2,
  "brands": [
   {
+   "id": "herregan",
+   "name": "Herregan"
+  },
+  {
    "id": "mannington",
    "name": "Mannington"
   },
@@ -10,12 +14,892 @@
    "name": "Mohawk"
   },
   {
+   "id": "msi",
+   "name": "MSI"
+  },
+  {
+   "id": "quinn",
+   "name": "Quinn"
+  },
+  {
    "id": "shaw",
    "name": "Shaw"
+  },
+  {
+   "id": "southwind",
+   "name": "Southwind"
+  },
+  {
+   "id": "tarkett",
+   "name": "Tarkett"
   }
  ],
  "sales": [],
  "products": [
+  {
+   "id": "southwind-early-american",
+   "name": "Early American",
+   "type": "vinyl-plank",
+   "brand": "southwind",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 1.6,
+   "unit": "sq ft",
+   "priceInstalled": 4.1,
+   "onHand": 1600,
+   "reorder": false,
+   "thickness": 2,
+   "wear": 8,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "spalted-maple",
+   "name": "Spalted Maple",
+   "type": "vinyl-plank",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 1.25,
+   "unit": "sq ft",
+   "priceInstalled": 3.75,
+   "onHand": 350,
+   "reorder": false,
+   "thickness": 2,
+   "wear": 8,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "southwind-hickory-hollow",
+   "name": "Hickory Hollow",
+   "type": "vinyl-plank",
+   "brand": "southwind",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 1.25,
+   "unit": "sq ft",
+   "priceInstalled": 3.75,
+   "onHand": 200,
+   "reorder": false,
+   "thickness": 2,
+   "wear": 8,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "southwind-boundless-driftwood",
+   "name": "Driftwood",
+   "type": "vinyl-plank",
+   "collection": "Boundless",
+   "brand": "southwind",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 1.6,
+   "unit": "sq ft",
+   "priceInstalled": 4.1,
+   "onHand": 2300,
+   "reorder": true,
+   "thickness": 2,
+   "wear": 8,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7.0,
+     48.0
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "southwind-boundless-soulful-oak",
+   "name": "Soulful Oak",
+   "type": "vinyl-plank",
+   "collection": "Boundless",
+   "brand": "southwind",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 1.6,
+   "unit": "sq ft",
+   "priceInstalled": 4.1,
+   "onHand": 2100,
+   "reorder": true,
+   "thickness": 2,
+   "wear": 8,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7.0,
+     48.0
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-treehouse",
+   "name": "Treehouse",
+   "type": "vinyl-plank",
+   "brand": "quinn",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 4.3,
+   "unit": "sq ft",
+   "priceInstalled": 6.8,
+   "onHand": 410,
+   "reorder": true,
+   "thickness": 5,
+   "wear": 20,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-dark-oak",
+   "name": "Dark Oak",
+   "type": "vinyl-plank",
+   "brand": "quinn",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 2.25,
+   "unit": "sq ft",
+   "priceInstalled": 4.75,
+   "onHand": 190,
+   "reorder": true,
+   "thickness": 5,
+   "wear": 20,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-canyon",
+   "name": "Canyon",
+   "type": "vinyl-plank",
+   "brand": "quinn",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 2.5,
+   "unit": "sq ft",
+   "priceInstalled": 6.95,
+   "onHand": 310,
+   "reorder": false,
+   "thickness": 3,
+   "wear": 12,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-burnished-pecan",
+   "name": "Burnished Pecan",
+   "type": "vinyl-plank",
+   "brand": "quinn",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 3.0,
+   "unit": "sq ft",
+   "priceInstalled": 5.5,
+   "onHand": 1800,
+   "reorder": false,
+   "thickness": 3,
+   "wear": 12,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-valdosta",
+   "name": "Valdosta",
+   "type": "vinyl-plank",
+   "brand": "quinn",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 3.9,
+   "unit": "sq ft",
+   "priceInstalled": 6.4,
+   "onHand": 620,
+   "reorder": true,
+   "thickness": 5,
+   "wear": 20,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-titanium-pinebark",
+   "name": "Pinebark",
+   "type": "vinyl-plank",
+   "collection": "Titanium",
+   "brand": "quinn",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 4.45,
+   "unit": "sq ft",
+   "priceInstalled": 6.95,
+   "onHand": 1000,
+   "reorder": true,
+   "thickness": 5,
+   "wear": 20,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-titanium-beechwood",
+   "name": "Beechwood",
+   "type": "vinyl-plank",
+   "collection": "Titanium",
+   "brand": "quinn",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 3.9,
+   "unit": "sq ft",
+   "priceInstalled": 6.4,
+   "onHand": 1100,
+   "reorder": true,
+   "thickness": 5,
+   "wear": 20,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-palisades",
+   "name": "Palisades",
+   "type": "vinyl-plank",
+   "brand": "quinn",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 3.0,
+   "unit": "sq ft",
+   "priceInstalled": 5.5,
+   "onHand": 600,
+   "reorder": false,
+   "thickness": 3,
+   "wear": 12,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-p644-sunset",
+   "name": "Sunset",
+   "type": "vinyl-plank",
+   "collection": "P644",
+   "brand": "quinn",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 2.5,
+   "unit": "sq ft",
+   "priceInstalled": 5.0,
+   "onHand": 1500,
+   "reorder": false,
+   "thickness": 3,
+   "wear": 12,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "clearwater",
+   "name": "Clearwater",
+   "type": "vinyl-plank",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 2.5,
+   "unit": "sq ft",
+   "priceInstalled": 6.95,
+   "onHand": 1050,
+   "reorder": false,
+   "thickness": 3,
+   "wear": 22,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "grey-fox",
+   "name": "Grey Fox",
+   "type": "vinyl-plank",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 2.5,
+   "unit": "sq ft",
+   "priceInstalled": 5.0,
+   "onHand": 960,
+   "reorder": false,
+   "thickness": 3,
+   "wear": 12,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "cole-rocky-mountain",
+   "name": "Cole Rocky Mountain",
+   "type": "vinyl-plank",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 3.4,
+   "unit": "sq ft",
+   "priceInstalled": 6.9,
+   "onHand": 300,
+   "reorder": false,
+   "thickness": 5,
+   "wear": 20,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "shaw-rewild-commercial",
+   "name": "Rewild Commercial",
+   "type": "vinyl-plank",
+   "brand": "shaw",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 3.3,
+   "unit": "sq ft",
+   "priceInstalled": 5.8,
+   "onHand": 560,
+   "reorder": false,
+   "thickness": 5,
+   "wear": 20,
+   "size": "9\" x 60\"",
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     9.0,
+     60.0
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "mannington-adura-flex",
+   "name": "Adura Flex",
+   "type": "vinyl-plank",
+   "brand": "mannington",
+   "install": "glue-down",
+   "inStock": true,
+   "price": 3.65,
+   "unit": "sq ft",
+   "priceInstalled": 6.85,
+   "onHand": 360,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-city-blocks",
+   "name": "City Blocks",
+   "type": "carpet",
+   "brand": "quinn",
+   "inStock": true,
+   "price": 2.25,
+   "unit": "sq ft",
+   "priceInstalled": 4.7,
+   "onHand": 1150,
+   "reorder": true,
+   "photo": {
+    "layout": "roll",
+    "widthIn": 18
+   }
+  },
+  {
+   "id": "herregan-grafton",
+   "name": "Grafton",
+   "type": "vinyl-plank",
+   "brand": "herregan",
+   "install": "click",
+   "inStock": true,
+   "price": 2.5,
+   "unit": "sq ft",
+   "priceInstalled": 5.5,
+   "onHand": 1100,
+   "reorder": false,
+   "wear": 12,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "herregan-weathered",
+   "name": "Weathered",
+   "type": "vinyl-plank",
+   "brand": "herregan",
+   "install": "click",
+   "inStock": true,
+   "price": 2.5,
+   "unit": "sq ft",
+   "priceInstalled": 5.5,
+   "onHand": 1300,
+   "reorder": false,
+   "wear": 8,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "mohawk-whitmore-terrace-atlas",
+   "name": "Atlas",
+   "type": "vinyl-plank",
+   "collection": "Whitmore Terrace",
+   "brand": "mohawk",
+   "install": "click",
+   "inStock": true,
+   "price": 2.6,
+   "unit": "sq ft",
+   "priceInstalled": 5.6,
+   "onHand": 1570,
+   "reorder": true,
+   "thickness": 4.5,
+   "wear": 12,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "mohawk-arbor-terrace-ellis",
+   "name": "Ellis",
+   "type": "vinyl-plank",
+   "collection": "Arbor Terrace",
+   "brand": "mohawk",
+   "install": "click",
+   "inStock": true,
+   "price": 2.6,
+   "unit": "sq ft",
+   "priceInstalled": 5.6,
+   "onHand": 1850,
+   "reorder": true,
+   "thickness": 4.5,
+   "wear": 12,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "shaw-endura-plus",
+   "name": "Endura Plus",
+   "type": "vinyl-plank",
+   "brand": "shaw",
+   "install": "click",
+   "inStock": true,
+   "price": 3.99,
+   "unit": "sq ft",
+   "priceInstalled": 6.99,
+   "onHand": 1490,
+   "reorder": true,
+   "thickness": 8,
+   "wear": 20,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-cannons-point",
+   "name": "Cannons Point",
+   "type": "vinyl-plank",
+   "brand": "quinn",
+   "install": "click",
+   "inStock": true,
+   "price": 2.25,
+   "unit": "sq ft",
+   "priceInstalled": 5.25,
+   "reorder": true,
+   "tag": "Sale price",
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-mustang-autumn",
+   "name": "Autumn",
+   "type": "vinyl-plank",
+   "collection": "Mustang",
+   "brand": "quinn",
+   "install": "click",
+   "inStock": true,
+   "price": 2.8,
+   "unit": "sq ft",
+   "priceInstalled": 5.8,
+   "onHand": 1000,
+   "reorder": false,
+   "thickness": 8,
+   "wear": 20,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7.0,
+     48.0
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-titanium-galveston",
+   "name": "Galveston",
+   "type": "vinyl-plank",
+   "collection": "Titanium",
+   "brand": "quinn",
+   "install": "click",
+   "inStock": true,
+   "price": 3.8,
+   "unit": "sq ft",
+   "priceInstalled": 6.3,
+   "onHand": 600,
+   "reorder": true,
+   "thickness": 7,
+   "wear": 20,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-euromax",
+   "name": "Euromax",
+   "type": "vinyl-plank",
+   "brand": "quinn",
+   "install": "click",
+   "inStock": true,
+   "price": 2.99,
+   "unit": "sq ft",
+   "priceInstalled": 5.99,
+   "reorder": true,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "spc-impact-foxtail",
+   "name": "Foxtail",
+   "type": "vinyl-plank",
+   "collection": "SPC Impact",
+   "install": "click",
+   "inStock": true,
+   "price": 2.35,
+   "unit": "sq ft",
+   "priceInstalled": 5.35,
+   "onHand": 285,
+   "reorder": false,
+   "thickness": 5,
+   "wear": 20,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "southwind-harbor-plank-hickory",
+   "name": "Hickory",
+   "type": "vinyl-plank",
+   "collection": "Harbor Plank",
+   "brand": "southwind",
+   "install": "click",
+   "inStock": true,
+   "price": 4.4,
+   "unit": "sq ft",
+   "priceInstalled": 7.4,
+   "onHand": 100,
+   "reorder": true,
+   "thickness": 8,
+   "wear": 20,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "southwind-whisper-click",
+   "name": "Whisper Click",
+   "type": "vinyl-plank",
+   "brand": "southwind",
+   "install": "click",
+   "inStock": true,
+   "price": 1.5,
+   "unit": "sq ft",
+   "onHand": 110,
+   "reorder": false,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "tarkett-manor-herringbone",
+   "name": "Manor Herringbone",
+   "type": "vinyl-plank",
+   "brand": "tarkett",
+   "install": "click",
+   "inStock": true,
+   "price": 3.45,
+   "unit": "sq ft",
+   "priceInstalled": 6.45,
+   "onHand": 470,
+   "reorder": true,
+   "thickness": 8,
+   "wear": 20,
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-woodtech-windy-gap",
+   "name": "Windy Gap",
+   "type": "laminate",
+   "collection": "WoodTech",
+   "brand": "quinn",
+   "install": "click",
+   "inStock": true,
+   "price": 2.8,
+   "unit": "sq ft",
+   "priceInstalled": 5.8,
+   "onHand": 1250,
+   "reorder": true,
+   "ac": "AC4",
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-woodtech-hemlock-trail",
+   "name": "Hemlock Trail",
+   "type": "laminate",
+   "collection": "WoodTech",
+   "brand": "quinn",
+   "install": "click",
+   "inStock": true,
+   "price": 2.8,
+   "unit": "sq ft",
+   "priceInstalled": 5.8,
+   "onHand": 380,
+   "thickness": 4.5,
+   "ac": "AC4",
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "quinn-woodtech-mauldinwood",
+   "name": "Mauldinwood",
+   "type": "laminate",
+   "collection": "WoodTech",
+   "brand": "quinn",
+   "install": "click",
+   "inStock": true,
+   "price": 2.8,
+   "unit": "sq ft",
+   "priceInstalled": 5.3,
+   "onHand": 430,
+   "reorder": true,
+   "thickness": 10,
+   "ac": "AC4",
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "mohawk-laminate-closeout",
+   "name": "Laminate closeout",
+   "type": "laminate",
+   "brand": "mohawk",
+   "install": "click",
+   "inStock": true,
+   "price": 1.99,
+   "unit": "sq ft",
+   "priceInstalled": 4.99,
+   "onHand": 470,
+   "reorder": false,
+   "ac": "AC4",
+   "tag": "Closeout",
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     7,
+     48
+    ],
+    "planks": 1
+   }
+  },
+  {
+   "id": "msi-woodhills-bali-buff-oak",
+   "name": "Bali Buff Oak",
+   "type": "hardwood",
+   "collection": "Woodhills",
+   "brand": "msi",
+   "install": "click",
+   "inStock": true,
+   "price": 4.25,
+   "unit": "sq ft",
+   "priceInstalled": 7.25,
+   "onHand": 300,
+   "reorder": true,
+   "thickness": 7,
+   "size": "6½\" x 48\"",
+   "photo": {
+    "layout": "plank",
+    "plankIn": [
+     6.5,
+     48.0
+    ],
+    "planks": 1
+   },
+   "notes": "Real oak veneer"
+  },
   {
    "id": "washed-oak",
    "name": "Washed oak",

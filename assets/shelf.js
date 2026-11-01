@@ -47,7 +47,26 @@
   function priceHTML(p){
     var pr = priceOf(p); if (!pr) return "";
     return '<span class="price">' + (pr.was ? '<s>' + money(pr.was) + '</s> <b class="now">' + money(pr.now) + "</b>" : "<b>" + money(pr.now) + "</b>") +
-      '<small>/' + esc(pr.unit) + "</small>" + (pr.was && pr.ends ? '<em class="ends">Sale ends ' + shortDay(pr.ends) + "</em>" : "") + "</span>";
+      '<small>/' + esc(pr.unit) + "</small>" + (typeof p.priceInstalled === "number" ? '<span class="inst">' + money(p.priceInstalled) + " installed</span>" : "") +
+      (pr.was && pr.ends ? '<em class="ends">Sale ends ' + shortDay(pr.ends) + "</em>" : "") + "</span>";
+  }
+  function hasPic(p){ return !!(p && p.photo && p.photo.image); }
+  function amount(p){ return (+p.onHand).toLocaleString("en-US") + " " + (p.unit || "sq ft"); }
+  /* how much is in the store */
+  function stockLine(p){
+    if (typeof p.onHand !== "number") return "";
+    return p.reorder === false ? "Only " + amount(p) + " left" : amount(p) + " in stock" + (p.reorder ? ", more can be ordered" : "");
+  }
+  /* everything known about a floor, for the line under the room */
+  function details(p){
+    var out = [];
+    var th = [typeof p.thickness === "number" ? p.thickness + " mm thick" : "", typeof p.wear === "number" ? p.wear + " mil wear layer" : "", p.ac ? p.ac + " rated" : ""].filter(Boolean).join(", ");
+    if (th) out.push(th.charAt(0).toUpperCase() + th.slice(1));
+    if (p.size) out.push("Planks " + p.size);
+    if (p.notes) out.push(p.notes);
+    if (p.install) out.push(INSTALL[p.install]);
+    var st = stockLine(p); if (st) out.push(st);
+    return out;
   }
 
   /* ---------- Shelves ---------- */
@@ -72,7 +91,8 @@
   function build(){
     NODES = {}; BYID = {}; BRAND = {};
     CAT.brands.forEach(function(b){ BRAND[b.id] = b.name; });
-    var all = CAT.products.filter(function(p){ return p.photo && p.photo.image; });
+    /* the store's floors show even before they have a picture; the sample looks only with theirs */
+    var all = CAT.products.filter(function(p){ return p.type !== "look" || hasPic(p); });
     all.forEach(function(p){ BYID[p.id] = p; });
     var real = all.filter(function(p){ return p.type !== "look"; }), looks = all.filter(function(p){ return p.type === "look"; });
     ROOT = mk("", "Floors", [], null);
@@ -110,10 +130,13 @@
     var sub = [BRAND[p.brand], p.collection].filter(Boolean).join(" · ");
     var pr = priceOf(p), tags = [];
     if (pr && pr.was) tags.push('<i class="tag sale">Sale</i>');
+    if (p.tag) tags.push('<i class="tag sale">' + esc(p.tag) + "</i>");
     if (p.inStock && !/^stock/.test(n.path)) tags.push('<i class="tag stock">In stock</i>');
     return '<li><button type="button" class="sample" data-id="' + esc(p.id) + '" aria-pressed="' + (picked && picked.id === p.id ? "true" : "false") + '">' +
-      '<span class="ph"><img src="' + esc(p.photo.thumb || p.photo.image) + '" alt="" loading="lazy" decoding="async" width="560" height="560">' + (tags.length ? '<span class="tags">' + tags.join("") + "</span>" : "") + "</span>" +
-      '<span class="nm">' + esc(p.name) + "</span>" + (sub ? '<span class="sub">' + esc(sub) + "</span>" : "") + priceHTML(p) + "</button></li>";
+      (hasPic(p) ? '<span class="ph"><img src="' + esc(p.photo.thumb || p.photo.image) + '" alt="" loading="lazy" decoding="async" width="560" height="560">'
+                 : '<span class="ph none"><span class="pc">Picture coming</span>') + (tags.length ? '<span class="tags">' + tags.join("") + "</span>" : "") + "</span>" +
+      '<span class="nm">' + esc(p.name) + "</span>" + (sub ? '<span class="sub">' + esc(sub) + "</span>" : "") + priceHTML(p) +
+      (stockLine(p) ? '<span class="left">' + esc(stockLine(p)) + "</span>" : "") + "</button></li>";
   }
   function count(n){ return n.items.length; }
   function crumbs(n){
@@ -201,10 +224,12 @@
       cur = NODES[q.shelf] || ROOT;
       if (want && cur === ROOT && want.type === "look") cur = ROOT;
       render();
-      var first = want || (cur !== ROOT && cur.items[0]) || (ROOT.show && ROOT.show.items[0]) || null;
+      /* open on a floor the room can show */
+      function firstPic(list){ return (list || []).filter(hasPic)[0] || null; }
+      var first = want || (cur !== ROOT && firstPic(cur.items)) || (ROOT.show && firstPic(ROOT.show.items)) || firstPic(CAT.products) || null;
       if (first) pick(first);
       return CAT;
     });
   }
-  window.KnockelsShelf = {start: start, go: go, priceOf: priceOf, brandName: function(id){ return BRAND[id] || ""; }, typeName: function(t){ return TYPE[t] || ""; }, nodes: function(){ return NODES; }};
+  window.KnockelsShelf = {start: start, go: go, priceOf: priceOf, details: details, hasPic: hasPic, brandName: function(id){ return BRAND[id] || ""; }, typeName: function(t){ return TYPE[t] || ""; }, nodes: function(){ return NODES; }};
 })();
