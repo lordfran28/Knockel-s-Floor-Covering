@@ -82,6 +82,11 @@
 .chip img{aspect-ratio:1;width:100%;height:auto;object-fit:cover;border-radius:2px;box-shadow:0 1px 0 rgba(0,0,0,.08),0 8px 18px -10px rgba(40,30,20,.45);transition:transform .25s ease,box-shadow .25s ease}
 .chip:hover img{transform:translateY(-3px);box-shadow:0 1px 0 rgba(0,0,0,.08),0 14px 24px -12px rgba(40,30,20,.55)}
 .chip span{display:block;margin-top:.45em;font:600 1rem/1.25 var(--slab)}
+.chip small{display:block;font-size:.8rem;line-height:1.3;color:var(--muted,#6b6156)}
+.chip small.mk{font-weight:600;color:inherit;opacity:.85}
+.wall-h{grid-column:1/-1;margin-top:.6em}.wall-h h3{margin:0}.wall-h small{font:400 .85rem/1 var(--sans,inherit);color:var(--muted,#6b6156);margin-left:.4em}
+.nopic{display:grid;place-items:center;aspect-ratio:1;width:100%;border-radius:2px;background:#E9E1D4;box-shadow:inset 0 0 0 1px rgba(60,45,30,.12)}
+.nopic.c{background:#E6DED6}.nopic i{font:italic 600 .95rem var(--slab);color:rgba(60,45,30,.45)}
 .kinds{columns:2 14rem;column-gap:2.5rem;padding:0;margin:0 0 1.5em;list-style:none}
 .kinds li{padding:.32em 0;border-bottom:1px solid var(--line);break-inside:avoid}
 .brands{font:500 1.2rem/1.5 var(--slab)}
@@ -240,7 +245,7 @@
 <section class="section floors" id="floors">
   <div class="wrap pillow">
     <h2>What we carry</h2>
-    <p class="lead">A few of the looks in the showroom. Tap one to see it in a room.</p>
+    <p class="lead">The vinyl and carpet in the store now. Tap one to see it in your room.</p>
     <ul class="wall" id="wall"></ul>
     <div class="services-kinds">
       <h3 style="margin-bottom:.6em">In the store</h3>

@@ -104,18 +104,37 @@
   var tex = new Image(); tex.onload = tex.onerror = build; tex.src = TEX;
   chrome();
 
-  /* ---------- Sample wall ---------- */
+  /* ---------- What we carry: the vinyl and carpet in the store now, by maker and name ---------- */
   var wall = document.getElementById("wall");
   fetch("catalog.json").then(function(r){ return r.json(); }).then(function(cat){
-    var pick = ["washed-oak","brown-oak","honey-oak","oak-herringbone","white-pine","walnut-basketweave","limestone","marble-checkerboard","white-porcelain","slate-flagstone","terracotta","wheat","cream-berber","pewter"];
-    /* the store's own floors once they're photographed (in stock first), else the sample looks */
-    var all = (cat.products || (cat.floors || []).map(function(f){ return {id: f.id, name: f.name, type: "look", photo: {thumb: f.thumb, image: f.image}}; })).filter(function(f){ return f.photo && (f.photo.thumb || f.photo.image); });
-    var own = all.filter(function(f){ return f.type !== "look"; }).sort(function(a, b){ return (b.inStock ? 1 : 0) - (a.inStock ? 1 : 0); });
-    var byId = {}; all.forEach(function(f){ byId[f.id] = f; });
-    var list = own.length >= 6 ? own.slice(0, 14) : pick.map(function(id){ return byId[id]; }).filter(Boolean);
-    wall.innerHTML = list.map(function(f){
-      return '<li><a class="chip" href="room.html#floor=' + encodeURIComponent(f.id) + '"><img src="' + (f.photo.thumb || f.photo.image) + '" alt="" loading="lazy" width="560" height="560"><span>' + String(f.name).replace(/[&<>"]/g, "") + "</span></a></li>";
-    }).join("");
+    var brand = {}; (cat.brands || []).forEach(function(b){ brand[b.id] = b.name; });
+    var esc = function(t){ return String(t == null ? "" : t).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); };
+    var pic = function(f){ return f.photo && (f.photo.thumb || f.photo.image); };
+    var KIND = {"vinyl-plank": "Vinyl", "sheet-vinyl": "Vinyl", "carpet": "Carpet"};
+    /* in stock, vinyl or carpet, and known by a real name: the discontinued rolls known only by their colour stay off */
+    var list = (cat.products || []).filter(function(f){
+      return f.inStock && KIND[f.type] && !(/discontinued/i.test(f.tag || "") && !f.brand && !f.collection);
+    });
+    var kindLine = function(f){
+      if (f.type === "carpet") return "Carpet";
+      if (f.type === "sheet-vinyl") return "Sheet vinyl";
+      return "Vinyl plank" + (f.install === "click" ? ", click" : f.install === "glue-down" ? ", glue-down" : "");
+    };
+    var card = function(f){
+      var mk = f.brand ? (brand[f.brand] || f.brand) : "", line = [mk, f.collection].filter(Boolean).join(" · ");
+      var face = pic(f) ? '<img src="' + esc(pic(f)) + '" alt="" loading="lazy" width="560" height="560">'
+                        : '<b class="nopic ' + (f.type === "carpet" ? "c" : "v") + '" aria-hidden="true"><i>' + esc(KIND[f.type]) + '</i></b>';
+      return '<li><a class="chip" href="room.html#floor=' + encodeURIComponent(f.id) + '">' + face +
+             '<span>' + esc(f.name) + '</span>' + (line ? '<small class="mk">' + esc(line) + '</small>' : '') + '<small>' + esc(kindLine(f)) + '</small></a></li>';
+    };
+    var group = function(k, title){
+      var fs = list.filter(function(f){ return KIND[f.type] === k; }).sort(function(a, b){
+        return (pic(b) ? 1 : 0) - (pic(a) ? 1 : 0) || (a.brand ? 0 : 1) - (b.brand ? 0 : 1) || String(brand[a.brand] || "").localeCompare(String(brand[b.brand] || "")) || String(a.collection || "").localeCompare(String(b.collection || "")) || a.name.localeCompare(b.name);
+      });
+      return fs.length ? '<li class="wall-h"><h3>' + title + ' <small>' + fs.length + ' in the store</small></h3></li>' + fs.map(card).join("") : "";
+    };
+    var html = group("Vinyl", "Vinyl") + group("Carpet", "Carpet");
+    if (html) wall.innerHTML = html; else wall.hidden = true;
   }).catch(function(){ wall.hidden = true; });
 
   /* ---------- Before and after ---------- */
