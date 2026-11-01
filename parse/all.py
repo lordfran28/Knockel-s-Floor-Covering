@@ -145,15 +145,17 @@ import hashlib
 for i in items:
     i["file"] = "o/" + hashlib.sha1(i["img"].encode()).hexdigest()[:14]
 json.dump(items, open("parse/orders.json", "w"), indent=0, ensure_ascii=False)
-have = set(l.split()[0] for l in open("images.txt") if l.strip() and not l.startswith("#"))
-new = {}
+# images.txt is rebuilt each time; the fetcher skips pictures it already has
+want = {}
 for i in items:
-    if i["file"] not in have:
-        new[i["file"]] = i["img"]
-with open("images.txt", "a") as f:
-    for k, u in new.items():
+    want[i["file"]] = urllib.parse.quote(i["img"], safe=":/?&=%#,+@;~!$'()*")
+keep = [l for l in open("images.txt") if l.startswith("#")]
+with open("images.txt", "w") as f:
+    f.writelines(keep)
+    for k, u in want.items():
         f.write("%s %s\n" % (k, u))
-print(len(new), "new pictures queued")
+got = sum(1 for k in want if os.path.exists("out/img/%s.jpg" % k))
+print(len(want), "pictures,", got, "already fetched")
 import collections
 for k, v in sorted(collections.Counter((i["brand"], i["collection"]) for i in items).items()):
     print(v, k)
