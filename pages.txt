@@ -151,3 +151,5 @@ ef-hs-new-standard-ii https://www.engineeredfloors.com/products/hard-surface/new
 ef-hs-new-standard-plus https://www.engineeredfloors.com/products/hard-surface/new-standard-plus 6
 ef-hs-nurture https://www.engineeredfloors.com/products/hard-surface/nurture 6
 ef-carpet-all https://www.engineeredfloors.com/products/carpet/ 30
+southwind-flex https://www.southwindfloors.com/product-category/flexible-luxury-vinyl/
+southwind-flex2 https://www.southwindfloors.com/product-category/flexible-luxury-vinyl/page/2/
