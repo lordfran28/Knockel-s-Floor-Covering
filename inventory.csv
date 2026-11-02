@@ -1,9 +1,9 @@
 name,collection,brand,type,install,in_stock,price,installed_price,regular_installed_price,unit,on_hand,can_get_more,thickness_mm,wear_mil,ac_rating,size,tag,sale_price,sale_percent,sale_starts,sale_ends,photo,sample_width_in,plank_width_in,plank_length_in,planks_in_photo,tile_width_in,tile_length_in,grout_in,grout_color,code,id,notes,layout,photo_from,repeat
-Early American,,Southwind,vinyl plank,glue-down,yes,1.60,4.10,,sq ft,1600,no,2,8,,,,,,,,,,,,,,,,,,,,,,
-Spalted Maple,,,vinyl plank,glue-down,yes,1.25,3.75,,sq ft,350,no,2,8,,,,,,,,,,,,,,,,,,,,,,
-Hickory Hollow,,Southwind,vinyl plank,glue-down,yes,1.25,3.75,,sq ft,200,no,2,8,,,,,,,,,,,,,,,,,,,,,,
-Driftwood,Boundless,Southwind,vinyl plank,glue-down,yes,1.60,4.10,,sq ft,2300,yes,2,8,,,,,,,,southwind-boundless-driftwood.jpg,34,7,48,,,,,,,,,roll,maker,mirror
-Soulful Oak,Boundless,Southwind,vinyl plank,glue-down,yes,1.60,4.10,,sq ft,2100,yes,2,8,,,,,,,,southwind-boundless-soulful-oak.jpg,35,7,48,,,,,,,,,roll,maker,mirror
+Early American,,Southwind,vinyl plank,glue-down,yes,1.60,4.10,,sq ft,1600,no,2,8,,,,,,,,southwind-early-american.jpg,,6,48,6,,,,,,,,plank,maker,
+Spalted Maple,,,vinyl plank,glue-down,yes,1.25,3.75,,sq ft,350,no,2,8,,,,,,,,spalted-maple.jpg,,7,48,6,,,,,,,,plank,maker,
+Hickory Hollow,,Southwind,vinyl plank,glue-down,yes,1.25,3.75,,sq ft,200,no,2,8,,,,,,,,southwind-hickory-hollow.jpg,,6,48,6,,,,,,,,plank,maker,
+Driftwood,Boundless,Southwind,vinyl plank,glue-down,yes,1.60,4.10,,sq ft,2300,yes,2,8,,,,,,,,southwind-boundless-driftwood.jpg,,7,48,6,,,,,,,,plank,maker,
+Soulful Oak,Boundless,Southwind,vinyl plank,glue-down,yes,1.60,4.10,,sq ft,2100,yes,2,8,,,,,,,,southwind-boundless-soulful-oak.jpg,,7,48,6,,,,,,,,plank,maker,
 Treehouse,Titan,Quinn,vinyl plank,glue-down,yes,4.30,6.80,,sq ft,410,yes,5,20,,,,,,,,maker-hf-titan-treehouse-0.jpg,28,,,,,,,,,quinn-treehouse,,roll,maker,mirror
 Dark Oak,,Quinn,vinyl plank,glue-down,yes,2.25,4.75,,sq ft,190,yes,5,20,,,,,,,,,,,,,,,,,,,,,,
 Canyon,,Quinn,vinyl plank,glue-down,yes,2.50,6.95,,sq ft,310,no,3,12,,,,,,,,maker-mfs-canyon.jpg,42,,,,,,,,,,,roll,maker,mirror
@@ -21,8 +21,8 @@ Adura Flex,,Mannington,vinyl plank,glue-down,yes,3.65,6.85,,sq ft,360,,,,,,,,,,,
 City Blocks,,Quinn,carpet,,yes,2.25,4.70,,sq ft,1150,yes,,,,,,,,,,quinn-city-blocks.jpg,36,,,,,,,,,,Carpet tile,,maker,tile
 Grafton,,Herregan,vinyl plank,click,yes,2.50,5.50,,sq ft,1100,no,,12,,,,,,,,herregan-grafton.jpg,,7,48,3,,,,,,,,plank,maker,
 Weathered,,Herregan,vinyl plank,click,yes,2.50,5.50,,sq ft,1300,no,,8,,,,,,,,herregan-weathered.jpg,,7,48,3,,,,,,,,plank,maker,
-Atlas,Whitmore Terrace,Mohawk,vinyl plank,click,yes,2.60,5.60,,sq ft,1570,yes,4.5,12,,,,,,,,mohawk-whitmore-terrace-atlas.jpg,60,,,,,,,,,,,roll,maker,mirror
-Ellis,Arbor Terrace,Mohawk,vinyl plank,click,yes,2.60,5.60,,sq ft,1850,yes,4.5,12,,,,,,,,mohawk-arbor-terrace-ellis.jpg,62,,,,,,,,,,,roll,maker,mirror
+Atlas,Whitmore Terrace,Mohawk,vinyl plank,click,yes,2.60,5.60,,sq ft,1570,yes,4.5,12,,,,,,,,mohawk-whitmore-terrace-atlas.jpg,,7.13,48,6,,,,,,,,plank,maker,
+Ellis,Arbor Terrace,Mohawk,vinyl plank,click,yes,2.60,5.60,,sq ft,1850,yes,4.5,12,,,,,,,,mohawk-arbor-terrace-ellis.jpg,,7.13,48,6,,,,,,,,plank,maker,
 Endura Plus,,Shaw,vinyl plank,click,yes,3.99,6.99,,sq ft,1490,yes,8,20,,,,,,,,shaw-endura-plus.jpg,,7,48,3,,,,,,,,plank,maker,
 Cannons Point,WoodTech,Quinn,laminate,click,yes,2.25,5.25,,sq ft,,yes,,,,,Sale price,,,,,maker-ef-cannons-point-0.jpg,38,,,,,,,,,quinn-cannons-point,,roll,maker,mirror
 Autumn,Mustang,Quinn,vinyl plank,click,yes,2.80,5.80,,sq ft,1000,no,4.5,12,,"7"" x 48""",,,,,,maker-hf-mustang-autumn-0.jpg,28,7,48,,,,,,HF493,,1 mm pad attached,roll,maker,mirror
