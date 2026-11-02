@@ -1154,3 +1154,9 @@ stock/ef-cannons-point-0 https://cdn.shopify.com/s/files/1/1506/6562/files/20178
 stock/ef-maulden-wood-0 https://cdn.shopify.com/s/files/1/1506/6562/files/201793_source_1665431428.jpg
 stock/ef-clearwater https://cdn.shopify.com/s/files/1/1506/6562/files/219318_source_1682349597.jpg
 stock/ef-canyon-nurture https://cdn.shopify.com/s/files/1/1506/6562/files/244396_source_1724869570.jpg
+stock/mfs-fortified-valdosta https://midwestfloorsource.com/wp-content/uploads/2024/05/Fortified-Valdosta.jpg
+stock/mfs-fortified-beechwood https://midwestfloorsource.com/wp-content/uploads/2024/05/Fortified-Beechwood-OH.jpg
+stock/mfs-fortified-pinebark https://midwestfloorsource.com/wp-content/uploads/2024/05/Fortified-Pinebark-SF.jpg
+stock/mfs-fortified-valdosta-590 https://midwestfloorsource.com/wp-content/uploads/2024/05/Fortified-Valdosta-590x590.jpg
+stock/mfs-fortified-beechwood-590 https://midwestfloorsource.com/wp-content/uploads/2024/05/Fortified-Beechwood-OH-590x590.jpg
+stock/mfs-fortified-pinebark-514 https://midwestfloorsource.com/wp-content/uploads/2024/05/Fortified-Pinebark-SF-514x590.jpg
