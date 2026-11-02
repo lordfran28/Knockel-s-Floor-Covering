@@ -153,3 +153,8 @@ ef-hs-nurture https://www.engineeredfloors.com/products/hard-surface/nurture 6
 ef-carpet-all https://www.engineeredfloors.com/products/carpet/ 30
 southwind-flex https://www.southwindfloors.com/product-category/flexible-luxury-vinyl/
 southwind-flex2 https://www.southwindfloors.com/product-category/flexible-luxury-vinyl/page/2/
+southwind-boundless-12 https://www.southwindfloors.com/product/boundless-12/
+southwind-boundless-20 https://www.southwindfloors.com/product/boundless-20/
+southwind-boundless-8 https://www.southwindfloors.com/product/boundless-8/
+southwind-contour-plank https://www.southwindfloors.com/product/contour-plank/
+southwind-harvest-plank https://www.southwindfloors.com/product/harvest-plank/
