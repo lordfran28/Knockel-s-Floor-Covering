@@ -113,8 +113,14 @@ def images():
             continue
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         try:
-            r = s.get(url, timeout=60)
+            for attempt in range(6):
+                r = s.get(url, timeout=60)
+                if r.status_code != 429:
+                    break
+                time.sleep(20 * (attempt + 1))   # the site asked us to slow down
             r.raise_for_status()
+            if "midwestfloorsource" in url:
+                time.sleep(4)
             im = Image.open(io.BytesIO(r.content))
             im = im.convert("RGB")
             m = 1600

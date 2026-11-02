@@ -158,10 +158,3 @@ southwind-boundless-20 https://www.southwindfloors.com/product/boundless-20/
 southwind-boundless-8 https://www.southwindfloors.com/product/boundless-8/
 southwind-contour-plank https://www.southwindfloors.com/product/contour-plank/
 southwind-harvest-plank https://www.southwindfloors.com/product/harvest-plank/
-mfs-hs-1 https://midwestfloorsource.com/hard-surfaces/ 10
-mfs-hs-2 https://midwestfloorsource.com/hard-surfaces/?sf_paged=2 10
-mfs-hs-3 https://midwestfloorsource.com/hard-surfaces/?sf_paged=3 10
-mfs-hs-4 https://midwestfloorsource.com/hard-surfaces/?sf_paged=4 10
-mfs-hs-5 https://midwestfloorsource.com/hard-surfaces/?sf_paged=5 10
-mfs-carpet-1 https://midwestfloorsource.com/carpet/ 10
-mfs-fortified https://midwestfloorsource.com/hard-surfaces/fortified/ 4
