@@ -31,4 +31,4 @@ jobs:
           git add -A out
           git diff --cached --quiet && exit 0
           git commit -q -m "Fetched"
-          git pull -q --rebase origin fetch && git push -q origin HEAD:fetch
+          for i in 1 2 3; do git pull -q --rebase -X theirs origin fetch && git push -q origin HEAD:fetch && break; sleep 5; done
