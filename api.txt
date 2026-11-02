@@ -25,3 +25,14 @@ ef-wt-3004 https://www.floorcity.com/products/engineered-floors-puregrain-renew-
 ef-wt-3009 https://www.floorcity.com/products/engineered-floors-puregrain-renew-wood-tech-d030-3009-maulden-wood.json
 floorcity-ef-all https://www.floorcity.com/collections/engineered-floors/products.json?limit=250
 mohawk-pure-admiration https://core.dxpapi.com/api/v1/core/?q=%22Pure%20Admiration%22&efq=flooring_type%3A(%22Carpet%22)&rows=20&start=0&search_type=keyword&request_type=search&fl=pid,title,style_name,style_number,product_line,color_name,color_code,swatch_images,sku_swatch_images&account_id=6677&auth_key=gmtnjthiky37113i&domain_key=mohawkflooring&request_id=1&url=https://www.mohawkflooring.com/shop/carpet&ref_url=https://www.mohawkflooring.com/
+floorcity-ef-2 https://www.floorcity.com/collections/engineered-floors/products.json?limit=250&page=2
+floorcity-ef-3 https://www.floorcity.com/collections/engineered-floors/products.json?limit=250&page=3
+floorcity-ef-4 https://www.floorcity.com/collections/engineered-floors/products.json?limit=250&page=4
+floorcity-ef-5 https://www.floorcity.com/collections/engineered-floors/products.json?limit=250&page=5
+floorcity-ef-6 https://www.floorcity.com/collections/engineered-floors/products.json?limit=250&page=6
+floorcity-dw-1 https://www.floorcity.com/collections/dream-weaver/products.json?limit=250&page=1
+floorcity-dw-2 https://www.floorcity.com/collections/dream-weaver/products.json?limit=250&page=2
+floorcity-dw-3 https://www.floorcity.com/collections/dream-weaver/products.json?limit=250&page=3
+floorcity-southwind-1 https://www.floorcity.com/collections/southwind/products.json?limit=250&page=1
+floorcity-southwind-2 https://www.floorcity.com/collections/southwind/products.json?limit=250&page=2
+floorcity-shaw-rewild https://www.floorcity.com/search?q=rewild&view=json
