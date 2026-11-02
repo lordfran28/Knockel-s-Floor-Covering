@@ -79,11 +79,23 @@
       "vec2 sc=vec2(1.0/(uUnit.x*uPL),1.0/(uUnit.y*uN));" +
       "fl=tex(vec2(tx,(k+l.y)/uN),dx*sc,dy*sc)*(0.95+0.1*fract(id*31.7));" +
       "vec2 e=min(loc,1.0-loc)*uUnit;fl*=1.0-0.45*max(aa(e.x,uSeam),aa(e.y,uSeam));}" +
-    "else{" +
+    "else if(uLayout<2.5){" +
       "vec2 c=floor(m/uUnit);vec2 loc=fract(m/uUnit);float id=h2(c);vec2 l=loc;" +
       "if(uTurn>0.5){if(fract(id*7.31)>0.5)l=1.0-l;if(uTurn>1.5&&fract(id*3.17)>0.5)l=vec2(l.y,1.0-l.x);}" +
       "vec2 sc=1.0/uUnit;fl=tex(l,dx*sc,dy*sc);" +
       "vec2 e=min(loc,1.0-loc)*uUnit;fl=mix(fl,uGrout,max(aa(e.x,uSeam),aa(e.y,uSeam)));}" +
+    /* herringbone: boards uUnit.x long and uUnit.y wide, n = length/width, the zigzag running across the room.
+       In board widths, turned 45 degrees, a lying board covers [0,n)x[0,1) and a standing one [n,n+1)x[0,n),
+       repeated by (1,-1) and (n,n); each point belongs to exactly one board. */
+    "else{" +
+      "float n=max(2.0,floor(uUnit.x/uUnit.y+0.5));vec2 q=m/uUnit.y;q=vec2(q.x+q.y,q.y-q.x)*0.70710678;" +
+      "float Y=floor(q.y);float j=floor((q.x+Y)/(2.0*n));float rx=q.x+Y-2.0*n*j;vec2 L;vec2 cid;" +
+      "if(rx<n){L=vec2(rx/n,q.y-Y);cid=vec2(j,Y);}" +
+      "else{float X=floor(q.x);j=floor((q.y+X-n)/(2.0*n));L=vec2((q.y+X-n-2.0*n*j)/n,q.x-X);cid=vec2(j+0.5,X);}" +
+      "float id=h2(cid*vec2(1.37,0.71));float k=min(floor(id*uN),uN-1.0);vec2 l=L;if(fract(id*17.13)>0.5)l=1.0-l;" +
+      "vec2 sc=vec2(1.0/(n*uUnit.y),1.0/(uUnit.y*uN));" +
+      "fl=tex(vec2(l.x,(k+l.y)/uN),dx*sc,dy*sc)*(0.95+0.1*fract(id*31.7));" +
+      "vec2 e=vec2(min(L.x,1.0-L.x)*n,min(L.y,1.0-L.y))*uUnit.y;fl*=1.0-0.45*max(aa(e.x,uSeam),aa(e.y,uSeam));}" +
     "float l=texture2D(uLight,st).r;float light=mix(1.0,clamp(pow(l/uAvg,0.75),0.38,1.45),uShade);" +
     "gl_FragColor=vec4(mix(ph,fl*light,area*uOn),1.0);}";
   function shader(type, src){ var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; }
@@ -362,6 +374,9 @@
       out.pl = Math.min(1, (ph.photoLengthIn || pw[1])/pw[1]);
       out.seam = (ph.jointIn || 0.03)*IN;
       out.across = !ph.across;   /* the photo's boards lie left to right; on the floor they run away from you */
+    } else if (ph.layout === "herringbone"){
+      var hb = (ph.plankIn || [6, 24]);
+      out.kind = 3; out.unit = [hb[1]*IN, hb[0]*IN]; out.n = Math.max(1, ph.planks || 1); out.seam = (ph.jointIn || 0.03)*IN;
     } else if (ph.layout === "tile"){
       var tw = (ph.tileIn || [12, 12]);
       out.kind = 2; out.unit = [tw[1]*IN, tw[0]*IN]; out.seam = Math.max(0.0003, (ph.groutIn == null ? 0.125 : ph.groutIn)*IN/2);
@@ -406,7 +421,7 @@
       var lk = layoutOf(f).kind, sz = $("size");
       if (f.type === "carpet"){ sz.value = sz.max; S.size = Math.pow(2, parseFloat(sz.max)/100); }
       else if (wasCarpet){ sz.value = 0; S.size = 1; }
-      $("turn").textContent = lk === 1 || (f.type === "look" && f.look === "wood") || (!lk && /plank|laminate|hardwood/.test(f.type)) ? "Turn the planks" : lk === 2 ? "Turn the tiles" : "Turn the pattern";
+      $("turn").textContent = lk === 1 || lk === 3 || (f.type === "look" && f.look === "wood") || (!lk && /plank|laminate|hardwood/.test(f.type)) ? "Turn the planks" : lk === 2 ? "Turn the tiles" : "Turn the pattern";
       bindFloor(cache[f.id], f);
     }
     if (cache[f.id]){ show(); return; }

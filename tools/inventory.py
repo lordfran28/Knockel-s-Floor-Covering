@@ -39,7 +39,7 @@ you don't know them. Columns (any order, any capitalisation):
     grout_color      #BDB6AA
     id               (made from brand, collection and name when blank)
     code             MPB821                       (the maker's item number)
-    layout           roll                         (lay the photo as one repeating picture, whatever the floor)
+    layout           roll | plank | tile | herringbone  (how the photo is laid; blank: by the type of floor)
     photo_from       maker                        (the maker's own picture: no cutting out or evening the light)
     repeat           mirror | blend | tile        (how a repeating picture meets itself; tile: made by tools/quilt.py)
 
@@ -173,11 +173,11 @@ def product(r, brands):
         if r.get("sale_ends"):
             s["ends"] = day(r["sale_ends"])
         p["sale"] = s
-    layout = r.get("layout", "").lower() if r.get("layout", "").lower() in ("roll", "plank", "tile") else LAYOUT[t]
+    layout = r.get("layout", "").lower() if r.get("layout", "").lower() in ("roll", "plank", "tile", "herringbone") else LAYOUT[t]
     ph = {"layout": layout}
     if layout == "roll":
         ph["widthIn"] = num(r.get("sample_width_in")) or 18
-    elif layout == "plank":
+    elif layout in ("plank", "herringbone"):
         ph["plankIn"] = [num(r.get("plank_width_in")) or 7, num(r.get("plank_length_in")) or 48]
         ph["planks"] = int(num(r.get("planks_in_photo")) or 1)
     else:

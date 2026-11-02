@@ -88,9 +88,9 @@ def prepare(src, pid, photo, root, floors, cap=None, thumb=560, quality=88, clea
         x0, y0, x1, y1 = [int(v / k) for v in box]
     im = im.crop((x0, y0, x1, y1))
     layout = photo.get("layout", "roll")
-    if layout == "plank" and im.height > im.width:
+    if layout in ("plank", "herringbone") and im.height > im.width:
         im = im.rotate(90, expand=True)
-    real = photo.get("widthIn") if layout == "roll" else (photo.get("plankIn") or [7, 48])[1] if layout == "plank" else (photo.get("tileIn") or [12])[0]
+    real = photo.get("widthIn") if layout == "roll" else (photo.get("plankIn") or [7, 48])[1] if layout in ("plank", "herringbone") else (photo.get("tileIn") or [12])[0]
     if real and not clean and im.width / float(real) < 25:
         warnings.append("only %d pixels per inch of sample; get closer or use the full camera resolution" % (im.width / float(real)))
 

@@ -148,6 +148,8 @@ def strip_quilt(a, ok, out_w, rng, overlap):
             start = None
     if not runs:
         raise ValueError("no clean stretch across the whole board")
+    longest = max(e - s for s, e in runs)
+    runs = [r for r in runs if r[1] - r[0] >= max(3 * overlap, 0.5 * longest)]   # only the long clean stretches
     variants = [a, a[::-1, ::-1]]   # as photographed, or turned end for end (never mirrored: that shows)
     longest = max(e - s for s, e in runs)
     piece = max(3 * overlap, min(longest, int(out_w * 0.45)))
@@ -213,8 +215,8 @@ def job(j, photos, outdir, seed=7):
         # straighten a board that leans in the photo, then cut away the corners the turn brings in
         ang = j.get("angle", grain_angle(a, okm))
         if abs(ang) > 0.4:
-            a = ndimage.rotate(a, -ang if j.get("grain", "vertical") == "vertical" else ang, reshape=False, order=1, mode="nearest")
-            okm = ndimage.rotate(okm.astype(np.uint8), -ang if j.get("grain", "vertical") == "vertical" else ang, reshape=False, order=0, mode="constant", cval=0) > 0
+            a = ndimage.rotate(a, ang if j.get("grain", "vertical") == "vertical" else -ang, reshape=False, order=1, mode="nearest")
+            okm = ndimage.rotate(okm.astype(np.uint8), ang if j.get("grain", "vertical") == "vertical" else -ang, reshape=False, order=0, mode="constant", cval=0) > 0
             t = abs(np.tan(np.radians(ang)))
             my, mx = int(t * a.shape[1] / 2) + 4, int(t * a.shape[0] / 2) + 4
             a, okm = a[my:-my, mx:-mx], okm[my:-my, mx:-mx]
