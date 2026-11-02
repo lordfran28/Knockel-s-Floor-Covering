@@ -1160,3 +1160,5 @@ stock/mfs-fortified-pinebark https://midwestfloorsource.com/wp-content/uploads/2
 stock/mfs-fortified-valdosta-590 https://midwestfloorsource.com/wp-content/uploads/2024/05/Fortified-Valdosta-590x590.jpg
 stock/mfs-fortified-beechwood-590 https://midwestfloorsource.com/wp-content/uploads/2024/05/Fortified-Beechwood-OH-590x590.jpg
 stock/mfs-fortified-pinebark-514 https://midwestfloorsource.com/wp-content/uploads/2024/05/Fortified-Pinebark-SF-514x590.jpg
+stock/mfs-titanium2-burnished-pecan https://midwestfloorsource.com/wp-content/uploads/2024/05/Titanium-II-Burnished-Pecan-1-rotated.jpg
+stock/mfs-titanium2-canyon https://midwestfloorsource.com/wp-content/uploads/2024/05/Titanium-II-Canyon-1-rotated.jpg
