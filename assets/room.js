@@ -1,7 +1,10 @@
 /* Knockel's: try a floor in your room.
    Everything happens on the visitor's device. The four corners mark a rectangle on the floor; from
-   them the page works out the floor's perspective and lays the chosen sample in it, keeping the
-   room's own light and shadows. Painting protects furniture or adds floor the corners missed. */
+   them the page works out the plane of the floor and its perspective. Then it finds the floor itself
+   the way a green screen works: it learns the colours of the floor inside the corners and, everywhere on
+   that plane, swaps in the chosen sample only where the photo still shows that floor and it joins up with
+   the marked part. Furniture, rugs, people and walls stay in front, and the room keeps its own light and
+   shadows. The same works on the live camera. Painting fixes anything the finder got wrong. */
 (function(){
   "use strict";
   function $(id){ return document.getElementById(id); }
@@ -15,14 +18,15 @@
      quad: [[810,764],[1240,860],[830,1075],[440,830]],
      area: [[0,1006],[592,864],[596,820],[810,764],[1600,942],[1600,1200],[0,1200]]}
   ];
+  var cam = {on: false, video: null, stream: null, n: 0};
   var S = {room: 0, iw: 1, ih: 1, quad: null, floor: null, rot: false, size: 1, mode: "corners", before: false, user: false, widthM: 3.6};
   var cache = {};
 
   function say(t){ msgEl.textContent = t || ""; msgEl.hidden = !t; }
   var HELP = {
-    corners: "Drag the four yellow dots to the corners of the floor, where it meets the walls. Any four points that make a rectangle on the floor will do.",
-    keep: "Paint over furniture, rugs or anything standing on the floor to keep it as it is.",
-    add: "Paint any floor the corners missed, like a hallway or a corner behind a door."
+    corners: "Drag the yellow dots to the corners of the floor, where it meets the walls; the near two can sit at the bottom of the picture. The new floor goes only where the old one shows, so furniture stays in front.",
+    keep: "Paint over anything the new floor still covers, to keep it as it is.",
+    add: "Paint any floor that didn’t change, like a patch of sun or a doorway past the corners."
   };
 
   /* ---------- WebGL ---------- */
@@ -42,7 +46,9 @@
                 some turned end for end, rows staggered, a fine dark joint between boards.
      uLayout 2: tiles, one photo per tile, some turned, with grout lines. */
   var FS = (deriv ? "#extension GL_OES_standard_derivatives : enable\n" : "") + (lod ? "#extension GL_EXT_shader_texture_lod : enable\n" : "") +
-    "precision highp float;uniform sampler2D uPhoto,uFloor,uAdd,uKeep,uLight;uniform mat3 uH;uniform vec2 uImg,uRoom,uUnit;" +
+    "precision highp float;uniform sampler2D uPhoto,uFloor,uAdd,uKeep,uLight,uGate;uniform mat3 uH;uniform vec2 uImg,uRoom,uUnit;" +
+    "uniform vec3 uMu[4],uIs[4];uniform float uK,uT,uKey;" +
+    "vec3 ycc(vec3 c){float y=dot(c,vec3(0.299,0.587,0.114));return vec3(y,(c.b-y)*0.564,(c.r-y)*0.713);}" +
     "uniform float uRot,uShade,uAvg,uOn,uLayout,uN,uPL,uSeam,uTurn,uBreak;uniform vec3 uGrout,uMean;uniform vec4 uWin;varying vec2 vImg;" +
     "float h1(float n){return fract(sin(n*91.3458)*47453.5453);}" +
     "float h2(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}" +
@@ -66,7 +72,13 @@
     "float d=min(min(uv.x,1.0-uv.x),min(uv.y,1.0-uv.y));" +
     (deriv ? "float w=max(fwidth(d),1e-5)*1.2;" : "float w=0.003;") +
     "float inside=smoothstep(0.0,w,d)*step(0.0,p.z);" +
-    "float area=clamp(max(inside,texture2D(uAdd,st).a)-texture2D(uKeep,st).a,0.0,1.0)*step(0.0,p.z);" +
+    /* the green screen: how near this pixel is to one of the old floor's colours, softened over a few pixels,
+       and only where the floor joins up with the marked part (uGate, worked out at low size on the device) */
+    "float key=inside;if(uKey>0.5){vec2 o=1.5/uImg;" +
+      "vec3 sm=(ph+texture2D(uPhoto,st+vec2(o.x,0.0)).rgb+texture2D(uPhoto,st-vec2(o.x,0.0)).rgb+texture2D(uPhoto,st+vec2(0.0,o.y)).rgb+texture2D(uPhoto,st-vec2(0.0,o.y)).rgb)*0.2;" +
+      "vec3 f=ycc(sm);float dm=1e6;for(int k=0;k<4;k++){if(float(k)<uK){vec3 z=(f-uMu[k])*uIs[k];dm=min(dm,dot(z,z));}}" +
+      "key=(1.0-smoothstep(uT*0.6,uT*1.5,dm))*texture2D(uGate,st).r;}" +
+    "float area=clamp(max(key,texture2D(uAdd,st).a)-texture2D(uKeep,st).a,0.0,1.0)*step(0.0,p.z);" +
     "vec2 m=uv*uRoom;if(uRot>0.5)m=vec2(m.y,-m.x);" +
     (deriv ? "vec2 dx=dFdx(m),dy=dFdy(m);" : "vec2 dx=vec2(0.0),dy=vec2(0.0);") +
     "vec3 fl;" +
@@ -101,14 +113,14 @@
   function shader(type, src){ var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; }
   var prog = gl.createProgram();
   gl.attachShader(prog, shader(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(prog); gl.useProgram(prog);
-  var U = {}; ["uScale","uOff","uCanvas","uPhoto","uFloor","uAdd","uKeep","uLight","uH","uImg","uRoom","uUnit","uRot","uShade","uAvg","uOn","uLayout","uN","uPL","uSeam","uTurn","uGrout","uBreak","uMean","uWin"].forEach(function(n){ U[n] = gl.getUniformLocation(prog, n); });
+  var U = {}; ["uScale","uOff","uCanvas","uPhoto","uFloor","uAdd","uKeep","uLight","uGate","uH","uImg","uRoom","uUnit","uRot","uShade","uAvg","uOn","uLayout","uN","uPL","uSeam","uTurn","uGrout","uBreak","uMean","uWin","uMu","uIs","uK","uT","uKey"].forEach(function(n){ U[n] = gl.getUniformLocation(prog, n); });
   var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
   var aPos = gl.getAttribLocation(prog, "aPos"); gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
   function texture(unit){ var t = gl.createTexture(); gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, t);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR); return t; }
-  var T = {photo: texture(0), floor: texture(1), add: texture(2), keep: texture(3), light: texture(4)};
-  gl.uniform1i(U.uPhoto, 0); gl.uniform1i(U.uFloor, 1); gl.uniform1i(U.uAdd, 2); gl.uniform1i(U.uKeep, 3); gl.uniform1i(U.uLight, 4);
+  var T = {photo: texture(0), floor: texture(1), add: texture(2), keep: texture(3), light: texture(4), gate: texture(5)};
+  gl.uniform1i(U.uPhoto, 0); gl.uniform1i(U.uFloor, 1); gl.uniform1i(U.uAdd, 2); gl.uniform1i(U.uKeep, 3); gl.uniform1i(U.uLight, 4); gl.uniform1i(U.uGate, 5);
   gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
   function upload(unit, tex, source){ gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, tex); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, source); }
 
@@ -169,7 +181,7 @@
   function makeLight(){
     lightW = 160; lightH = Math.max(1, Math.round(160*S.ih/S.iw));
     var c = document.createElement("canvas"); c.width = lightW; c.height = lightH;
-    var x = c.getContext("2d"); x.drawImage(photoC, 0, 0, lightW, lightH);
+    var x = c.getContext("2d"); x.drawImage(cam.on ? cam.video : photoC, 0, 0, lightW, lightH);
     var d = x.getImageData(0, 0, lightW, lightH).data, L = new Float32Array(lightW*lightH);
     for (var i = 0; i < L.length; i++) L[i] = (0.2126*d[i*4] + 0.7152*d[i*4 + 1] + 0.0722*d[i*4 + 2])/255;
     for (var pass = 0; pass < 2; pass++){ L = blur(L, lightW, lightH, 2, true); L = blur(L, lightW, lightH, 2, false); }
@@ -192,9 +204,181 @@
     var s = 0, n = 0;
     for (var y = 0; y < lightH; y++) for (var x = 0; x < lightW; x++){
       var ix = (x + 0.5)/lightW*S.iw, iy = (y + 0.5)/lightH*S.ih;
-      if (insideQuad(ix, iy, S.quad)){ s += lightData[y*lightW + x]; n++; }
+      var on = KEY.gate ? KEY.gate[Math.min(KEY.h - 1, Math.floor((y + 0.5)/lightH*KEY.h))*KEY.w + Math.min(KEY.w - 1, Math.floor((x + 0.5)/lightW*KEY.w))] > 200 : insideQuad(ix, iy, S.quad);
+      if (on){ s += lightData[y*lightW + x]; n++; }
     }
     avgLight = n ? Math.max(0.05, s/n) : 0.5;
+  }
+
+
+  /* ---------- Finding the floor ----------
+     At low size: the photo's colours as brightness and two colour differences (brightness counts for less,
+     so shadows on the floor still count as floor). The colours inside the marked rectangle are grouped into
+     up to four kinds (k-means); a pixel is floor-coloured when it is near one of them. The floor is the
+     floor-coloured pixels on the floor's side of the horizon that join up with the marked part. */
+  var KW = 192, kc = document.createElement("canvas"), kx = kc.getContext("2d", {willReadFrequently: true});
+  var KEY = {w: 0, h: 0, F: null, gate: null, mu: [], is: [], ok: false, T: 7};
+  var CHW = [0.3, 1, 1], SDMIN = [0.05, 0.01, 0.01], SDMAX = [0.12, 0.03, 0.03];
+  /* how far apart two neighbouring pixels may be and still be the same floor: an edge stops the floor */
+  var STEP_Y = 0.13, STEP_C = 0.03;
+  function features(src, sw, sh){
+    var w = KW, h = Math.max(8, Math.round(KW*sh/sw));
+    kc.width = w; kc.height = h; kx.drawImage(src, 0, 0, w, h);
+    var d = kx.getImageData(0, 0, w, h).data, F = new Float32Array(w*h*3);
+    for (var i = 0, j = 0; i < d.length; i += 4, j += 3){
+      var r = d[i]/255, g = d[i + 1]/255, b = d[i + 2]/255, y = 0.299*r + 0.587*g + 0.114*b;
+      F[j] = y; F[j + 1] = (b - y)*0.564; F[j + 2] = (r - y)*0.713;
+    }
+    KEY.w = w; KEY.h = h; KEY.F = F;
+  }
+  function inPoly(x, y, poly){
+    var c = false;
+    for (var i = 0, j = poly.length - 1; i < poly.length; j = i++){
+      var a = poly[i], b = poly[j];
+      if ((a[1] > y) !== (b[1] > y) && x < (b[0] - a[0])*(y - a[1])/(b[1] - a[1]) + a[0]) c = !c;
+    }
+    return c;
+  }
+  /* pixels taken to be floor: inside the corners, pulled in a little from the edges (or a sample room's floor outline) */
+  function seeds(){
+    var w = KEY.w, h = KEY.h, out = [], q = S.quad, cx = 0, cy = 0;
+    q.forEach(function(p){ cx += p[0]/4; cy += p[1]/4; });
+    var inner = q.map(function(p){ return [cx + (p[0] - cx)*0.88, cy + (p[1] - cy)*0.88]; });
+    /* a small patch just inside each dot: the dots sit on the floor, so these are the surest floor pixels */
+    out.dots = q.map(function(p){
+      var a = [cx + (p[0] - cx)*0.92, cy + (p[1] - cy)*0.92], r = Math.max(2, Math.round(w*0.025)), list = [];
+      var x0 = Math.round(a[0]/S.iw*w), y0 = Math.round(a[1]/S.ih*h);
+      for (var y = y0 - r; y <= y0 + r; y++) for (var x = x0 - r; x <= x0 + r; x++) if (x >= 0 && y >= 0 && x < w && y < h) list.push(y*w + x);
+      return list;
+    });
+    var area = S.preset ? S.preset.area.map(function(p){ return [p[0]*S.iw/S.preset.w, p[1]*S.iw/S.preset.w]; }) : null;
+    var pd = painted(), keep = pd.keep, add = pd.add, kk = pd.k;
+    for (var y = 0; y < h; y++) for (var x = 0; x < w; x++){
+      var ix = (x + 0.5)/w*S.iw, iy = (y + 0.5)/h*S.ih, at = -1;
+      if (keep){ var kx2 = Math.min(pd.w - 1, Math.floor(ix*kk)), ky2 = Math.min(pd.h - 1, Math.floor(iy*kk)); at = (ky2*pd.w + kx2)*4 + 3; if (keep[at] > 64) continue; }
+      /* floor painted by hand counts too, so a dab on a patch the finder missed brings in the whole patch */
+      if ((area ? inPoly(ix, iy, area) : insideQuad(ix, iy, inner)) || (add && !S.preset && add[at] > 64)) out.push(y*w + x);
+    }
+    return out;
+  }
+  function learn(idx, dots){
+    var F = KEY.F, n = idx.length;
+    if (n < 24){ KEY.ok = false; return; }
+    var step = Math.max(1, Math.floor(n/2500)), P = [];
+    for (var i = 0; i < n; i += step) P.push(idx[i]);
+    var m = P.length, K = Math.min(4, Math.max(1, Math.floor(m/40)));
+    function dist(p, c){ var a = (F[p*3] - c[0])*CHW[0]*3, b = (F[p*3 + 1] - c[1])*12, d = (F[p*3 + 2] - c[2])*12; return a*a + b*b + d*d; }
+    /* start from the most common colour, then each next start the farthest from those so far */
+    var C = [[0, 0, 0]];
+    P.forEach(function(p){ C[0][0] += F[p*3]/m; C[0][1] += F[p*3 + 1]/m; C[0][2] += F[p*3 + 2]/m; });
+    while (C.length < K){
+      var far = -1, fp = P[0];
+      P.forEach(function(p){ var dd = Infinity; C.forEach(function(c){ dd = Math.min(dd, dist(p, c)); }); if (dd > far){ far = dd; fp = p; } });
+      C.push([F[fp*3], F[fp*3 + 1], F[fp*3 + 2]]);
+    }
+    var lab = new Int32Array(m);
+    for (var it = 0; it < 10; it++){
+      var sum = C.map(function(){ return [0, 0, 0, 0]; });
+      for (i = 0; i < m; i++){
+        var p = P[i], best = 0, bd = Infinity;
+        for (var k = 0; k < C.length; k++){ var dd = dist(p, C[k]); if (dd < bd){ bd = dd; best = k; } }
+        lab[i] = best; sum[best][0] += F[p*3]; sum[best][1] += F[p*3 + 1]; sum[best][2] += F[p*3 + 2]; sum[best][3]++;
+      }
+      C = C.map(function(c, k){ return sum[k][3] ? [sum[k][0]/sum[k][3], sum[k][1]/sum[k][3], sum[k][2]/sum[k][3]] : c; });
+    }
+    /* a colour is the floor's when it is common inside the corners and it is what lies at the dots
+       (a sofa or a table can fill much of the rectangle, but the dots sit on the floor) */
+    function nearest(p){ var best = 0, bd = Infinity; for (var k = 0; k < C.length; k++){ var dd = dist(p, C[k]); if (dd < bd){ bd = dd; best = k; } } return best; }
+    var atDots = C.map(function(){ return 0; });
+    (dots || []).forEach(function(list){
+      if (!list.length) return;
+      var cnt = C.map(function(){ return 0; });
+      list.forEach(function(p){ cnt[nearest(p)]++; });
+      cnt.forEach(function(c, k){ if (c >= list.length*0.3) atDots[k]++; });
+    });
+    var mu = [], is = [], best = -1, bestN = -1, stats = [];
+    C.forEach(function(c, k){
+      var v = [0, 0, 0], cnt = 0;
+      for (i = 0; i < m; i++) if (lab[i] === k){ var p = P[i]; for (var ch = 0; ch < 3; ch++){ var e = F[p*3 + ch] - c[ch]; v[ch] += e*e; } cnt++; }
+      stats.push([c, v.map(function(x, ch){ return CHW[ch]/Math.min(SDMAX[ch], Math.max(SDMIN[ch], Math.sqrt(x/Math.max(1, cnt)))); })]);
+      if (cnt > bestN){ bestN = cnt; best = k; }
+      if (cnt < m*0.15 || (dots && atDots[k] < 2)) return;
+      mu.push(stats[k][0]); is.push(stats[k][1]);
+    });
+    if (!mu.length && best >= 0){ mu.push(stats[best][0]); is.push(stats[best][1]); }
+    KEY.mu = mu; KEY.is = is; KEY.ok = mu.length > 0;
+  }
+  function floorish(){
+    var F = KEY.F, n = KEY.w*KEY.h, out = new Uint8Array(n), T = KEY.T;
+    for (var p = 0; p < n; p++){
+      var dm = Infinity;
+      for (var k = 0; k < KEY.mu.length; k++){
+        var c = KEY.mu[k], s2 = KEY.is[k], a = (F[p*3] - c[0])*s2[0], b = (F[p*3 + 1] - c[1])*s2[1], d = (F[p*3 + 2] - c[2])*s2[2];
+        dm = Math.min(dm, a*a + b*b + d*d);
+      }
+      out[p] = dm < T ? 1 : 0;
+    }
+    return out;
+  }
+  function grow(M, w, h, on){ /* 3 by 3 dilate (on = 1) or erode (on = 0) */
+    var o = new Uint8Array(M.length);
+    for (var y = 0; y < h; y++) for (var x = 0; x < w; x++){
+      var v = on ? 0 : 1;
+      for (var dy = -1; dy <= 1; dy++) for (var dx = -1; dx <= 1; dx++){
+        var xx = Math.min(w - 1, Math.max(0, x + dx)), yy = Math.min(h - 1, Math.max(0, y + dy)), m = M[yy*w + xx];
+        if (on ? m : !m){ v = on; dy = 2; break; }
+      }
+      o[y*w + x] = v;
+    }
+    return o;
+  }
+  var gateBytes = null, paintCache = null;
+  /* the painted layers read back once after each change, not on every camera frame */
+  function painted(){
+    if (paintCache) return paintCache;
+    try { paintCache = {keep: keepX.getImageData(0, 0, keepC.width, keepC.height).data, add: addX.getImageData(0, 0, addC.width, addC.height).data, w: keepC.width, h: keepC.height, k: keepC.width/S.iw}; }
+    catch (e){ paintCache = {keep: null, add: null, w: 1, h: 1, k: 1}; }
+    return paintCache;
+  }
+  function findFloor(src, relearn){
+    features(src, S.iw, S.ih);
+    var sd = seeds();
+    if (relearn || !KEY.ok) learn(sd, sd.dots);
+    if (!KEY.ok){ KEY.gate = null; return; }
+    var w = KEY.w, h = KEY.h, n = w*h, M = floorish();
+    /* only on the floor the corners mark out: not past the far edge or the sides, where the walls stand
+       (a little slack for the edge itself), but all the way to you at the near side; floor painted by hand too */
+    var H = homography(S.quad), SL = 0.04, pd = painted(), add = pd.add, ak = pd.k;
+    for (var y = 0; y < h; y++) for (var x = 0; x < w; x++){
+      var ix = (x + 0.5)/w*S.iw, iy = (y + 0.5)/h*S.ih, z = H[6]*ix + H[7]*iy + H[8];
+      var u = (H[0]*ix + H[1]*iy + H[2])/z, v = (H[3]*ix + H[4]*iy + H[5])/z;
+      var ok = z > 0 && u > -SL && u < 1 + SL && v > -SL;
+      if (!ok && add){ var ax = Math.min(pd.w - 1, Math.floor(ix*ak)), ay = Math.min(pd.h - 1, Math.floor(iy*ak)); ok = add[(ay*pd.w + ax)*4 + 3] > 64; }
+      if (!ok) M[y*w + x] = 0;
+    }
+    /* keep what joins up with the marked part without crossing an edge, like a magic wand */
+    var F = KEY.F, C = new Uint8Array(n), Q = new Int32Array(n), qh = 0, qt = 0;
+    /* a step in colour stops it; a step only in brightness, with the colour the same, is light or shadow on the floor */
+    function near(a, b){ var dc = Math.abs(F[a*3 + 1] - F[b*3 + 1]) + Math.abs(F[a*3 + 2] - F[b*3 + 2]); return dc < STEP_C*0.6 || (dc < STEP_C && Math.abs(F[a*3] - F[b*3]) < STEP_Y); }
+    sd.forEach(function(p){ if (M[p] && !C[p]){ C[p] = 1; Q[qt++] = p; } });
+    while (qh < qt){
+      var p = Q[qh++], px = p % w, py = (p - px)/w;
+      if (px > 0 && M[p - 1] && !C[p - 1] && near(p, p - 1)){ C[p - 1] = 1; Q[qt++] = p - 1; }
+      if (px < w - 1 && M[p + 1] && !C[p + 1] && near(p, p + 1)){ C[p + 1] = 1; Q[qt++] = p + 1; }
+      if (py > 0 && M[p - w] && !C[p - w] && near(p, p - w)){ C[p - w] = 1; Q[qt++] = p - w; }
+      if (py < h - 1 && M[p + w] && !C[p + w] && near(p, p + w)){ C[p + w] = 1; Q[qt++] = p + w; }
+    }
+    C = grow(grow(C, w, h, 1), w, h, 0);          /* close the grain's small holes */
+    C = grow(C, w, h, 1);                          /* and let the sharp key decide the last pixel of each edge */
+    if (!gateBytes || gateBytes.length !== n) gateBytes = new Uint8Array(n);
+    for (y = 0; y < h; y++) for (x = 0; x < w; x++){
+      var s3 = 0, c3 = 0;
+      for (var dy = -1; dy <= 1; dy++) for (var dx = -1; dx <= 1; dx++){ var xx = x + dx, yy = y + dy; if (xx < 0 || yy < 0 || xx >= w || yy >= h) continue; s3 += C[yy*w + xx]; c3++; }
+      gateBytes[y*w + x] = Math.round(255*s3/c3);
+    }
+    KEY.gate = gateBytes;
+    gl.activeTexture(gl.TEXTURE5); gl.bindTexture(gl.TEXTURE_2D, T.gate);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.LUMINANCE, w, h, 0, gl.LUMINANCE, gl.UNSIGNED_BYTE, gateBytes);
   }
 
   /* ---------- Drawing ---------- */
@@ -222,6 +406,10 @@
     /* planks run away from you unless turned; some photos have their boards lying across */
     gl.uniform1f(U.uRot, (S.rot !== L.across) ? 1 : 0); gl.uniform1f(U.uShade, 0.8); gl.uniform1f(U.uAvg, avgLight);
     gl.uniform1f(U.uOn, S.floor && S.floor.ready && !S.before && convex(S.quad) ? 1 : 0);
+    var mu = new Float32Array(12), is = new Float32Array(12);
+    KEY.mu.forEach(function(c, k){ for (var ch = 0; ch < 3; ch++){ mu[k*3 + ch] = c[ch]; is[k*3 + ch] = KEY.is[k][ch]; } });
+    gl.uniform3fv(U.uMu, mu); gl.uniform3fv(U.uIs, is); gl.uniform1f(U.uK, KEY.mu.length); gl.uniform1f(U.uT, KEY.T);
+    gl.uniform1f(U.uKey, KEY.ok && KEY.gate ? 1 : 0);
   }
   /* the four corners must make a shape that doesn't fold over itself */
   function convex(q){
@@ -247,7 +435,10 @@
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   }
   var pending = false, paintDirty = false;
-  function redraw(){ if (pending) return; pending = true; requestAnimationFrame(function(){ pending = false; if (paintDirty){ paintDirty = false; upload(2, T.add, addC); upload(3, T.keep, keepC); } draw(); }); }
+  function redraw(){ if (pending) return; pending = true; requestAnimationFrame(function(){ pending = false;
+    if (paintDirty){ paintDirty = false; upload(2, T.add, addC); upload(3, T.keep, keepC); }
+    if (KEY.dirty && !cam.on){ KEY.dirty = false; findFloor(photoC, true); measureLight(); }
+    draw(); }); }
 
   /* ---------- Corners ---------- */
   var handles = [];
@@ -271,13 +462,13 @@
       if (e.pointerId !== id) return;
       var r = wrap.getBoundingClientRect(), p = toImage(e.clientX - r.left, e.clientY - r.top);
       p[0] = Math.max(0, Math.min(S.iw, p[0])); p[1] = Math.max(0, Math.min(S.ih, p[1]));
-      S.quad[i] = p; placeHandles(); redraw();
+      S.quad[i] = p; placeHandles(); KEY.dirty = true; redraw();
     });
-    function end(e){ if (e.pointerId !== id) return; id = null; measureLight(); redraw(); }
+    function end(e){ if (e.pointerId !== id) return; id = null; KEY.dirty = true; redraw(); }
     h.addEventListener("pointerup", end); h.addEventListener("pointercancel", end);
     h.addEventListener("keydown", function(e){
       var step = 4/view.s, d = {ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step]}[e.key];
-      if (!d) return; e.preventDefault(); S.quad[i] = [Math.max(0, Math.min(S.iw, S.quad[i][0] + d[0])), Math.max(0, Math.min(S.ih, S.quad[i][1] + d[1]))]; placeHandles(); measureLight(); redraw();
+      if (!d) return; e.preventDefault(); S.quad[i] = [Math.max(0, Math.min(S.iw, S.quad[i][0] + d[0])), Math.max(0, Math.min(S.ih, S.quad[i][1] + d[1]))]; placeHandles(); KEY.dirty = true; redraw();
     });
   }
 
@@ -295,7 +486,7 @@
       if (prev){ ctx.moveTo(prev[0], prev[1]); ctx.lineTo(px, py); ctx.stroke(); }
       else { ctx.arc(px, py, rad, 0, Math.PI*2); ctx.fill(); }
     });
-    paintDirty = true; redraw();
+    paintDirty = true; paintCache = null; redraw();
     return [px, py];
   }
   cv.addEventListener("pointerdown", function(e){
@@ -303,7 +494,7 @@
     cv.setPointerCapture(e.pointerId); painting = {id: e.pointerId, last: paintAt(e.clientX, e.clientY, null)}; e.preventDefault();
   });
   cv.addEventListener("pointermove", function(e){ if (painting && e.pointerId === painting.id) painting.last = paintAt(e.clientX, e.clientY, painting.last); });
-  function stopPaint(){ painting = null; }
+  function stopPaint(){ if (painting) KEY.dirty = true; painting = null; redraw(); }
   cv.addEventListener("pointerup", stopPaint); cv.addEventListener("pointercancel", stopPaint);
 
   function setMode(m){
@@ -316,7 +507,7 @@
   document.querySelectorAll(".seg button").forEach(function(b){ b.addEventListener("click", function(){ setMode(b.getAttribute("data-mode")); }); });
   $("clearpaint").addEventListener("click", function(){
     addX.clearRect(0, 0, addC.width, addC.height); keepX.clearRect(0, 0, keepC.width, keepC.height); presetArea();
-    upload(2, T.add, addC); upload(3, T.keep, keepC); redraw();
+    upload(2, T.add, addC); upload(3, T.keep, keepC); paintCache = null; KEY.dirty = true; redraw();
   });
 
   /* ---------- Loading a room ---------- */
@@ -337,8 +528,8 @@
     } else {
       S.quad = [[S.iw*0.27, S.ih*0.6], [S.iw*0.73, S.ih*0.6], [S.iw*0.97, S.ih*0.97], [S.iw*0.03, S.ih*0.97]];
     }
-    upload(2, T.add, addC); upload(3, T.keep, keepC);
-    makeLight(); measureLight(); fit();
+    upload(2, T.add, addC); upload(3, T.keep, keepC); paintCache = null;
+    makeLight(); findFloor(photoC, true); measureLight(); fit();
   }
   function presetArea(){
     var pr = S.preset; if (!pr) return;
@@ -348,6 +539,7 @@
     addX.closePath(); addX.fill();
   }
   function loadRoom(n){
+    stopCamera();
     S.room = n % ROOMS.length; S.user = false; var room = ROOMS[S.room];
     var img = new Image(); img.onload = function(){ useImage(img, room); setMode("corners"); help.textContent = "This is a sample room. Tap a floor on the side, or use a picture of your own room."; };
     img.src = room.src;
@@ -355,10 +547,69 @@
   $("nextroom").addEventListener("click", function(){ loadRoom(S.user ? S.room : S.room + 1); $("nextroom").textContent = "Another sample room"; });
   $("photo").addEventListener("change", function(e){
     var f = e.target.files && e.target.files[0]; if (!f) return;
+    stopCamera();
     var url = URL.createObjectURL(f), img = new Image();
     img.onload = function(){ S.user = true; useImage(img, null); URL.revokeObjectURL(url); setMode("corners"); $("nextroom").textContent = "Back to a sample room"; say(""); };
     img.onerror = function(){ say("That picture couldn't be opened. Try a JPG or PNG photo."); };
     img.src = url; e.target.value = "";
+  });
+
+
+  /* ---------- The camera ----------
+     The phone's camera fills the same view. The corners are set on the live picture as on a photo; each frame
+     the floor is found again (its colours are learnt again twice a second) and the sample laid in it.
+     "Keep this picture" holds the frame still, to fine-tune it and save it. */
+  function startCamera(){
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){ say("This browser can't open the camera. Use a picture of your room instead."); return; }
+    navigator.mediaDevices.getUserMedia({audio: false, video: {facingMode: {ideal: "environment"}, width: {ideal: 1280}, height: {ideal: 960}}}).then(function(stream){
+      var v = document.createElement("video"); v.muted = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.srcObject = stream;
+      cam.video = v; cam.stream = stream;
+      v.addEventListener("loadedmetadata", function(){
+        var p = v.play(); if (p && p.catch) p.catch(function(){});
+        cam.on = true; cam.n = 0; S.user = true; S.preset = null; S.widthM = 3.6;
+        S.iw = v.videoWidth; S.ih = v.videoHeight;
+        photoC.width = S.iw; photoC.height = S.ih;
+        var mk = Math.min(1, 1024/Math.max(S.iw, S.ih));
+        [addC, keepC].forEach(function(c){ c.width = Math.round(S.iw*mk); c.height = Math.round(S.ih*mk); });
+        addX.clearRect(0, 0, addC.width, addC.height); keepX.clearRect(0, 0, keepC.width, keepC.height);
+        upload(2, T.add, addC); upload(3, T.keep, keepC); paintCache = null;
+        S.quad = [[S.iw*0.3, S.ih*0.62], [S.iw*0.7, S.ih*0.62], [S.iw*0.9, S.ih*0.95], [S.iw*0.1, S.ih*0.95]];
+        setMode("corners"); fit();
+        $("camera").textContent = "Keep this picture"; $("nextroom").textContent = "Back to a sample room";
+        help.textContent = "Point the camera at the floor and hold it steady. Drag the dots to the corners of the floor, where it meets the walls.";
+        say(""); frame();
+      }, {once: true});
+    }).catch(function(){ say("The camera couldn't be opened. Allow the camera for this page, or use a picture of your room."); });
+  }
+  function frame(){
+    if (!cam.on) return;
+    var v = cam.video;
+    if (v.readyState >= 2 && v.videoWidth){
+      upload(0, T.photo, v);
+      if (cam.n % 6 === 0){ makeLight(); }
+      findFloor(v, cam.n % 15 === 0 || KEY.dirty); KEY.dirty = false;
+      if (cam.n % 6 === 0) measureLight();
+      cam.n++; draw();
+    }
+    requestAnimationFrame(frame);
+  }
+  function stopCamera(keep){
+    if (!cam.on && !cam.stream) return;
+    var v = cam.video;
+    if (keep && v && v.videoWidth){
+      var c = document.createElement("canvas"); c.width = v.videoWidth; c.height = v.videoHeight; c.getContext("2d").drawImage(v, 0, 0);
+      var q = S.quad.slice();
+      cam.on = false; useImage(c, null); S.quad = q; KEY.dirty = true; fit(); redraw();
+    }
+    cam.on = false;
+    if (cam.stream) cam.stream.getTracks().forEach(function(t){ t.stop(); });
+    cam.stream = null; cam.video = null;
+    $("camera").textContent = "See it through your camera";
+  }
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) $("camera").hidden = false;
+  $("camera").addEventListener("click", function(){
+    if (cam.on){ stopCamera(true); help.textContent = "Your picture. Move the dots, paint anything the floor missed, or save it."; }
+    else startCamera();
   });
 
   /* ---------- Floors ---------- */
@@ -493,6 +744,6 @@
   window.addEventListener("resize", fit);
   if (window.ResizeObserver) new ResizeObserver(fit).observe(wrap);
   /* for checking the drawing without a screen */
-  window.KnockelsRoom = {state: S, choose: chooseFloor, layoutOf: layoutOf, draw: draw};
+  window.KnockelsRoom = {state: S, choose: chooseFloor, layoutOf: layoutOf, draw: draw, key: KEY, findFloor: function(){ findFloor(photoC, true); measureLight(); draw(); }};
   loadRoom(0);
 })();

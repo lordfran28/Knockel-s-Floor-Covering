@@ -4,8 +4,11 @@ The new website for Knockel's Floor Covering, served by GitHub Pages from this r
 Later it can live at knockelsfloorcovering.com.
 
 - `index.html` — the home page. The opening floor lays itself as you scroll (`assets/home.js`).
-- `room.html` — "Try a floor in your room": a visitor's photo, four corners, and a sample laid in
-  perspective with the room's own light (`assets/room.js`). Everything runs on the visitor's device.
+- `room.html` — "Try a floor in your room": a visitor's photo or live camera, four corners at the
+  floor's edges, and a sample laid in perspective with the room's own light (`assets/room.js`). The
+  floor is found like a green screen: the old floor's colours are learnt from where the corners sit,
+  and the sample replaces only the pixels of that floor that join up with it inside the corners'
+  bounds, so furniture stays in front. Everything runs on the visitor's device.
 - `catalog.json` — the floors in the room tool and on the home page. Don't edit it by hand: it's
   built from `inventory.csv` (one row per floor: name, brand, type, glue-down or click, in stock,
   price, sale price or percent, sale dates, photo, real sizes) and `sales.csv` (sales across many
